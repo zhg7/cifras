@@ -1,0 +1,58 @@
+body {
+    background-color: #011627;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu {
+    width: 75%;
+    height: 75%;
+    background-color: #0b2942;
+    display: grid;
+    place-items: center;
+}
+
+figure {
+    display: flex;
+    align-items: center;
+}
+
+
+h1 {
+    color: #d6deeb;
+    font-size: 72px;
+    font-weight: bold;
+    display: block;
+    border-right: 4px solid;
+    width: 6ch;
+    animation: typing 2s steps(6), blink .5s infinite step-end alternate;
+    overflow: hidden;
+
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+img {
+    height: 150px;
+    margin-right: 15px;
+}
+
+button {
+    width: 200px;
+    padding: 10px;
+    font-size: 30px;
+    margin: 15px;
+}
