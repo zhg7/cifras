@@ -1,7 +1,6 @@
 html,
 body {
     background-color: #011627;
-    font-family: monospace;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,6 +9,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    font-family: monospace;
 }
 
 #menu {
@@ -23,8 +23,6 @@ body {
     overflow: hidden;
     z-index: 3;
 }
-
-
 
 figure {
     display: flex;
@@ -43,6 +41,7 @@ figure {
     animation: typing 2s steps(6), blink .5s infinite step-end alternate;
     overflow: hidden;
     cursor: default;
+    user-select: none;
 }
 
 @keyframes typing {
@@ -84,6 +83,8 @@ img {
     border-radius: 10px;
     transition: all 0.15s ease-in-out;
     z-index: 2;
+    font-family: inherit;
+    font-weight: bold;
 }
 
 .action-button:hover {
