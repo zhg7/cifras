@@ -240,20 +240,14 @@ img {
     cursor: pointer;
 }
 
-.close-icon:hover .leftright{
+.modal-close-btn:hover .leftright{
     transform: rotate(-45deg);
     background-color: #ef5350;
 }
 
-.close-icon:hover .rightleft{
+.modal-close-btn:hover .rightleft{
     transform: rotate(45deg);
     background-color: #ef5350;
-}
-
-.close-icon:hover {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
 }
 
 .is-visible {
