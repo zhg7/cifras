@@ -13,60 +13,54 @@
 
 <body>
     <div id="menu">
-        <figure>
-            <img id="logo" src="game/media/img/logo.svg" alt="Logo" draggable="false">
-            <h1 id="title">Cifras</h1>
-        </figure>
-        <button type="button" class="action-button" id="play-btn"><img class="menu-icon" src="game/media/img/play.svg"
-                alt="Jugar" draggable="false"><span>Jugar</span></button>
-        <button type="button" class="modal-button action-button" id="ranking-modal-btn"><img class="menu-icon"
-                src="game/media/img/trophy.svg" alt="Ayuda" draggable="false"><span>Ranking</span></button>
-        <button type="button" class="modal-button action-button" id="help-modal-btn"><img class=" menu-icon"
-                src="game/media/img/help.svg" alt="Ayuda" draggable="false"><span>Ayuda</span></button>
+        <header>
+            <figure>
+                <img id="logo" src="game/media/img/logo.svg" alt="Logo" draggable="false">
+                <h1 id="title">Cifras</h1>
+            </figure>
+        </header>
+        <section>
+            <button type="button" class="action-button" id="play-btn"><img class="menu-icon"
+                    src="game/media/img/play.svg" alt="Jugar" draggable="false"><span>Jugar</span></button>
+            <button type="button" class="action-button" id="ranking-btn"><img class="menu-icon"
+                    src="game/media/img/trophy.svg" alt="Ayuda" draggable="false"><span>Ranking</span></button>
+            <button type="button" class="modal-button action-button" id="help-modal-btn"><img class="menu-icon"
+                    src="game/media/img/help.svg" alt="Ayuda" draggable="false"><span>Ayuda</span></button>
+        </section>
 
-        <div id="ranking-modal" class="modal">
-            <button class="modal-close-btn" id="ranking-close-btn">
-                <div class="leftright"></div>
-                <div class="rightleft"></div>
-            </button>
-            <h1>Ranking</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae optio ipsa ipsam unde molestiae
-                harum cumque at, sint illum ad officia quos est dignissimos itaque asperiores eligendi ratione deserunt
-                laboriosam.
-                Consequatur ipsam deserunt est praesentium deleniti consequuntur natus, corporis libero distinctio ipsum
-                vel magni nisi animi sint, harum officiis unde dolorem alias expedita cumque odio ullam nulla id
-                quibusdam. Similique.
-                Vitae cum molestiae deserunt, fuga saepe quod iste aut in? Quo id minima quis recusandae possimus
-                excepturi sapiente modi laudantium ut ducimus! Reprehenderit beatae voluptatum modi error sunt fugit
-                alias.</p>
-        </div>
-        <div class="overlay" id="overlay"></div>
-        <div id="help-modal" class="modal">
-            <button class="modal-close-btn" id="help-close-btn">
-                <div class="leftright"></div>
-                <div class="rightleft"></div>
-            </button>
-            <h1>Ayuda</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae optio ipsa ipsam unde molestiae
-                harum cumque at, sint illum ad officia quos est dignissimos itaque asperiores eligendi ratione deserunt
-                laboriosam.
-                Consequatur ipsam deserunt est praesentium deleniti consequuntur natus, corporis libero distinctio ipsum
-                vel magni nisi animi sint, harum officiis unde dolorem alias expedita cumque odio ullam nulla id
-                quibusdam. Similique.
-                Vitae cum molestiae deserunt, fuga saepe quod iste aut in? Quo id minima quis recusandae possimus
-                excepturi sapiente modi laudantium ut ducimus! Reprehenderit beatae voluptatum modi error sunt fugit
-                alias.</p>
-        </div>
-        <div id="operators">
-            <div>+</div>
-            <div>-</div>
-            <div>÷</div>
-            <div>×</div>
-            <div>÷</div>
-            <div>+</div>
-            <div>-</div>
-            <div>×</div>
-        </div>
+        <section>
+            <div class="overlay" id="overlay"></div>
+            <div id="help-modal" class="modal">
+                <button class="modal-close-btn" id="help-close-btn">
+                    <div class="leftright"></div>
+                    <div class="rightleft"></div>
+                </button>
+                <h1>Ayuda</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae optio ipsa ipsam unde molestiae
+                    harum cumque at, sint illum ad officia quos est dignissimos itaque asperiores eligendi ratione
+                    deserunt
+                    laboriosam.
+                    Consequatur ipsam deserunt est praesentium deleniti consequuntur natus, corporis libero distinctio
+                    ipsum
+                    vel magni nisi animi sint, harum officiis unde dolorem alias expedita cumque odio ullam nulla id
+                    quibusdam. Similique.
+                    Vitae cum molestiae deserunt, fuga saepe quod iste aut in? Quo id minima quis recusandae possimus
+                    excepturi sapiente modi laudantium ut ducimus! Reprehenderit beatae voluptatum modi error sunt fugit
+                    alias.</p>
+            </div>
+        </section>
+        <aside>
+            <div id="operators">
+                <div>+</div>
+                <div>-</div>
+                <div>÷</div>
+                <div>×</div>
+                <div>÷</div>
+                <div>+</div>
+                <div>-</div>
+                <div>×</div>
+            </div>
+        </aside>
     </div>
     <audio id="soundtrack" loop="true">
         <source src="game/media/audio/soundtrack.ogg" type="audio/ogg">
