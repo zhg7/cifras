@@ -18,3 +18,13 @@ document.getElementById("help-close-btn").addEventListener("click", () => {
 const musicPlayer = document.getElementById("soundtrack");
 musicPlayer.play();
 musicPlayer.volume = 0.1;
+
+document.getElementById("ranking-btn").addEventListener("click", () => {
+  window.location.href = "game/ranking.html";
+});
+
+//Loading
+document.getElementById("play-btn").addEventListener("click", () => {
+  document.getElementById("loader").classList.add("is-visible");
+})
+
