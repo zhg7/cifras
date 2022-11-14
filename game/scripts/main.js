@@ -23,8 +23,11 @@ document.getElementById("ranking-btn").addEventListener("click", () => {
   window.location.href = "game/ranking.html";
 });
 
+document.getElementById("play-btn").addEventListener("click", () => {
+  window.location.href = "game/start.html";
+});
+
 //Loading
 document.getElementById("play-btn").addEventListener("click", () => {
   document.getElementById("loader").classList.add("is-visible");
-})
-
+});

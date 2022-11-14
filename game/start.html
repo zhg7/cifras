@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifras: comienzo</title>
+    <link rel="icon" type="image/x-icon" href="media/img/favicon.ico">
+    <link rel="stylesheet" href="styles/start.css">
+    <script src="scripts/start.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <button type="button" class="action-button" id="back-btn">
+            <img class="menu-icon" src="media/img/goback.svg" alt="Ayuda" draggable="false">
+        </button>
+    </nav>
+    <div id="start">
+        <header>
+            <h1 id="title">Jugar</h1>
+        </header>
+        <section>
+            <div id="players">
+                <div class="player" id="player1">
+                    <h2>Jugador 1</h2>
+                    <fieldset>
+                        <legend>Nombre</legend>
+                        <input type="text" name="player1_name" id="player1_name">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Color</legend>
+                        <input type="color" name="player1_color" id="player1_color">
+                    </fieldset>
+                </div>
+                <div class="player" id="player2">
+                    <h2>Jugador 2</h2>
+                    <fieldset>
+                        <legend>Nombre</legend>
+                        <input type="text" name="player2_name" id="player2_name">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Color</legend>
+                        <input type="color" name="player2_color" id="player2_color">
+                    </fieldset>
+                    
+                </div>
+                <button type="button" class="action-button" id="play-btn">Jugar</button>
+            </div>
+        </section>
+        <section>
+            <div class="overlay" id="overlay"></div>
+            <div id="play-modal" class="modal">
+                <button class="modal-close-btn" id="play-close-btn">
+                    <div class="leftright"></div>
+                    <div class="rightleft"></div>
+                </button>
+                <h1>Comienzo de partida</h1>
+                <h3>¿Estás seguro de que quieres empezar?</h3>
+                <button type="button" class="action-button" id="confirm-play-btn"></button>
+            </div>
+        </section>
+        <aside>
+            <div id="operators">
+                <div>+</div>
+                <div>-</div>
+                <div>÷</div>
+                <div>×</div>
+                <div>÷</div>
+                <div>+</div>
+                <div>-</div>
+                <div>×</div>
+            </div>
+
+        </aside>
+    </div>
+
+
+    <audio id="soundtrack" loop="true">
+        <source src="game/media/audio/soundtrack.ogg" type="audio/ogg">
+    </audio>
+
+
+</body>
+
+</html>
