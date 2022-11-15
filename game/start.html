@@ -25,26 +25,39 @@
             <div id="players">
                 <div class="player" id="player1">
                     <h2>Jugador 1</h2>
+                    <div class="icon_border">
+                        <svg class="player-icon" id="player1_icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg>
+                    </div>
                     <fieldset>
                         <legend>Nombre</legend>
-                        <input type="text" name="player1_name" id="player1_name">
+                        <input type="text" class="player_color" name="player1_name" id="player1_name">
                     </fieldset>
                     <fieldset>
                         <legend>Color</legend>
-                        <input type="color" name="player1_color" id="player1_color">
+                        <input type="color" class="player_color" name="player1_color" id="player1_color">
                     </fieldset>
                 </div>
                 <div class="player" id="player2">
                     <h2>Jugador 2</h2>
+                    <div class="icon_border">
+                        <svg class="player-icon" id="player2_icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg>
+                    </div>
+
                     <fieldset>
                         <legend>Nombre</legend>
                         <input type="text" name="player2_name" id="player2_name">
                     </fieldset>
                     <fieldset>
                         <legend>Color</legend>
-                        <input type="color" name="player2_color" id="player2_color">
+                        <input type="color" class="player_color" name="player2_color" id="player2_color">
                     </fieldset>
-                    
+
                 </div>
                 <button type="button" class="action-button" id="play-btn">Jugar</button>
             </div>

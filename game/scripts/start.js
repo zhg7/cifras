@@ -18,7 +18,21 @@ document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
-document.getElementById("play-btn").addEventListener("click", storePlayers);
+document.querySelectorAll(".player_color").forEach((picker) => {
+  picker.addEventListener("input", (e) => {
+    const playerIcon = document.getElementById(
+      `player${e.target.id.substr(6, 1)}_icon`
+    );
+    const playerColor = document.getElementById(
+      `player${e.target.id.substr(6, 1)}_color`
+    ).value;
+    playerIcon.style.fill = playerColor;
+  });
+});
+
+document
+  .getElementById("confirm-play-btn")
+  .addEventListener("click", storePlayers);
 function storePlayers() {
   const player1 = {
     name: document.getElementById("player1_name").value,

@@ -40,6 +40,21 @@ body {
     flex-wrap: wrap;
 }
 
+#player1_icon,
+#player2_icon {
+    width: 64px;
+    height: 64px;
+}
+
+.icon_border{
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid #084d81;
+}
+
 #play-btn {
     flex-basis: 100%;
 }
@@ -52,8 +67,8 @@ input {
 
 fieldset {
     border: none;
+    font-weight: bold;
 }
-
 
 figure {
     display: flex;
@@ -150,7 +165,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    content: '✔';
+    content: '▶';
     font-size: 1.45em;
     transition: .3s;
 }
