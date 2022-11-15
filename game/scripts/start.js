@@ -49,3 +49,14 @@ function storePlayers() {
   const players = [player1, player2];
   localStorage.setItem("currentPlayers", JSON.stringify(players));
 }
+
+document.querySelectorAll(".player-icon").forEach((player) => {
+  player.addEventListener("click", (e) => {
+    if (e.target.tagName !== "svg") {
+      const colorPicker = document.getElementById(
+        `player${e.target.parentElement.id.substr(6, 1)}_color`
+      );
+      colorPicker.click();
+    }
+  });
+});
