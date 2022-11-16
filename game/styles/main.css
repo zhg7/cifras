@@ -1,3 +1,5 @@
+@import url(fonts.css);
+
 html,
 body {
     background-color: #011627;
@@ -9,7 +11,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    font-family: monospace;
+    font-family: 'Share Tech Mono';
 }
 
 #menu {
@@ -282,32 +284,4 @@ img {
     border-radius: 2px;
     transform: rotate(-45deg);
     transition: all .3s ease-in;
-}
-
-.loader {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    bottom: 50px;
-    right: 0;
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 30px;
-    opacity: 0;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }

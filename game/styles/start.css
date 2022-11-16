@@ -1,3 +1,5 @@
+@import url(fonts.css);
+
 html,
 body {
     background-color: #011627;
@@ -9,7 +11,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    font-family: monospace;
+    font-family: 'Share Tech Mono';
     display: flex;
     flex-direction: column;
 }
@@ -40,6 +42,28 @@ body {
     flex-wrap: wrap;
 }
 
+fieldset {
+    position: relative;
+}
+
+legend {
+    position: absolute;
+    top: -2.5px;
+}
+
+.message {
+    display: flex;
+    font-size: 1.15em;
+    user-select: none;
+}
+
+.message img {
+    margin: 0;
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+}
+
 .player {
     display: flex;
     flex-direction: row;
@@ -47,6 +71,11 @@ body {
 
 .icon_border {
     position: relative;
+    text-align: center;
+}
+
+.icon_border h2 {
+    margin: 0;
 }
 
 
@@ -55,7 +84,7 @@ body {
     width: 64px;
     height: 64px;
     cursor: pointer;
-    
+
 }
 
 #player1_icon:hover+.wave,
@@ -72,7 +101,7 @@ body {
     animation: hand-wave 2.5s infinite;
     transform-origin: 70% 70%;
     user-select: none;
-    
+
 }
 
 @keyframes hand-wave {
@@ -112,356 +141,356 @@ body {
 
 
 
-    #play-btn {
-        flex-basis: 100%;
+#play-btn {
+    flex-basis: 100%;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+fieldset {
+    border: none;
+    font-weight: bold;
+}
+
+figure {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+
+#title {
+    margin: 0;
+    color: #d6deeb;
+    font-size: 72px;
+    font-weight: bold;
+    display: block;
+    border-right: 4px solid;
+    width: 5ch;
+    animation: typing 2s steps(5), blink .5s infinite step-end alternate;
+    overflow: hidden;
+    cursor: default;
+    user-select: none;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+figure {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+img {
+    height: 120px;
+    margin-right: 15px;
+}
+
+.action-button {
+    width: 100px;
+    padding: 10px;
+    font-size: 24px;
+    margin: 15px;
+    border: none;
+    background-color: #084d81;
+    color: #d6deeb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.15s ease-in-out;
+    z-index: 2;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+
+
+#confirm-play-btn {
+    height: 45px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+#confirm-play-btn::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: 'Sí';
+    transition: .3s;
+}
+
+#confirm-play-btn::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '▶';
+    font-size: 1.45em;
+    transition: .3s;
+}
+
+#confirm-play-btn:hover::before {
+    top: -60px;
+}
+
+#confirm-play-btn:hover::after {
+    top: 0;
+    background-color: #357a38;
+    box-shadow: 0 5px 15px #357a38;
+}
+
+
+.action-button:hover img {
+    animation: shaking 1s ease infinite;
+}
+
+@keyframes shaking {
+    30% {
+        transform: scale(1.2);
     }
 
-    input {
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
+    40%,
+    60% {
+        transform: rotate(-20deg) scale(1.2);
     }
 
-    fieldset {
-        border: none;
-        font-weight: bold;
+    50% {
+        transform: rotate(20deg) scale(1.2);
     }
 
-    figure {
-        display: flex;
-        align-items: center;
-        z-index: 2;
+    70% {
+        transform: rotate(0deg) scale(1.2);
     }
 
-
-    #title {
-        margin: 0;
-        color: #d6deeb;
-        font-size: 72px;
-        font-weight: bold;
-        display: block;
-        border-right: 4px solid;
-        width: 5ch;
-        animation: typing 2s steps(5), blink .5s infinite step-end alternate;
-        overflow: hidden;
-        cursor: default;
-        user-select: none;
+    100% {
+        transform: scale(1);
     }
+}
 
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-    }
+.menu-icon {
+    height: 32px;
 
+}
 
-    @keyframes blink {
-        50% {
-            border-color: transparent;
-        }
-    }
+#operators div {
+    position: absolute;
+    font-size: 125px;
+    top: -150px;
+    animation: falling linear infinite;
+    z-index: -2;
+    color: #084d81;
+    user-select: none;
+}
 
-    figure {
-        display: flex;
-        flex-wrap: wrap;
-        position: relative;
-    }
+#operators div:nth-child(1) {
+    left: 25%;
+    font-size: 120px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
 
-    img {
-        height: 120px;
-        margin-right: 15px;
-    }
+#operators div:nth-child(2) {
+    left: 10%;
+    font-size: 130px;
+    animation-delay: 12s;
+    animation-duration: 12s;
+}
 
-    .action-button {
-        width: 100px;
-        padding: 10px;
-        font-size: 24px;
-        margin: 15px;
-        border: none;
-        background-color: #084d81;
-        color: #d6deeb;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        transition: all 0.15s ease-in-out;
-        z-index: 2;
-        font-family: inherit;
-        font-weight: bold;
-    }
+#operators div:nth-child(3) {
+    left: 90%;
+    font-size: 140px;
+    animation-delay: 4s;
+    animation-duration: 15s;
+}
 
+#operators div:nth-child(4) {
+    left: 40%;
+    font-size: 145px;
+    animation-delay: 18s;
+    animation-duration: 16s;
+}
 
+#operators div:nth-child(5) {
+    left: 65%;
+    font-size: 150px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
 
-    #confirm-play-btn {
-        height: 45px;
-        position: relative;
-        overflow: hidden;
-    }
+#operators div:nth-child(6) {
+    left: 75%;
+    font-size: 130px;
+    animation-delay: 3s;
+    animation-duration: 15s;
+}
 
+#operators div:nth-child(7) {
+    left: 35%;
+    font-size: 155px;
+    animation-delay: 7s;
+    animation-duration: 14s;
+}
 
-    #confirm-play-btn::before {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        content: 'Sí';
-        transition: .3s;
-    }
+#operators div:nth-child(8) {
+    left: 50%;
+    font-size: 125px;
+    animation-delay: 15s;
+    animation-duration: 12s;
+}
 
-    #confirm-play-btn::after {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        content: '▶';
-        font-size: 1.45em;
-        transition: .3s;
-    }
-
-    #confirm-play-btn:hover::before {
-        top: -60px;
-    }
-
-    #confirm-play-btn:hover::after {
-        top: 0;
-        background-color: #357a38;
-        box-shadow: 0 5px 15px #357a38;
-    }
-
-
-    .action-button:hover img {
-        animation: shaking 1s ease infinite;
-    }
-
-    @keyframes shaking {
-        30% {
-            transform: scale(1.2);
-        }
-
-        40%,
-        60% {
-            transform: rotate(-20deg) scale(1.2);
-        }
-
-        50% {
-            transform: rotate(20deg) scale(1.2);
-        }
-
-        70% {
-            transform: rotate(0deg) scale(1.2);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    .menu-icon {
-        height: 32px;
-
-    }
-
-    #operators div {
-        position: absolute;
-        font-size: 125px;
-        top: -150px;
-        animation: falling linear infinite;
-        z-index: -2;
-        color: #084d81;
-        user-select: none;
-    }
-
-    #operators div:nth-child(1) {
-        left: 25%;
-        font-size: 120px;
-        animation-delay: 0s;
-        animation-duration: 11s;
-    }
-
-    #operators div:nth-child(2) {
-        left: 10%;
-        font-size: 130px;
-        animation-delay: 12s;
-        animation-duration: 12s;
-    }
-
-    #operators div:nth-child(3) {
-        left: 90%;
-        font-size: 140px;
-        animation-delay: 4s;
-        animation-duration: 15s;
-    }
-
-    #operators div:nth-child(4) {
-        left: 40%;
-        font-size: 145px;
-        animation-delay: 18s;
-        animation-duration: 16s;
-    }
-
-    #operators div:nth-child(5) {
-        left: 65%;
-        font-size: 150px;
-        animation-delay: 0s;
-        animation-duration: 10s;
-    }
-
-    #operators div:nth-child(6) {
-        left: 75%;
-        font-size: 130px;
-        animation-delay: 3s;
-        animation-duration: 15s;
-    }
-
-    #operators div:nth-child(7) {
-        left: 35%;
-        font-size: 155px;
-        animation-delay: 7s;
-        animation-duration: 14s;
-    }
-
-    #operators div:nth-child(8) {
-        left: 50%;
-        font-size: 125px;
-        animation-delay: 15s;
-        animation-duration: 12s;
-    }
-
-    @keyframes falling {
-        0% {
-            opacity: 1;
-            transform: translateY(0) rotate(0deg);
-        }
-
-        100% {
-            opacity: 0;
-            transform: translateY(1000px) rotate(720deg);
-        }
-    }
-
-    .modal {
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s;
-        position: absolute;
-        top: 10px;
-        left: 0;
-        right: 0;
-        max-width: 300px;
-        margin: 0 auto;
-        padding: 30px;
-        background-color: #d6deeb;
-        border-radius: 4px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-        z-index: 5;
-    }
-
-    .overlay {
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 4;
-    }
-
-    .modal-close-btn {
-        position: absolute;
-        right: 35px;
-        top: 0px;
-        font-size: 20px;
-        border: none;
-        background: none;
-        cursor: pointer;
-    }
-
-    .modal-close-btn:hover .leftright {
-        transform: rotate(-45deg);
-        background-color: #ef5350;
-    }
-
-    .modal-close-btn:hover .rightleft {
-        transform: rotate(45deg);
-        background-color: #ef5350;
-    }
-
-    .is-visible {
+@keyframes falling {
+    0% {
         opacity: 1;
-        pointer-events: auto;
+        transform: translateY(0) rotate(0deg);
     }
 
-    .leftright {
-        height: 4px;
-        width: 30px;
-        position: absolute;
-        margin-top: 24px;
-        background-color: #0b2942;
-        border-radius: 2px;
-        transform: rotate(45deg);
-        transition: all .3s ease-in;
-    }
-
-    .rightleft {
-        height: 4px;
-        width: 30px;
-        position: absolute;
-        margin-top: 24px;
-        background-color: #0b2942;
-        border-radius: 2px;
-        transform: rotate(-45deg);
-        transition: all .3s ease-in;
-    }
-
-    .loader {
-        position: absolute;
-        top: 10px;
-        left: 0;
-        bottom: 50px;
-        right: 0;
-        max-width: 300px;
-        margin: 0 auto;
-        padding: 30px;
+    100% {
         opacity: 0;
-        border: 16px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 16px solid #3498db;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
+        transform: translateY(1000px) rotate(720deg);
+    }
+}
+
+.modal {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #d6deeb;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.overlay {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+}
+
+.modal-close-btn {
+    position: absolute;
+    right: 35px;
+    top: 0px;
+    font-size: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.modal-close-btn:hover .leftright {
+    transform: rotate(-45deg);
+    background-color: #ef5350;
+}
+
+.modal-close-btn:hover .rightleft {
+    transform: rotate(45deg);
+    background-color: #ef5350;
+}
+
+.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.leftright {
+    height: 4px;
+    width: 30px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #0b2942;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all .3s ease-in;
+}
+
+.rightleft {
+    height: 4px;
+    width: 30px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #0b2942;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in;
+}
+
+.loader {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    bottom: 50px;
+    right: 0;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    opacity: 0;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
 
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
-        100% {
-            transform: rotate(360deg);
-        }
+@media (max-width: 900px) {
+    #players {
+        flex-direction: column;
+
     }
 
-    @media (max-width: 900px) {
-        #players {
-            flex-direction: column;
 
-        }
-
-
-    }
+}
