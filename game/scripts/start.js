@@ -33,6 +33,7 @@ document.querySelectorAll(".player_color").forEach((picker) => {
 document
   .getElementById("confirm-play-btn")
   .addEventListener("click", storePlayers);
+
 function storePlayers() {
   const player1 = {
     name: document.getElementById("player1_name").value,
@@ -47,7 +48,8 @@ function storePlayers() {
   };
 
   const players = [player1, player2];
-  localStorage.setItem("currentPlayers", JSON.stringify(players));
+  sessionStorage.setItem("currentPlayers", JSON.stringify(players));
+  sessionStorage.setItem("started", "yes");
 }
 
 document.querySelectorAll(".player-icon").forEach((player) => {

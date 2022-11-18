@@ -1,3 +1,5 @@
+@import url(fonts.css);
+
 html,
 body {
     background-color: #011627;
@@ -5,13 +7,14 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    background-image: url("../media/img/wave.svg");
+    background-image: url("../assets/img/wave.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     font-family: monospace;
     display: flex;
     flex-direction: column;
+    font-family: 'Inconsolata';
 }
 
 #ranking {

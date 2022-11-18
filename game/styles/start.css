@@ -7,11 +7,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    background-image: url("../media/img/wave.svg");
+    background-image: url("../assets/img/wave.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    font-family: 'Share Tech Mono';
+    font-family: 'Inconsolata';
     display: flex;
     flex-direction: column;
 }
@@ -46,9 +46,18 @@ fieldset {
     position: relative;
 }
 
-legend {
+label {
     position: absolute;
-    top: -2.5px;
+    top: 15%;
+    left: 15px;
+    transition: all 0.15s ease-out 0s;
+    pointer-events: none;
+}
+
+input:focus+label,
+input:not(:placeholder-shown)+label {
+    top: -10.75px;
+    font-size: 90%;
 }
 
 .message {
@@ -87,60 +96,6 @@ legend {
 
 }
 
-#player1_icon:hover+.wave,
-#player2_icon:hover+.wave {
-    display: none;
-}
-
-.wave {
-    font-size: 28px;
-    position: absolute;
-    bottom: 10px;
-    left: 30px;
-    display: none;
-    animation: hand-wave 2.5s infinite;
-    transform-origin: 70% 70%;
-    user-select: none;
-
-}
-
-@keyframes hand-wave {
-    0% {
-        transform: rotate(0.0deg)
-    }
-
-    10% {
-        transform: rotate(14.0deg)
-    }
-
-    20% {
-        transform: rotate(-8.0deg)
-    }
-
-    30% {
-        transform: rotate(14.0deg)
-    }
-
-    40% {
-        transform: rotate(-4.0deg)
-    }
-
-    50% {
-        transform: rotate(10.0deg)
-    }
-
-    60% {
-        transform: rotate(0.0deg)
-    }
-
-    100% {
-        transform: rotate(0.0deg)
-    }
-
-}
-
-
-
 #play-btn {
     flex-basis: 100%;
 }
@@ -155,6 +110,7 @@ fieldset {
     border: none;
     font-weight: bold;
 }
+
 
 figure {
     display: flex;
@@ -405,8 +361,6 @@ img {
     bottom: 0;
     width: 100%;
     height: 100%;
-    width: 100%;
-    height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 4;
 }
@@ -458,33 +412,6 @@ img {
     transition: all .3s ease-in;
 }
 
-.loader {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    bottom: 50px;
-    right: 0;
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 30px;
-    opacity: 0;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 @media (max-width: 900px) {
     #players {
