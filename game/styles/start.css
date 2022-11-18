@@ -52,6 +52,7 @@ label {
     left: 15px;
     transition: all 0.15s ease-out 0s;
     pointer-events: none;
+    margin-left: 1.5px;
 }
 
 input:focus+label,
