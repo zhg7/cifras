@@ -32,7 +32,10 @@ document.querySelectorAll(".player_color").forEach((picker) => {
 
 document
   .getElementById("confirm-play-btn")
-  .addEventListener("click", storePlayers);
+  .addEventListener("click", () => {
+    storePlayers();
+    window.location.href = "../game/play.html";
+  });
 
 function storePlayers() {
   const player1 = {

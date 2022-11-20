@@ -15,9 +15,9 @@ document.getElementById("help-close-btn").addEventListener("click", () => {
 });
 
 // Música de fondo
-const musicPlayer = document.getElementById("soundtrack");
+/*const musicPlayer = document.getElementById("soundtrack");
 musicPlayer.play();
-musicPlayer.volume = 0.1;
+musicPlayer.volume = 0.1;*/
 
 document.getElementById("ranking-btn").addEventListener("click", () => {
   window.location.href = "game/ranking.html";
