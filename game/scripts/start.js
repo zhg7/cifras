@@ -34,7 +34,7 @@ document
   .getElementById("confirm-play-btn")
   .addEventListener("click", () => {
     storePlayers();
-    window.location.href = "../game/play.html";
+    window.location.href = "../game/randomizer.html";
   });
 
 function storePlayers() {
