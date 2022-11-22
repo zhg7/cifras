@@ -6,8 +6,9 @@ let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 75, 100].sort(
   (a, b) => 0.5 - Math.random()
 );
 
+const numberSpans = document.querySelectorAll(".number span");
+const box = document.querySelector(".flipbox-front");
 sessionStorage.setItem("generationCounter", 0);
-
 document.querySelector(".flipbox-front").addEventListener("click", () => {
   if (sessionStorage.getItem("generationCounter") < 6) {
     sessionStorage.setItem(
@@ -18,10 +19,10 @@ document.querySelector(".flipbox-front").addEventListener("click", () => {
     const number = numbers[Math.floor(Math.random() * numbers.length)];
     numbers = numbers.filter((n) => n !== number);
     document.getElementById("generated-number").textContent = number;
-    const numberSpans = document.querySelectorAll(".number");
     let inserted = false;
     for (let i = 0; !inserted; i++) {
       if (numberSpans[i].textContent === "") {
+        numberSpans[i].classList.add("rotate");
         numberSpans[i].textContent = number;
         inserted = true;
       }
@@ -33,9 +34,45 @@ document.querySelector(".flipbox-front").addEventListener("click", () => {
   }
   setTimeout(() => {
     if (sessionStorage.getItem("generationCounter") > 5) {
-      const box = document.querySelector(".flipbox-front");
       box.style.cursor = "default";
       box.textContent = "Todos los números generados";
+      setInterval(timer, 1000);
+      setTimeout(() => {
+        storeAvailableNumbers();
+        const targetNumber = generateTargetNumber();
+        sessionStorage.setItem("targetNumber", Number(targetNumber));
+        openNumberModal(targetNumber);
+      }, 4000);
     }
   }, 200);
 });
+
+let secondsLeft = 4;
+function timer() {
+  if (window.getComputedStyle(box).fontSize !== "5em") {
+    box.style.fontSize = "5em";
+  }
+  if (secondsLeft > 0) {
+    secondsLeft--;
+    box.textContent = secondsLeft;
+  }
+}
+
+function openNumberModal(targetNumber) {
+  document.querySelector("#target-number span").textContent = targetNumber;
+  document.getElementById("overlay").classList.add("is-visible");
+  document.getElementById("number-modal").classList.add("is-visible");
+}
+
+function generateTargetNumber() {
+  return Math.floor(Math.random() * (999 - 101 + 1) + 101);
+}
+
+function storeAvailableNumbers() {
+  const availableNumbers = [];
+  numberSpans.forEach((number) => {
+    availableNumbers.push(Number(number.textContent));
+  });
+
+  sessionStorage.setItem("availableNumbers", JSON.stringify(availableNumbers));
+}
