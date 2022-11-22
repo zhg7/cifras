@@ -23,7 +23,8 @@
         </header>
         <section>
             <div id="players">
-                <p class="message"><img src="assets/img/info.svg" alt="Info"><strong>Introduce los nombres y pulsa en los
+                <p class="message"><img src="assets/img/info.svg" alt="Info"><strong>Introduce los nombres y pulsa en
+                        los
                         iconos para definir los colores.</strong></p>
                 <div class="player" id="player1">
                     <div class="icon_border">
@@ -34,7 +35,7 @@
                         <h2>Jugador 1</h2>
                     </div>
                     <fieldset>
-                        <input type="text" name="player1_name" id="player1_name" placeholder=" ">
+                        <input type="text" class="player_name" name="player1_name" id="player1_name" placeholder=" ">
                         <label for="player1_name">
                             Nombre
                         </label>
@@ -50,10 +51,10 @@
                         <h2>Jugador 2</h2>
                     </div>
                     <fieldset>
-                    <input type="text" name="player2_name" id="player2_name" placeholder=" ">
-                    <label for="player2_name">
-                        Nombre
-                    </label>
+                        <input type="text" class="player_name" name="player2_name" id="player2_name" placeholder=" ">
+                        <label for="player2_name">
+                            Nombre
+                        </label>
                     </fieldset>
                     <input type="color" class="player_color" name="player2_color" id="player2_color" hidden>
                 </div>
@@ -68,7 +69,8 @@
                     <div class="rightleft"></div>
                 </button>
                 <h1>Comienzo de partida</h1>
-                <p class="message"><img src="assets/img/warning.svg" alt="Info"><strong>A continuación generarás los números.</strong></p>
+                <p class="message"><img src="assets/img/warning.svg" alt="Info"><strong>A continuación se generarán los
+                        números. ¿Continuar?</strong></p>
                 <button type="button" class="action-button" id="confirm-play-btn"></button>
             </div>
         </section>

@@ -12,7 +12,14 @@
 </head>
 
 <body>
+
     <div id="menu">
+        <nav>
+            <label class="switch" id="audio-control">
+                <input type="checkbox" class="clicky" checked hidden>
+                <span class="slider"></span>
+            </label>
+        </nav>
         <header>
             <figure>
                 <img id="logo" src="game/assets/img/logo.svg" alt="Logo" draggable="false">
@@ -31,7 +38,7 @@
         <section>
             <div class="overlay" id="overlay"></div>
             <div id="help-modal" class="modal">
-                <button class="modal-close-btn" id="help-close-btn">
+                <button class="modal-close-btn clicky" id="help-close-btn">
                     <div class="leftright"></div>
                     <div class="rightleft"></div>
                 </button>
@@ -63,11 +70,9 @@
             <div id="loader" class="loader"></div>
         </aside>
     </div>
-    <audio id="soundtrack" loop="true">
+    <audio id="soundtrack" loop>
         <source src="game/assets/audio/soundtrack.ogg" type="audio/ogg">
     </audio>
-
-
 </body>
 
 </html>

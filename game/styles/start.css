@@ -12,12 +12,11 @@ body {
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Inconsolata';
-    display: flex;
     flex-direction: column;
 }
 
 #start {
-
+    height: 450px;
     width: 500px;
     padding: 100px;
     background-color: #0b2942;
@@ -32,7 +31,7 @@ body {
 }
 
 #players {
-    margin-top: 20px;
+    height: 300px;
     background-color: #d6deeb;
     border-radius: 10px;
     padding: 50px;
@@ -414,10 +413,40 @@ img {
     transition: all .3s ease-in;
 }
 
+.error-shake {
+    animation: error-shake .5s 1 linear;
+}
+
+@keyframes error-shake {
+    0% {
+        transform: translateX(10px);
+    }
+
+    20% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(3px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
 
 @media (max-width: 900px) {
     #players {
-        flex-direction: column;
+        flex-direction: row;
 
     }
 

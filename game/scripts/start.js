@@ -1,9 +1,3 @@
-// Modal de ayuda
-document.getElementById("play-btn").addEventListener("click", () => {
-  document.getElementById("overlay").classList.add("is-visible");
-  document.getElementById("play-modal").classList.add("is-visible");
-});
-
 document.getElementById("overlay").addEventListener("click", () => {
   document.getElementById("overlay").classList.remove("is-visible");
   document.getElementById("play-modal").classList.remove("is-visible");
@@ -13,6 +7,28 @@ document.getElementById("play-close-btn").addEventListener("click", () => {
   document.getElementById("overlay").classList.remove("is-visible");
   document.getElementById("play-modal").classList.remove("is-visible");
 });
+
+document.getElementById("play-btn").addEventListener("click", playEventHandler);
+
+function playEventHandler() {
+  const nameFields = document.querySelectorAll(".player_name");
+  const emptyFields = [];
+  nameFields.forEach(field => {
+    if (field.value.trim() === "") {
+      emptyFields.push(field);
+    } else {
+      revertFieldStyles(field);
+    }
+  })
+
+  if (emptyFields.length === 0) {
+    document.getElementById("overlay").classList.add("is-visible");
+    document.getElementById("play-modal").classList.add("is-visible");
+  } else {
+    highlightEmptyFields(emptyFields);
+  }
+
+}
 
 document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../index.html";
@@ -39,14 +55,14 @@ document
 
 function storePlayers() {
   const player1 = {
-    name: document.getElementById("player1_name").value,
-    color: document.getElementById("player1_color").value,
+    name: document.getElementById("player1_name").value.trim(),
+    color: document.getElementById("player1_color").value.trim(),
     score: 0,
   };
 
   const player2 = {
-    name: document.getElementById("player2_name").value,
-    color: document.getElementById("player2_color").value,
+    name: document.getElementById("player2_name").value.trim(),
+    color: document.getElementById("player2_color").value.trim(),
     score: 0,
   };
 
@@ -65,3 +81,20 @@ document.querySelectorAll(".player-icon").forEach((player) => {
     }
   });
 });
+
+function highlightEmptyFields(fields) {
+  fields.forEach(field => {
+    field.style.backgroundColor = "rgba(239,83,80,0.70)";
+    field.classList.add("error-shake");
+    field.nextElementSibling.classList.add("error-shake");
+    setTimeout(() => {
+      field.classList.remove("error-shake");
+      field.nextElementSibling.classList.remove("error-shake");
+    }, 500);
+
+  })
+}
+
+function revertFieldStyles(field) {
+  field.style.backgroundColor = "";
+}

@@ -9,7 +9,10 @@ let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 75, 100].sort(
 const numberSpans = document.querySelectorAll(".number span");
 const box = document.querySelector(".flipbox-front");
 sessionStorage.setItem("generationCounter", 0);
-document.querySelector(".flipbox-front").addEventListener("click", () => {
+
+box.addEventListener("click", generationEventHandler);
+
+function generationEventHandler() {
   if (sessionStorage.getItem("generationCounter") < 6) {
     sessionStorage.setItem(
       "generationCounter",
@@ -34,6 +37,7 @@ document.querySelector(".flipbox-front").addEventListener("click", () => {
   }
   setTimeout(() => {
     if (sessionStorage.getItem("generationCounter") > 5) {
+      box.removeEventListener("click", generationEventHandler);
       box.style.cursor = "default";
       box.textContent = "Todos los números generados";
       setInterval(timer, 1000);
@@ -45,13 +49,13 @@ document.querySelector(".flipbox-front").addEventListener("click", () => {
         moveProgressBar();
         setTimeout(() => {
           window.location.href = "../game/play.html";
-        }, 10200);
+        }, 5500);
       }, 4000);
     }
   }, 200);
-});
+}
 
-let secondsLeft = 4;
+let secondsLeft = 3;
 function timer() {
   if (window.getComputedStyle(box).fontSize !== "5em") {
     box.style.fontSize = "5em";
@@ -84,7 +88,7 @@ function storeAvailableNumbers() {
 function moveProgressBar() {
   const progressBar = document.querySelector(".bar");
   const seconds = document.querySelector("label span");
-  let secondsLeft = 10;
+  let secondsLeft = 5;
   setInterval(() => {
     if (secondsLeft > 0) {
       secondsLeft--;
