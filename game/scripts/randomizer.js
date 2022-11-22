@@ -42,6 +42,10 @@ document.querySelector(".flipbox-front").addEventListener("click", () => {
         const targetNumber = generateTargetNumber();
         sessionStorage.setItem("targetNumber", Number(targetNumber));
         openNumberModal(targetNumber);
+        moveProgressBar();
+        setTimeout(() => {
+          window.location.href = "../game/play.html";
+        }, 10200);
       }, 4000);
     }
   }, 200);
@@ -75,4 +79,20 @@ function storeAvailableNumbers() {
   });
 
   sessionStorage.setItem("availableNumbers", JSON.stringify(availableNumbers));
+}
+
+function moveProgressBar() {
+  const progressBar = document.querySelector(".bar");
+  const seconds = document.querySelector("label span");
+  let secondsLeft = 10;
+  setInterval(() => {
+    if (secondsLeft > 0) {
+      secondsLeft--;
+      seconds.textContent = secondsLeft;
+    }
+  }, 1000);
+
+  setTimeout(() => {
+    progressBar.style.width = "0%";
+  });
 }
