@@ -354,6 +354,7 @@ input:checked+.slider::before {
 @media (max-width: 500px) {
     #menu {
         width: 245px;
+    
     }
 
     #title {
