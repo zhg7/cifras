@@ -22,7 +22,7 @@ body {
     place-items: center;
     border-radius: 10px;
     position: relative;
-    overflow: scroll;
+    overflow: hidden;
     z-index: 3;
     display: flex;
     justify-content: space-around;
@@ -76,7 +76,6 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-gap: 15px;
 }
 
 #operators span {
@@ -112,15 +111,15 @@ body {
 }
 
 .available-numbers .number {
-    font-size: 5em;
+    font-size: 2.35em;
     border-radius: 10px;
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #13344f50;
-    width: 75px;
-    height: 48px;
+    width: 52px;
+    height: 32px;
     font-weight: 500;
     border-radius: 10px;
     box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
@@ -133,7 +132,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 400px;
-    gap: 0px;
+    gap: 30px;
 }
 
 .operation {
@@ -150,12 +149,98 @@ body {
     height: 42px;
     font-size: 5em;
     border-radius: 10px;
-    border: 1px solid black;
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 20px;
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
+    background-color: red;
+
+}
+
+.operation span:nth-child(1),
+.operation span:nth-child(3) {
+    width: 52px;
+    height: 32px;
+}
+
+#falling-operators div {
+    position: absolute;
+    font-size: 125px;
+    top: -150px;
+    animation: falling linear infinite;
+    z-index: -2;
+    color: #084d81;
+    user-select: none;
+}
+
+#falling-operators div:nth-child(1) {
+    left: 25%;
+    font-size: 120px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+#falling-operators div:nth-child(2) {
+    left: 10%;
+    font-size: 130px;
+    animation-delay: 12s;
+    animation-duration: 12s;
+}
+
+#falling-operators div:nth-child(3) {
+    left: 90%;
+    font-size: 140px;
+    animation-delay: 4s;
+    animation-duration: 15s;
+}
+
+#falling-operators div:nth-child(4) {
+    left: 40%;
+    font-size: 145px;
+    animation-delay: 18s;
+    animation-duration: 16s;
+}
+
+#falling-operators div:nth-child(5) {
+    left: 65%;
+    font-size: 150px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+#falling-operators div:nth-child(6) {
+    left: 75%;
+    font-size: 130px;
+    animation-delay: 3s;
+    animation-duration: 15s;
+}
+
+#falling-operators div:nth-child(7) {
+    left: 35%;
+    font-size: 155px;
+    animation-delay: 7s;
+    animation-duration: 14s;
+}
+
+#falling-operators div:nth-child(8) {
+    left: 50%;
+    font-size: 125px;
+    animation-delay: 15s;
+    animation-duration: 12s;
+}
+
+@keyframes falling {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(1000px) rotate(720deg);
+    }
 }
 
 @media (max-width: 1100px) {
@@ -215,7 +300,13 @@ body {
 
     }
 
-    .available-numbers .number,
+    .available-numbers .number {
+        width: 50px;
+        height: 32px;
+        font-size: 2.25em;
+    }
+
+
     .operation span {
         font-size: 2.5em;
         width: 24px;

@@ -25,51 +25,6 @@ nav {
     top: 0;
 }
 
-.switch {
-    position: relative;
-    width: 48px;
-    height: 28px;
-    position: relative;
-}
-
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: grey;
-    transition: .4s;
-    border-radius: 28px;
-}
-
-.slider::before {
-    position: absolute;
-    content: url("../assets/img/volume-mute.svg");
-    height: 20px;
-    width: 20px;
-    left: 6px;
-    bottom: 3.5px;
-    background-color: #d6deeb;
-    transition: .4s;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-}
-
-input:checked+.slider {
-    background-color: #82aaff;
-}
-
-input:checked+.slider::before {
-    transform: translateX(16px);
-    content: url("../assets/img/volume-on.svg");
-}
-
-
-
 #menu {
     width: 500px;
     padding: 100px;
@@ -126,6 +81,49 @@ img {
     margin-right: 15px;
 }
 
+.switch {
+    position: relative;
+    width: 48px;
+    height: 28px;
+    position: relative;
+}
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: grey;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider::before {
+    position: absolute;
+    content: url("../assets/img/volume-mute.svg");
+    height: 20px;
+    width: 20px;
+    left: 6px;
+    bottom: 3.5px;
+    background-color: #d6deeb;
+    transition: .4s;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+input:checked+.slider {
+    background-color: #82aaff;
+}
+
+input:checked+.slider::before {
+    transform: translateX(16px);
+    content: url("../assets/img/volume-on.svg");
+}
+
 .action-button {
     width: 250px;
     padding: 10px;
@@ -180,7 +178,6 @@ img {
 
 .menu-icon {
     height: 32px;
-
 }
 
 #operators div {
@@ -340,4 +337,38 @@ img {
     border-radius: 2px;
     transform: rotate(-45deg);
     transition: all .3s ease-in;
+}
+
+@media (max-width: 760px) {
+
+    #menu {
+        width: 400px;
+    }
+
+    #title {
+        font-size: 60px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    #menu {
+        width: 245px;
+    }
+
+    #title {
+        font-size: 32px;
+    }
+
+    figure img {
+        width: 85px;
+    }
+
+    .action-button {
+        font-size: 24px;
+    }
+
+    .menu-icon {
+        height: 28px;
+    }
 }
