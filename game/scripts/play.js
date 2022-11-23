@@ -5,3 +5,5 @@
 /*window.addEventListener("beforeunload", (e) => {
   e.preventDefault();
 })*/
+
+document.getElementById("target-number").textContent = sessionStorage.getItem("targetNumber");
