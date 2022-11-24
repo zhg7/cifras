@@ -7,11 +7,11 @@
 })*/
 
 let availableNumbers = JSON.parse(sessionStorage.getItem("availableNumbers"));
-const numberSpans = document.querySelectorAll(".number span");
+const numberBoxes = document.querySelectorAll(".number-box span");
 let dragItem = null;
 
 for (let i = 0; i < 6; i++) {
-  numberSpans[i].textContent = availableNumbers[i];
+  numberBoxes[i].textContent = availableNumbers[i];
 }
 
 document.getElementById("target-number").textContent =
@@ -34,6 +34,10 @@ droppables.forEach((element) => {
 
 function dragStart(e) {
   dragItem = e.target;
+  if (e.target.classList.contains("operator")) {
+    dragItem = e.target.cloneNode(true);
+    console.log(dragItem);
+  }
 }
 
 function dragEnd(e) {
@@ -42,12 +46,37 @@ function dragEnd(e) {
 
 function dragOver(e) {
   e.preventDefault();
+  if (!e.target.classList.contains("number")) {
+    e.target.style.borderStyle = "dashed";
+    e.target.style.transition = ".05s";
+  }
 }
 
 function dragLeave(e) {
   e.preventDefault();
+  e.target.style.borderStyle = "";
 }
 
 function drop(e) {
-  e.target.append(dragItem);
+  let correctDrop = false;
+  if (dragItem.classList.contains("operator")) {
+    if (e.target.classList.contains("operator-box")) {
+      correctDrop = true;
+    }
+  } else {
+    if (
+      !(
+        dragItem.classList.contains("number") &&
+        e.target.classList.contains("operator-box")
+      )
+    ) {
+      correctDrop = true;
+    }
+  }
+
+  if (correctDrop) {
+    e.target.appendChild(dragItem);
+  }
+
+  e.target.style.borderStyle = "";
 }
