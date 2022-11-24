@@ -59,24 +59,44 @@ function dragLeave(e) {
 
 function drop(e) {
   let correctDrop = false;
-  if (dragItem.classList.contains("operator")) {
-    if (e.target.classList.contains("operator-box")) {
-      correctDrop = true;
-    }
+  if (e.target.firstChild) {
+    sendNumberBack(e.target);
   } else {
-    if (
-      !(
-        dragItem.classList.contains("number") &&
-        e.target.classList.contains("operator-box")
-      )
-    ) {
-      correctDrop = true;
+    if (dragItem.classList.contains("operator")) {
+      if (e.target.classList.contains("operator-box")) {
+        correctDrop = true;
+      }
+    } else {
+      if (
+        !(
+          dragItem.classList.contains("number") &&
+          e.target.classList.contains("operator-box")
+        )
+      ) {
+        correctDrop = true;
+      }
+    }
+
+    if (correctDrop) {
+      e.target.appendChild(dragItem);
+    }
+
+    e.target.style.borderStyle = "";
+  }
+}
+
+function sendNumberBack(box) {
+  const currentNumber = box.firstElementChild;
+  console.log(currentNumber.textContent);
+  const boxes = document.querySelectorAll(".number-box");
+  box.appendChild(dragItem);
+  box.removeChild(box.firstElementChild);
+  let emptyBoxFound = false;
+  
+  for (let i = 0; !emptyBoxFound; i++) {
+    if (!boxes[i].firstChild) {
+      boxes[i].appendChild(currentNumber);
+      emptyBoxFound = true;
     }
   }
-
-  if (correctDrop) {
-    e.target.appendChild(dragItem);
-  }
-
-  e.target.style.borderStyle = "";
 }
