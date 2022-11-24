@@ -9,6 +9,7 @@
 let availableNumbers = JSON.parse(sessionStorage.getItem("availableNumbers"));
 const numberBoxes = document.querySelectorAll(".number-box span");
 let dragItem = null;
+let dragItemSource = null;
 
 for (let i = 0; i < 6; i++) {
   numberBoxes[i].textContent = availableNumbers[i];
@@ -34,9 +35,9 @@ droppables.forEach((element) => {
 
 function dragStart(e) {
   dragItem = e.target;
+  dragItemSource = e.target.parentElement;
   if (e.target.classList.contains("operator")) {
     dragItem = e.target.cloneNode(true);
-    console.log(dragItem);
   }
 }
 
@@ -86,17 +87,6 @@ function drop(e) {
 }
 
 function sendNumberBack(box) {
-  const currentNumber = box.firstElementChild;
-  console.log(currentNumber.textContent);
-  const boxes = document.querySelectorAll(".number-box");
   box.appendChild(dragItem);
-  box.removeChild(box.firstElementChild);
-  let emptyBoxFound = false;
-  
-  for (let i = 0; !emptyBoxFound; i++) {
-    if (!boxes[i].firstChild) {
-      boxes[i].appendChild(currentNumber);
-      emptyBoxFound = true;
-    }
-  }
+  dragItemSource.appendChild(box.firstElementChild);
 }
