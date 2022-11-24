@@ -165,7 +165,7 @@ body {
 }
 
 div.number {
-    background-color: #13344f50;
+    background-color: #baacff;
     width: 75px;
     height: 48px;
     font-size: 2.75em;
@@ -175,7 +175,7 @@ div.number {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 0px 0px #836cf6;
     overflow: hidden;
     user-select: none;
 }

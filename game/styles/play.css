@@ -78,16 +78,17 @@ body {
     grid-template-rows: repeat(2, 1fr);
 }
 
-#operators span {
+#operators div {
     width: 42px;
     height: 42px;
     font-size: 5em;
     border-radius: 10px;
-    border: 1px solid black;
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 5px 5px 0px 0px #f7a655;
+    background-color: #ffbd76;
 }
 
 
@@ -117,15 +118,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #13344f50;
+    background-color: #baacff;
     width: 52px;
     height: 32px;
     font-weight: 500;
     border-radius: 10px;
-    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 0px 0px #836cf6;
     overflow: hidden;
     user-select: none;
 
+}
+
+.result {
+    text-decoration-line: underline;
+    text-decoration-thickness: 5px;
+    text-decoration-color: #1F2233;
 }
 
 .operation-area {
@@ -151,12 +158,18 @@ body {
     border-radius: 10px;
     padding: 15px;
     margin-right: 20px;
-    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
-    background-color: red;
-    display: grid;
-    place-items: center;
-
+    box-shadow: 5px 5px 0px 0px #5e8df3;
+    background-color: #82aaff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.operation .operator-box {
+    font-size: 4em;
+}
+
+
 
 .operation div:nth-child(1),
 .operation div:nth-child(3) {

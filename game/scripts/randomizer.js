@@ -46,7 +46,6 @@ function generationEventHandler() {
         const targetNumber = generateTargetNumber();
         sessionStorage.setItem("targetNumber", Number(targetNumber));
         openNumberModal(targetNumber);
-        moveProgressBar();
         setTimeout(() => {
           window.location.href = "../game/play.html";
         }, 5500);
@@ -70,6 +69,7 @@ function openNumberModal(targetNumber) {
   document.querySelector("#target-number span").textContent = targetNumber;
   document.getElementById("overlay").classList.add("is-visible");
   document.getElementById("number-modal").classList.add("is-visible");
+  moveProgressBar();
 }
 
 function generateTargetNumber() {
