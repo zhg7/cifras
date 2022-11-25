@@ -171,8 +171,7 @@ body {
 
 
 
-.operation div:nth-child(1),
-.operation div:nth-child(3) {
+.operation .number-box {
     width: 52px;
     height: 32px;
 }

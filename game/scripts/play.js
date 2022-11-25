@@ -4,7 +4,7 @@
 
 window.addEventListener("beforeunload", (e) => {
   e.preventDefault();
-})
+});
 
 const availableNumbers = JSON.parse(sessionStorage.getItem("availableNumbers"));
 const numberBoxes = document.querySelectorAll(".number-box .number");
@@ -61,7 +61,7 @@ function dragLeave(e) {
 
 function drop(e) {
   let correctDrop = false;
-  if (e.target.firstChild) {
+  if (e.target.firstElementChild) {
     sendNumberBack(e.target);
   } else {
     if (dragItem.classList.contains("operator")) {
@@ -92,11 +92,16 @@ function sendNumberBack(box) {
   if (box.firstElementChild.classList.contains("operator")) {
     box.removeChild(box.firstElementChild);
   } else {
-    dragItemSource.appendChild(box.firstElementChild);
+    if (dragItem.classList.contains("number")) {
+      dragItemSource.appendChild(box.firstElementChild);
+    } else 
   }
-  box.appendChild(dragItem);
-  box.style.borderStyle = "";
 
+  if (dragItem.classList.contains("number")) {
+    box.appendChild(dragItem);
+  }
+
+  box.style.borderStyle = "";
 }
 
 function checkOperation() {
@@ -104,11 +109,14 @@ function checkOperation() {
   const secondNumber = document.querySelector(".second-number-box");
   const operator = document.querySelector(".operator-box");
 
-  if (firstNumber.firstChild && secondNumber.firstChild && operator.firstChild) {
-    calculate(firstNumber, secondNumber, operator)
+  if (
+    firstNumber.firstElementChild &&
+    secondNumber.firstElementChild &&
+    operator.firstElementChild
+  ) {
+    calculate(firstNumber, secondNumber, operator);
   }
 }
-
 
 function calculate(firstNumber, secondNumber, operator) {
   const firstOperand = Number(firstNumber.firstElementChild.textContent);
@@ -125,11 +133,10 @@ function calculate(firstNumber, secondNumber, operator) {
       result = firstOperand * secondOperand;
       break;
     case "÷":
-      result = Math.trunc(firstOperand / secondOperand);
+      result = firstOperand / secondOperand;
   }
   saveResult(result);
   resetFields(firstNumber, secondNumber, operator);
-
 }
 
 function resetFields(firstNumber, secondNumber, operator) {
@@ -141,16 +148,22 @@ function resetFields(firstNumber, secondNumber, operator) {
 function saveResult(result) {
   removeResultClass();
   const span = document.createElement("span");
+  const boxes = document.querySelectorAll(".avail");
   span.classList.add("number", "result");
   span.setAttribute("draggable", "true");
   span.textContent = result;
   span.addEventListener("dragstart", dragStart);
   span.addEventListener("dragend", dragEnd);
-  dragItemSource.appendChild(span);
+  for (let i = 0; i < boxes.length; i++) {
+    if (!boxes[i].firstElementChild) {
+      boxes[i].appendChild(span);
+      break;
+    }
+  }
 }
 
 function removeResultClass() {
-  document.querySelectorAll(".result").forEach(item => {
+  document.querySelectorAll(".result").forEach((item) => {
     item.classList.remove("result");
-  })
+  });
 }
