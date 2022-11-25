@@ -3,24 +3,37 @@
   window.location.href = "start.html";
 }*/
 
-window.addEventListener("beforeunload", (e) => {
+window.addEventListener("beforeunload", preventAccidentalClose);
+
+function preventAccidentalClose(e) {
   e.preventDefault();
-});
+}
 
-const firstTurn = Math.floor(Math.random() * (1 - 0 + 1) + 0);
-setTurnInfo(getTurnInfo(firstTurn)[0], getTurnInfo(firstTurn)[1]);
-
-const availableNumbers = JSON.parse(sessionStorage.getItem("availableNumbers"));
-const numberBoxes = document.querySelectorAll(".number-box .number");
+let currentTurn = Number(null);
 let dragItem = null;
 let dragItemSource = null;
 let playerName = null;
 let playerColor = null;
 let turnOver = false;
 let gameOver = false;
+let operationLog = [];
+const numberBoxes = document.querySelectorAll(".available-numbers .number-box .number");
 
-for (let i = 0; i < 6; i++) {
-  numberBoxes[i].textContent = availableNumbers[i];
+if (sessionStorage.getItem("turn") === null) {
+  currentTurn = Math.floor(Math.random() * (1 - 0 + 1) + 0);
+} else {
+  currentTurn = Number(sessionStorage.getItem("turn"));
+}
+
+setTurnInfo(getTurnInfo(currentTurn)[0], getTurnInfo(currentTurn)[1]);
+fillNumberBoxes();
+
+function fillNumberBoxes() {
+
+  const availableNumbers = JSON.parse(sessionStorage.getItem("availableNumbers"));
+  for (let i = 0; i < 6; i++) {
+    numberBoxes[i].textContent = availableNumbers[i];
+  }
 }
 
 document.getElementById("target-number").textContent =
@@ -42,7 +55,10 @@ droppables.forEach((element) => {
 });
 
 function changeTurn() {
-
+  const turn = currentTurn === 0 ? 1 : 0;
+  window.removeEventListener("beforeunload", preventAccidentalClose);
+  location.reload();
+  sessionStorage.setItem("turn", turn);
 }
 
 function getTurnInfo(playerNumber) {
@@ -57,7 +73,6 @@ function setTurnInfo(playerName, playerColor) {
   document.getElementById("player-name").textContent = playerName;
   document.getElementById("player_icon").style.fill = playerColor;
 }
-
 
 function dragStart(e) {
   dragItem = e.target;
@@ -97,12 +112,7 @@ function drop(e) {
         correctDrop = true;
       }
     } else {
-      if (
-        !(
-          dragItem.classList.contains("number") &&
-          e.target.classList.contains("operator-box")
-        )
-      ) {
+      if (dragItem.classList.contains("number") && e.target.classList.contains("number-box")) {
         correctDrop = true;
       }
     }
@@ -118,8 +128,10 @@ function drop(e) {
 
 function sendNumberBack(box) {
   if (box.firstElementChild.classList.contains("operator")) {
-    box.removeChild(box.firstElementChild);
-    box.appendChild(dragItem);
+    if (!dragItem.classList.contains("number")) {
+      box.removeChild(box.firstElementChild);
+      box.appendChild(dragItem);
+    }
   } else {
     if (dragItem.classList.contains("number")) {
       dragItemSource.appendChild(box.firstElementChild);
@@ -164,8 +176,16 @@ function calculate(firstNumber, secondNumber, operator) {
     case "÷":
       result = Math.trunc(firstOperand / secondOperand);
   }
+  saveOperation(firstNumber, secondNumber, operator);
   saveResult(result);
   resetFields(firstNumber, secondNumber, operator);
+  console.log(operationLog);
+}
+
+
+function saveOperation(firstNumber, secondNumber, operator) {
+  const operation = `${firstNumber.firstElementChild.textContent} ${operator.firstElementChild.textContent} ${secondNumber.firstElementChild.textContent}`;
+  operationLog.push(operation);
 }
 
 function resetFields(firstNumber, secondNumber, operator) {
@@ -217,3 +237,5 @@ function checkValidDrop(destination) {
 function resetStyles(destination) {
   destination.style.backgroundColor = "";
 }
+
+
