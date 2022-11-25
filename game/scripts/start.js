@@ -56,14 +56,12 @@ document
 function storePlayers() {
   const player1 = {
     name: document.getElementById("player1_name").value.trim(),
-    color: document.getElementById("player1_color").value.trim(),
-    score: 0,
+    color: document.getElementById("player1_color").value
   };
 
   const player2 = {
     name: document.getElementById("player2_name").value.trim(),
-    color: document.getElementById("player2_color").value.trim(),
-    score: 0,
+    color: document.getElementById("player2_color").value
   };
 
   const players = [player1, player2];

@@ -151,8 +151,8 @@ body {
     margin-top: 20px;
 }
 
-.operation div {
-    width: 42px;
+.operation .drop-field {
+    width: 50px;
     height: 42px;
     font-size: 2.35em;
     border-radius: 10px;
@@ -169,12 +169,16 @@ body {
     font-size: 4em;
 }
 
-
-
 .operation .number-box {
     width: 52px;
     height: 32px;
 }
+
+.dragover {
+    outline: dashed;
+    transition: all 0.05s;
+}
+
 
 #falling-operators div {
     position: absolute;
@@ -318,7 +322,7 @@ body {
     }
 
 
-    .operation div {
+    .operation .drop-field {
         font-size: 2.5em;
         width: 24px;
         height: 32px;

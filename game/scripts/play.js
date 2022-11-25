@@ -1,3 +1,4 @@
+"use strict"
 /*if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }*/
@@ -6,10 +7,17 @@ window.addEventListener("beforeunload", (e) => {
   e.preventDefault();
 });
 
+const firstTurn = Math.floor(Math.random() * (1 - 0 + 1) + 0);
+setTurnInfo(getTurnInfo(firstTurn)[0], getTurnInfo(firstTurn)[1]);
+
 const availableNumbers = JSON.parse(sessionStorage.getItem("availableNumbers"));
 const numberBoxes = document.querySelectorAll(".number-box .number");
 let dragItem = null;
 let dragItemSource = null;
+let playerName = null;
+let playerColor = null;
+let turnOver = false;
+let gameOver = false;
 
 for (let i = 0; i < 6; i++) {
   numberBoxes[i].textContent = availableNumbers[i];
@@ -33,6 +41,24 @@ droppables.forEach((element) => {
   element.addEventListener("drop", drop);
 });
 
+function changeTurn() {
+
+}
+
+function getTurnInfo(playerNumber) {
+  const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
+  const playerName = players[playerNumber]["name"];
+  const playerColor = players[playerNumber]["color"];
+
+  return [playerName, playerColor];
+}
+
+function setTurnInfo(playerName, playerColor) {
+  document.getElementById("player-name").textContent = playerName;
+  document.getElementById("player_icon").style.fill = playerColor;
+}
+
+
 function dragStart(e) {
   dragItem = e.target;
   if (!e.target.classList.contains("operator")) {
@@ -47,19 +73,21 @@ function dragEnd(e) {
 }
 
 function dragOver(e) {
-  e.preventDefault();
-  if (!e.target.classList.contains("number")) {
-    e.target.style.borderStyle = "dashed";
-    e.target.style.transition = ".05s";
+  if (e.target.tagName === "DIV") {
+    e.preventDefault();
+    e.target.classList.add("dragover");
+    checkValidDrop(e.target);
   }
 }
 
 function dragLeave(e) {
   e.preventDefault();
-  e.target.style.borderStyle = "";
+  e.target.classList.remove("dragover");
+  resetStyles(e.target);
 }
 
 function drop(e) {
+  resetStyles(e.target);
   let correctDrop = false;
   if (e.target.firstElementChild) {
     sendNumberBack(e.target);
@@ -84,24 +112,22 @@ function drop(e) {
       checkOperation();
     }
 
-    e.target.style.borderStyle = "";
+    e.target.classList.remove("dragover");
   }
 }
 
 function sendNumberBack(box) {
   if (box.firstElementChild.classList.contains("operator")) {
     box.removeChild(box.firstElementChild);
+    box.appendChild(dragItem);
   } else {
     if (dragItem.classList.contains("number")) {
       dragItemSource.appendChild(box.firstElementChild);
-    } else 
-  }
+      box.appendChild(dragItem);
+    }
 
-  if (dragItem.classList.contains("number")) {
-    box.appendChild(dragItem);
   }
-
-  box.style.borderStyle = "";
+  box.classList.remove("dragover");
 }
 
 function checkOperation() {
@@ -128,12 +154,15 @@ function calculate(firstNumber, secondNumber, operator) {
       break;
     case "-":
       result = firstOperand - secondOperand;
+      if (result < 0) {
+        result = 0;
+      }
       break;
     case "×":
       result = firstOperand * secondOperand;
       break;
     case "÷":
-      result = firstOperand / secondOperand;
+      result = Math.trunc(firstOperand / secondOperand);
   }
   saveResult(result);
   resetFields(firstNumber, secondNumber, operator);
@@ -166,4 +195,25 @@ function removeResultClass() {
   document.querySelectorAll(".result").forEach((item) => {
     item.classList.remove("result");
   });
+}
+
+function checkValidDrop(destination) {
+  let isDropValid = true;
+  if (destination.classList.contains("number-box") && dragItem.classList.contains("operator")) {
+    isDropValid = false;
+  }
+
+  if (destination.classList.contains("operator-box") && dragItem.classList.contains("number")) {
+    isDropValid = false;
+  }
+
+  if (isDropValid) {
+    destination.style.backgroundColor = "rgba(0,128,0,0.45)";
+  } else {
+    destination.style.backgroundColor = "rgba(239,83,80,0.45)";
+  }
+}
+
+function resetStyles(destination) {
+  destination.style.backgroundColor = "";
 }

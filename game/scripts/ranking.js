@@ -2,7 +2,7 @@ document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
-const players = JSON.parse(localStorage.getItem("currentPlayers"));
+const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 
 players.forEach((player) => {
   const playerName = player["name"];
