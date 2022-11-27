@@ -97,46 +97,10 @@ body {
     width: 80px;
     height: 80px;
     transform: rotateY(-180deg) rotateZ(-90deg);
-    border: 3px solid black;
-    box-sizing: border-box;
+    outline: 4.15px solid black;
     border-radius: 100%;
     background-color: rgba(0, 128, 0, 0.10);
     animation: timer-background 60s linear 1 forwards;
-}
-
-#timer::before {
-    content: '';
-    width: 90px;
-    height: 90px;
-    border: 3px solid black;
-    position: absolute;
-    display: block;
-    top: -7px;
-    left: -7px;
-    border-radius: 100%;
-}
-
-#timer::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    top: -15px;
-    left: 30px;
-    position: absolute;
-    border: 3px solid black;
-    border-bottom: none;
-    border-top: none;
-}
-
-#timer-number::before {
-    content: '';
-    width: 25px;
-    height: 7px;
-    top: -25px;
-    left: 22.4px;
-    position: absolute;
-    border: 3px solid black;
-    border-radius: 5px;
 }
 
 #timer svg circle {
