@@ -241,7 +241,7 @@ body {
 }
 
 #operators button {
- margin: 20px;
+    margin: 20px;
 }
 
 
@@ -341,7 +341,7 @@ body {
     font-size: 32px;
     border: none;
     background-color: #009688;
-    box-shadow: 5px 5px 0px 0px rgb(2, 84, 76);
+    box-shadow: 0 7px 0 rgb(2, 84, 76);
     color: #edeff3;
     cursor: pointer;
     display: flex;
@@ -350,6 +350,11 @@ body {
     border-radius: 10px;
     font-family: inherit;
     font-weight: bold;
+}
+
+#skip-turn:active {
+    box-shadow: 0 4px 0 rgb(2, 84, 76);
+    transform: translateY(3.5px);
 }
 
 #falling-operators div {
