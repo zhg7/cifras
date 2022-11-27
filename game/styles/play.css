@@ -15,17 +15,17 @@ body {
 }
 
 #table {
-    width: 80%;
+    width: 650px;
+    height: 525px;
     padding: 100px;
+    padding-top: 50px;
+    padding-bottom: 135px;
     background-color: #0b2942;
-    display: grid;
-    place-items: center;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
     z-index: 3;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
     align-items: center;
 }
@@ -33,7 +33,7 @@ body {
 
 #info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 50px;
     background-color: #d6deeb;
     border-radius: 10px;
@@ -41,9 +41,157 @@ body {
     width: 610px;
 }
 
+.icon_border {
+    width: 130px;
+    height: 110px;
+    text-align: center;
+}
+
+.icon_border svg {
+    margin-top: 0.2em;
+    width: 110px;
+    height: 110px;
+}
+
+#player-name {
+    margin: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#last-operation {
+    margin-right: 50%;
+    width: 280px;
+    height: 26px;
+    font-size: 16px;
+}
+
+#last-operation span {
+    display: block;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#timer {
+    right: 130px;
+    top: 130px;
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    text-align: center;
+}
+
+#timer-number {
+    color: black;
+    display: inline-block;
+    line-height: 80px;
+    font-weight: 800;
+    font-size: 2.75em;
+}
+
+#timer svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+    border: 3px solid black;
+    box-sizing: border-box;
+    border-radius: 100%;
+    background-color: rgba(0, 128, 0, 0.10);
+    animation: timer-background 60s linear 1 forwards;
+}
+
+#timer::before {
+    content: '';
+    width: 90px;
+    height: 90px;
+    border: 3px solid black;
+    position: absolute;
+    display: block;
+    top: -7px;
+    left: -7px;
+    border-radius: 100%;
+}
+
+#timer::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: -15px;
+    left: 30px;
+    position: absolute;
+    border: 3px solid black;
+    border-bottom: none;
+    border-top: none;
+}
+
+#timer-number::before {
+    content: '';
+    width: 25px;
+    height: 7px;
+    top: -25px;
+    left: 22.4px;
+    position: absolute;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+#timer svg circle {
+    stroke-dasharray: 225px;
+    stroke-dashoffset: 0px;
+    stroke-width: 7.5px;
+    stroke: #1ab550;
+    fill: none;
+    animation: timer-countdown 60s linear 1 forwards;
+}
+
+
+@keyframes timer-background {
+    0% {
+        background-color: rgba(0, 128, 0, 0.10);
+    }
+
+    45% {
+        background-color: rgba(231, 205, 74, 0.25);
+    }
+
+    80% {
+        background-color: rgba(239, 83, 80, 0.25);
+    }
+
+    100% {
+        background-color: rgba(239, 83, 80, 0.25);
+    }
+}
+
+@keyframes timer-countdown {
+    0% {
+        stroke-dashoffset: 0px;
+        stroke: #1ab550;
+    }
+
+    45% {
+        stroke: #eeb416;
+    }
+
+    80% {
+        stroke: #e02232;
+    }
+
+    100% {
+        stroke-dashoffset: 225px;
+        stroke: #e02232;
+    }
+}
+
 #target-number {
-    font-size: 5em;
+    opacity: 0.75;
+    font-size: 7.5em;
     font-weight: 900;
+    margin-right: 100%;
 }
 
 [draggable="true"] {
@@ -62,11 +210,11 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    align-self: center;
     gap: 15px;
     background-color: #d6deeb;
     border-radius: 10px;
     padding: 35px;
+
 }
 
 #operators {

@@ -1,7 +1,7 @@
 "use strict"
-/*if (sessionStorage.getItem("started") !== "yes") {
+if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
-}*/
+}
 
 window.addEventListener("beforeunload", preventAccidentalClose);
 
@@ -12,11 +12,12 @@ function preventAccidentalClose(e) {
 let currentTurn = Number(null);
 let dragItem = null;
 let dragItemSource = null;
-let playerName = null;
+let currentPlayerName = "";
 let playerColor = null;
 let turnOver = false;
 let gameOver = false;
 let operationLog = [];
+let lastResult = 0;
 const numberBoxes = document.querySelectorAll(".available-numbers .number-box .number");
 
 if (sessionStorage.getItem("turn") === null) {
@@ -27,6 +28,31 @@ if (sessionStorage.getItem("turn") === null) {
 
 setTurnInfo(getTurnInfo(currentTurn)[0], getTurnInfo(currentTurn)[1]);
 fillNumberBoxes();
+
+let timerNumber = document.getElementById('timer-number');
+/*let time = 45;
+timerNumber.textContent = time;
+const countdown = setInterval(() => {
+  time--;
+  if (time === 0) {
+    timerNumber.textContent = 0;
+    changeTurn();
+  }
+  timerNumber.textContent = time;
+}, 1000);*/
+
+// Cuenta atrás de ronda
+const roundTime = 60000; // ms
+const expectedTime = Date.now() + roundTime;
+timerNumber.textContent = roundTime / 1000;
+setInterval(countdownTimer);
+function countdownTimer() {
+  const timeLeft = expectedTime - Date.now();
+  if (timeLeft < 0) {
+    changeTurn();
+  }
+  timerNumber.textContent = Math.round(timeLeft / 1000);
+}
 
 function fillNumberBoxes() {
 
@@ -55,6 +81,8 @@ droppables.forEach((element) => {
 });
 
 function changeTurn() {
+  sessionStorage.setItem(`player${currentTurn}_operations`, JSON.stringify(operationLog));
+  sessionStorage.setItem(`player${currentTurn}_result`, lastResult);
   const turn = currentTurn === 0 ? 1 : 0;
   window.removeEventListener("beforeunload", preventAccidentalClose);
   location.reload();
@@ -65,6 +93,7 @@ function getTurnInfo(playerNumber) {
   const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
   const playerName = players[playerNumber]["name"];
   const playerColor = players[playerNumber]["color"];
+  currentPlayerName = players[playerNumber]["name"]
 
   return [playerName, playerColor];
 }
@@ -159,32 +188,31 @@ function checkOperation() {
 function calculate(firstNumber, secondNumber, operator) {
   const firstOperand = Number(firstNumber.firstElementChild.textContent);
   const secondOperand = Number(secondNumber.firstElementChild.textContent);
-  let result = 0;
   switch (operator.firstElementChild.textContent) {
     case "+":
-      result = firstOperand + secondOperand;
+      lastResult = firstOperand + secondOperand;
       break;
     case "-":
-      result = firstOperand - secondOperand;
-      if (result < 0) {
-        result = 0;
+      lastResult = firstOperand - secondOperand;
+      if (lastResult < 0) {
+        lastResult = 0;
       }
       break;
     case "×":
-      result = firstOperand * secondOperand;
+      lastResult = firstOperand * secondOperand;
       break;
     case "÷":
-      result = Math.trunc(firstOperand / secondOperand);
+      lastResult = Math.trunc(firstOperand / secondOperand);
   }
-  saveOperation(firstNumber, secondNumber, operator);
-  saveResult(result);
+  saveOperation(firstNumber, secondNumber, operator, lastResult);
+  saveResult(lastResult);
   resetFields(firstNumber, secondNumber, operator);
-  console.log(operationLog);
+  displayLastOperation();
 }
 
 
-function saveOperation(firstNumber, secondNumber, operator) {
-  const operation = `${firstNumber.firstElementChild.textContent} ${operator.firstElementChild.textContent} ${secondNumber.firstElementChild.textContent}`;
+function saveOperation(firstNumber, secondNumber, operator, result) {
+  const operation = `${firstNumber.firstElementChild.textContent} ${operator.firstElementChild.textContent} ${secondNumber.firstElementChild.textContent} = ${result}`;
   operationLog.push(operation);
 }
 
@@ -209,6 +237,11 @@ function saveResult(result) {
       break;
     }
   }
+
+}
+
+function displayLastOperation() {
+  document.querySelector("#last-operation span").textContent = operationLog[operationLog.length - 1];
 }
 
 function removeResultClass() {
