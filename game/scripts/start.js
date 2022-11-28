@@ -13,13 +13,13 @@ document.getElementById("play-btn").addEventListener("click", playEventHandler);
 function playEventHandler() {
   const nameFields = document.querySelectorAll(".player_name");
   const emptyFields = [];
-  nameFields.forEach(field => {
+  nameFields.forEach((field) => {
     if (field.value.trim() === "") {
       emptyFields.push(field);
     } else {
       revertFieldStyles(field);
     }
-  })
+  });
 
   if (emptyFields.length === 0) {
     document.getElementById("overlay").classList.add("is-visible");
@@ -27,7 +27,6 @@ function playEventHandler() {
   } else {
     highlightEmptyFields(emptyFields);
   }
-
 }
 
 document.getElementById("back-btn").addEventListener("click", () => {
@@ -46,22 +45,20 @@ document.querySelectorAll(".player_color").forEach((picker) => {
   });
 });
 
-document
-  .getElementById("confirm-play-btn")
-  .addEventListener("click", () => {
-    storePlayers();
-    window.location.href = "../game/randomizer.html";
-  });
+document.getElementById("confirm-play-btn").addEventListener("click", () => {
+  storePlayers();
+  window.location.href = "../game/randomizer.html";
+});
 
 function storePlayers() {
   const player1 = {
     name: document.getElementById("player1_name").value.trim(),
-    color: document.getElementById("player1_color").value
+    color: document.getElementById("player1_color").value,
   };
 
   const player2 = {
     name: document.getElementById("player2_name").value.trim(),
-    color: document.getElementById("player2_color").value
+    color: document.getElementById("player2_color").value,
   };
 
   const players = [player1, player2];
@@ -81,7 +78,7 @@ document.querySelectorAll(".player-icon").forEach((player) => {
 });
 
 function highlightEmptyFields(fields) {
-  fields.forEach(field => {
+  fields.forEach((field) => {
     field.style.backgroundColor = "rgba(239,83,80,0.70)";
     field.classList.add("error-shake");
     field.nextElementSibling.classList.add("error-shake");
@@ -89,8 +86,7 @@ function highlightEmptyFields(fields) {
       field.classList.remove("error-shake");
       field.nextElementSibling.classList.remove("error-shake");
     }, 500);
-
-  })
+  });
 }
 
 function revertFieldStyles(field) {

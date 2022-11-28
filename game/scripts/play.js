@@ -1,11 +1,13 @@
-"use strict"
+"use strict";
 if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }
 
 window.addEventListener("beforeunload", preventAccidentalClose);
 
-document.getElementById("skip-turn").addEventListener("click", changeTurn);
+if (sessionStorage.getItem("turn") === null) {
+  document.getElementById("skip-turn").addEventListener("click", changeTurn);
+}
 
 function preventAccidentalClose(e) {
   e.preventDefault();
@@ -20,7 +22,9 @@ let turnOver = false;
 let gameOver = false;
 let operationLog = [];
 let lastResult = 0;
-const numberBoxes = document.querySelectorAll(".available-numbers .number-box .number");
+const numberBoxes = document.querySelectorAll(
+  ".available-numbers .number-box .number"
+);
 
 if (sessionStorage.getItem("turn") === null) {
   currentTurn = Math.floor(Math.random() * (1 - 0 + 1) + 0);
@@ -31,34 +35,27 @@ if (sessionStorage.getItem("turn") === null) {
 setTurnInfo(getTurnInfo(currentTurn)[0], getTurnInfo(currentTurn)[1]);
 fillNumberBoxes();
 
-let timerNumber = document.getElementById('timer-number');
-/*let time = 45;
-timerNumber.textContent = time;
-const countdown = setInterval(() => {
-  time--;
-  if (time === 0) {
-    timerNumber.textContent = 0;
-    changeTurn();
-  }
-  timerNumber.textContent = time;
-}, 1000);*/
-
+let timerNumber = document.getElementById("timer-number");
 // Cuenta atrás de ronda
 const roundTime = 60000; // ms
 const expectedTime = Date.now() + roundTime;
 timerNumber.textContent = roundTime / 1000;
-setInterval(countdownTimer);
+const countdown = setInterval(countdownTimer);
 function countdownTimer() {
   const timeLeft = expectedTime - Date.now();
   if (timeLeft < 0) {
-    changeTurn();
+    clearInterval(countdown);
+    if (sessionStorage.getItem("turn") === null) {
+      changeTurn();
+    }
   }
   timerNumber.textContent = Math.round(timeLeft / 1000);
 }
 
 function fillNumberBoxes() {
-
-  const availableNumbers = JSON.parse(sessionStorage.getItem("availableNumbers"));
+  const availableNumbers = JSON.parse(
+    sessionStorage.getItem("availableNumbers")
+  );
   for (let i = 0; i < 6; i++) {
     numberBoxes[i].textContent = availableNumbers[i];
   }
@@ -72,6 +69,7 @@ const draggables = document.querySelectorAll("[draggable='true']");
 draggables.forEach((element) => {
   element.addEventListener("dragstart", dragStart);
   element.addEventListener("dragend", dragEnd);
+  element.addEventListener("touchstart", dragStart);
 });
 
 const droppables = document.querySelectorAll("[droppable='true']");
@@ -80,10 +78,14 @@ droppables.forEach((element) => {
   element.addEventListener("dragover", dragOver);
   element.addEventListener("dragleave", dragLeave);
   element.addEventListener("drop", drop);
+  element.addEventListener("touchstart", drop);
 });
 
 function changeTurn() {
-  sessionStorage.setItem(`player${currentTurn}_operations`, JSON.stringify(operationLog));
+  sessionStorage.setItem(
+    `player${currentTurn}_operations`,
+    JSON.stringify(operationLog)
+  );
   sessionStorage.setItem(`player${currentTurn}_result`, lastResult);
   const turn = currentTurn === 0 ? 1 : 0;
   window.removeEventListener("beforeunload", preventAccidentalClose);
@@ -95,7 +97,7 @@ function getTurnInfo(playerNumber) {
   const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
   const playerName = players[playerNumber]["name"];
   const playerColor = players[playerNumber]["color"];
-  currentPlayerName = players[playerNumber]["name"]
+  currentPlayerName = players[playerNumber]["name"];
 
   return [playerName, playerColor];
 }
@@ -103,6 +105,12 @@ function getTurnInfo(playerNumber) {
 function setTurnInfo(playerName, playerColor) {
   document.getElementById("player-name").textContent = playerName;
   document.getElementById("player_icon").style.fill = playerColor;
+}
+
+function endGame() {}
+
+function droppableTouch(e) {
+  e.target.append(dragItem);
 }
 
 function dragStart(e) {
@@ -143,7 +151,10 @@ function drop(e) {
         correctDrop = true;
       }
     } else {
-      if (dragItem.classList.contains("number") && e.target.classList.contains("number-box")) {
+      if (
+        dragItem.classList.contains("number") &&
+        e.target.classList.contains("number-box")
+      ) {
         correctDrop = true;
       }
     }
@@ -168,7 +179,6 @@ function sendNumberBack(box) {
       dragItemSource.appendChild(box.firstElementChild);
       box.appendChild(dragItem);
     }
-
   }
   box.classList.remove("dragover");
 }
@@ -212,7 +222,6 @@ function calculate(firstNumber, secondNumber, operator) {
   displayLastOperation();
 }
 
-
 function saveOperation(firstNumber, secondNumber, operator, result) {
   const operation = `${firstNumber.firstElementChild.textContent} ${operator.firstElementChild.textContent} ${secondNumber.firstElementChild.textContent} = ${result}`;
   operationLog.push(operation);
@@ -233,17 +242,18 @@ function saveResult(result) {
   span.textContent = result;
   span.addEventListener("dragstart", dragStart);
   span.addEventListener("dragend", dragEnd);
+  span.addEventListener("touchstart", dragStart);
   for (let i = 0; i < boxes.length; i++) {
     if (!boxes[i].firstElementChild) {
       boxes[i].appendChild(span);
       break;
     }
   }
-
 }
 
 function displayLastOperation() {
-  document.querySelector("#last-operation span").textContent = operationLog[operationLog.length - 1];
+  document.querySelector("#last-operation span").textContent =
+    operationLog[operationLog.length - 1];
 }
 
 function removeResultClass() {
@@ -254,11 +264,17 @@ function removeResultClass() {
 
 function checkValidDrop(destination) {
   let isDropValid = true;
-  if (destination.classList.contains("number-box") && dragItem.classList.contains("operator")) {
+  if (
+    destination.classList.contains("number-box") &&
+    dragItem.classList.contains("operator")
+  ) {
     isDropValid = false;
   }
 
-  if (destination.classList.contains("operator-box") && dragItem.classList.contains("number")) {
+  if (
+    destination.classList.contains("operator-box") &&
+    dragItem.classList.contains("number")
+  ) {
     isDropValid = false;
   }
 
@@ -272,5 +288,3 @@ function checkValidDrop(destination) {
 function resetStyles(destination) {
   destination.style.backgroundColor = "";
 }
-
-
