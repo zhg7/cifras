@@ -259,6 +259,9 @@ input:checked+.slider::before {
 }
 
 .modal {
+    height: 450px;
+    overflow-y: scroll;
+    scrollbar-width: none;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s;
@@ -274,6 +277,10 @@ input:checked+.slider::before {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     z-index: 5;
 }
+
+.modal::-webkit-scrollbar {
+    display: none;
+  }
 
 .overlay {
     pointer-events: none;
