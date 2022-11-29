@@ -403,7 +403,8 @@ body {
 
     #table {
         width: 100%;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     #info {
@@ -437,71 +438,73 @@ body {
 }
 
 @media (max-width: 500px) {
+
+    html,
+    body {
+        overflow: hidden;
+    }
+
     #table {
         width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     #info {
-        width: 350px;
-    }
-
-    #operations {
-        flex-direction: column;
-    }
-
-    #operators {
-        margin-top: 0;
+        width: 290px;
+        position: relative;
     }
 
     #operators,
     .operation-area {
-        width: 325px;
+        width: 320px;
 
     }
-
-    .icon_border {
-        width: 72px;
-        height: 72px;
-        text-align: center;
-    }
-
     .icon_border svg {
-        margin-top: 0.2em;
-        width: 72px;
-        height: 72px;
+        width: 85px;
+        height: 85px;
+        margin-right: 100%;
+    }
+
+    #player-name {
+        margin-left: -40px;
+        margin-top: -10px;
+        font-size: 1.1em;
     }
 
     #target-number {
+        position: absolute;
         font-size: 3.5em;
-        margin-left: 45px;
+        margin-right: 280px;
     }
 
     #last-operation {
-        margin-left: 45px;
+        position: absolute;
+        bottom: -2.5px;
+        left: 10px;
+        width: 100%;
+    }
+
+    #last-operation span {
+        display: inline;
+        font-size: 1.10em;
     }
 
     #timer {
-        right: 140px;
-        top: 100px;
+        right: 32px;
+        top: 55px;
     }
 
-    .available-numbers .number-box {
-        width: 50px;
-        height: 32px;
+    .available-numbers .number-box,
+    .operation .number-box {
+        width: 82px;
+        height: 72px;
         font-size: 2.25em;
     }
 
-
-    .operation .drop-field {
-        font-size: 2.5em;
-        width: 24px;
-        height: 32px;
-
-    }
-
-    #operators span {
-        width: 24px;
-        height: 32px;
+    .operation .operator-box {
+        height: 62px;
+        width: 75px;
     }
 
     .button-wrapper {
@@ -509,5 +512,7 @@ body {
         display: grid;
         place-items: center;
     }
+
+
 
 }
