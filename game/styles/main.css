@@ -280,7 +280,7 @@ input:checked+.slider::before {
 
 .modal::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .overlay {
     pointer-events: none;
@@ -359,24 +359,25 @@ input:checked+.slider::before {
 }
 
 @media (max-width: 500px) {
+
+    html,
+    body {
+        overflow: hidden;
+    }
+
     #menu {
-        width: 245px;
-    
+        height: 100%;
     }
 
     #title {
-        font-size: 32px;
+        font-size: 3.5em;
     }
 
     figure img {
-        width: 85px;
+        width: 95px;
     }
 
     .action-button {
-        font-size: 24px;
-    }
-
-    .menu-icon {
-        height: 28px;
+        font-size: 2.1em;
     }
 }

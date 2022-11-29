@@ -399,6 +399,7 @@ body {
     }
 }
 
+
 @media (max-width: 760px) {
 
     #table {
@@ -493,6 +494,10 @@ body {
     #timer {
         right: 32px;
         top: 55px;
+    }
+
+    #timer-number {
+        font-size: 1.85em;
     }
 
     .available-numbers .number-box,

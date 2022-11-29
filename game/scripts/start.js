@@ -29,10 +29,6 @@ function playEventHandler() {
   }
 }
 
-document.getElementById("back-btn").addEventListener("click", () => {
-  window.location.href = "../index.html";
-});
-
 document.querySelectorAll(".player_color").forEach((picker) => {
   picker.addEventListener("input", (e) => {
     const playerIcon = document.getElementById(
