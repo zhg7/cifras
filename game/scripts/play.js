@@ -5,9 +5,8 @@ if (sessionStorage.getItem("started") !== "yes") {
 
 window.addEventListener("beforeunload", preventAccidentalClose);
 
-if (sessionStorage.getItem("turn") === null) {
   document.getElementById("skip-turn").addEventListener("click", changeTurn);
-}
+
 
 function preventAccidentalClose(e) {
   e.preventDefault();

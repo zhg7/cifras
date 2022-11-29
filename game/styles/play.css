@@ -402,11 +402,12 @@ body {
 @media (max-width: 760px) {
 
     #table {
-        width: 400px;
+        width: 100%;
+        overflow: scroll;
     }
 
     #info {
-        width: 350px;
+        width: 85%;
     }
 
     #operations {
@@ -419,19 +420,22 @@ body {
 
     #operators,
     .operation-area {
-        display: flex;
-        width: 400px;
+        width: 550px;
+    }
+
+    #timer {
+        right: 180px;
     }
 
 }
 
 @media (max-width: 500px) {
     #table {
-        width: 200px;
+        width: 100%;
     }
 
     #info {
-        width: 200px;
+        width: 300px;
     }
 
     #operations {
@@ -444,9 +448,34 @@ body {
 
     #operators,
     .operation-area {
-        display: flex;
-        width: 250px;
+        width: 325px;
 
+    }
+
+    .icon_border {
+        width: 72px;
+        height: 72px;
+        text-align: center;
+    }
+    
+    .icon_border svg {
+        margin-top: 0.2em;
+        width: 72px;
+        height: 72px;
+    }
+
+    #target-number {
+        font-size: 3.5em;
+        margin-left: 45px;
+    }
+
+    #last-operation {
+        margin-left: 45px;
+    }
+
+    #timer {
+        right: 140px;
+        top: 100px;
     }
 
     .available-numbers .number-box {
