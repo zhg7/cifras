@@ -416,6 +416,7 @@ body {
 
     #operators {
         margin-top: 0;
+        display: flex;
     }
 
     #operators,
@@ -427,6 +428,12 @@ body {
         right: 180px;
     }
 
+    .button-wrapper {
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -435,7 +442,7 @@ body {
     }
 
     #info {
-        width: 300px;
+        width: 350px;
     }
 
     #operations {
@@ -457,7 +464,7 @@ body {
         height: 72px;
         text-align: center;
     }
-    
+
     .icon_border svg {
         margin-top: 0.2em;
         width: 72px;
@@ -495,6 +502,12 @@ body {
     #operators span {
         width: 24px;
         height: 32px;
+    }
+
+    .button-wrapper {
+        width: 100%;
+        display: grid;
+        place-items: center;
     }
 
 }
