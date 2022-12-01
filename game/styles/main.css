@@ -125,12 +125,14 @@ input:checked+.slider::before {
 }
 
 .action-button {
+    height: 53px;
     width: 250px;
     padding: 10px;
     font-size: 32px;
     margin: 15px;
     border: none;
     background-color: #084d81;
+    box-shadow: 0 7px 0 #021e33;
     color: #d6deeb;
     cursor: pointer;
     display: flex;
@@ -141,11 +143,49 @@ input:checked+.slider::before {
     z-index: 2;
     font-family: inherit;
     font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:active {
+    box-shadow: 0 4px 0 #021e33;
+    transform: translateY(3.5px);
 }
 
 .action-button:hover {
     color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px #084d81;
+}
+
+#play-btn:hover img {
+    position: absolute;
+    animation: play-dash 0.5s ease-in-out 1 forwards;
+
+}
+
+#play-btn:hover span {
+    position: absolute;
+    animation: play-text-dash 0.5s ease-in-out 1 forwards;
+
+}
+
+@keyframes play-text-dash {
+    from {
+        top: 20px;
+    }
+
+    to {
+        top: -40px;
+    }
+}
+
+@keyframes play-dash {
+    from {
+        left: 32%;
+    }
+
+    to {
+        left: 45%;
+    }
 }
 
 

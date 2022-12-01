@@ -192,6 +192,7 @@ img {
     margin: 15px;
     border: none;
     background-color: #084d81;
+    box-shadow: 0 7px 0 #03355c;
     color: #d6deeb;
     cursor: pointer;
     display: flex;
@@ -204,36 +205,21 @@ img {
     font-weight: bold;
 }
 
+.action-button:active {
+    box-shadow: 0 4px 0 #021e33;
+    transform: translateY(3.5px);
+}
+
 .action-button:hover {
     color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px #084d81;
-}
-
-.action-button:hover img {
-    position: absolute;
-    animation: bounce 1s ease infinite;
-}
-
-
-@keyframes bounce {
-    0% {
-        left: 25px;
-    }
-
-    50% {
-        left: 10px;
-    }
-
-    100% {
-        left: 25px;
-    }
-
 }
 
 #confirm-play-btn {
     height: 45px;
     position: relative;
     overflow: hidden;
+    box-shadow: none;
+    transform: none;
 }
 
 
@@ -271,7 +257,6 @@ img {
 #confirm-play-btn:hover::after {
     top: 0;
     background-color: #357a38;
-    box-shadow: 0 5px 15px #357a38;
 }
 
 
