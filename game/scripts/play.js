@@ -14,7 +14,6 @@ function preventAccidentalClose(e) {
 let currentTurn = Number(null);
 let dragItem = null;
 let dragItemSource = null;
-let currentPlayerName = "";
 let playerColor = null;
 let turnOver = false;
 let gameOver = false;
@@ -95,7 +94,6 @@ function getTurnInfo(playerNumber) {
   const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
   const playerName = players[playerNumber]["name"];
   const playerColor = players[playerNumber]["color"];
-  currentPlayerName = players[playerNumber]["name"];
 
   return [playerName, playerColor];
 }
@@ -106,13 +104,20 @@ function setTurnInfo(playerName, playerColor) {
 }
 
 function endGame() {
+  document.title = "Cifras: fin de partida";
+  stopTimer();
   const playerIcons = document.querySelectorAll(".game-over-player-icon");
+  const playerNames = document.querySelectorAll(".game-over-player-name");
   const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i <= 1; i++) {
     playerIcons[i].style.fill = players[i]["color"];
+    playerNames[i].textContent = players[i]["name"];
   }
-  
+
+  outputOperations()
+
+
   document.getElementById("overlay").classList.add("is-visible");
   document.getElementById("game-over-modal").classList.add("is-visible");
 }
@@ -291,4 +296,23 @@ function checkValidDrop(destination) {
 
 function resetStyles(destination) {
   destination.style.backgroundColor = "";
+}
+
+function stopTimer() {
+  document.querySelector("#timer svg").style.animationPlayState = "paused";
+  document.querySelector("#timer svg circle").style.animationPlayState = "paused";
+  clearInterval(countdown);
+}
+
+function outputOperations() {
+  const operationLogs = document.querySelectorAll(".operation-log");
+  const firstPlayer = JSON.parse(sessionStorage.getItem("player0_operations"));
+  const secondPlayer = JSON.parse(sessionStorage.getItem("player1_operations"));
+  const operations = [firstPlayer, secondPlayer];
+
+  for (let i = 0; i < operationLogs.length; i++) {
+    for (let j = 0; j < operations[i].length; j++) {
+      operationLogs[i].insertAdjacentHTML("beforeend", `<li>${operations[i][j]}</li>`);
+    }
+  }
 }
