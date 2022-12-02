@@ -164,7 +164,7 @@ input:checked+.slider::before {
 
 #play-btn:hover span {
     position: absolute;
-    animation: play-text-dash 0.5s ease-in-out 1 forwards;
+    animation: play-text-dash 0.3s ease-in-out 1 forwards;
 
 }
 

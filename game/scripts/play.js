@@ -87,8 +87,8 @@ function changeTurn() {
   sessionStorage.setItem(`player${currentTurn}_result`, lastResult);
   const turn = currentTurn === 0 ? 1 : 0;
   window.removeEventListener("beforeunload", preventAccidentalClose);
-  location.reload();
   sessionStorage.setItem("turn", turn);
+  location.reload();
 }
 
 function getTurnInfo(playerNumber) {
@@ -105,10 +105,16 @@ function setTurnInfo(playerName, playerColor) {
   document.getElementById("player_icon").style.fill = playerColor;
 }
 
-function endGame() {}
+function endGame() {
+  const playerIcons = document.querySelectorAll(".game-over-player-icon");
+  const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 
-function droppableTouch(e) {
-  e.target.append(dragItem);
+  for (let i = 0; i < 2; i++) {
+    playerIcons[i].style.fill = players[i]["color"];
+  }
+  
+  document.getElementById("overlay").classList.add("is-visible");
+  document.getElementById("game-over-modal").classList.add("is-visible");
 }
 
 function dragStart(e) {
