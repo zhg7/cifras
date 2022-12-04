@@ -1,0 +1,152 @@
+@import url(fonts.css);
+
+html,
+body {
+    background-color: #011627;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-image: url("../assets/img/wave.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inconsolata';
+}
+
+#gameover {
+    height: 500px;
+    width: 500px;
+    padding: 100px;
+    background-color: #0b2942;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+#title {
+    margin: 0;
+    color: #d6deeb;
+    font-size: 72px;
+    font-weight: bold;
+    display: block;
+    border-right: 4px solid;
+    width: 12ch;
+    animation: typing 2s steps(12), blink .5s infinite step-end alternate;
+    overflow: hidden;
+    cursor: default;
+    user-select: none;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.results {
+    width: 90%;
+    height: 100%;
+    margin-top: 20px;
+    background-color: #d6deeb;
+    border-radius: 10px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+#info-help {
+    align-self: center;
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+.player {
+    width: 475px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    background-color: #c1d1ea;
+    border-radius: 7px;
+    align-self: center;
+
+}
+
+.game-over-player-name {
+    background-color: #084d8190;
+    color: whitesmoke;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 0;
+    padding: 5px;
+    width: 90px;
+}
+
+.icon_border {
+    width: 84px;
+    height: 84px;
+    text-align: center;
+}
+
+.icon_border svg {
+    width: 84px;
+    height: 84px;
+
+}
+
+.result {
+    font-size: 2.45em;
+    font-weight: bold;
+}
+
+#target-number {
+    font-size: 0.5em;
+    opacity: 0.7;
+}
+
+
+.score {
+    font-size: 1.95em;
+    font-weight: bold;
+    width: 110px;
+}
+
+#score-text {
+    font-size: 0.7em;
+    opacity: 0.7; 
+}
+
+.view-operations {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+
+}
+
+.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}

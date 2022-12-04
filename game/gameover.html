@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifras: fin de juego</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="styles/gameover.css">
+    <script src="scripts/gameover.js" defer></script>
+</head>
+
+<body>
+    <div id="gameover">
+        <header>
+            <h1 id="title">Fin&nbsp;de&nbsp;juego</h1>
+        </header>
+        <section class="results">
+            <header id="info-help">Jugador / Resultado / Puntuación / Ver operaciones</header>
+            <div class="players">
+                <div class="player" id="player1">
+                    <div class="icon_border">
+                        <svg class="game-over-player-icon" id="player1_icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg>
+                        <h2 class="game-over-player-name">Jugador 1</h2>
+                        <ol class="operation-log">
+                        </ol>
+                    </div>
+                    <div class="result">
+                        <span id="player-result">2342</span> <span id="target-number">(762)</span>
+                    </div>
+                    <div class="score">
+                        +<span id="score">2</span><span id="score-text">   ptos.</span>
+                    </div>
+                    <button class="view-operations" type="button">👀</button>
+                </div>
+                <div class="player" id="player2">
+                    <div class="icon_border">
+                        <svg class="game-over-player-icon" id="player2_icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg>
+                        <h2 class="game-over-player-name">Jugador 2</h2>
+                        <ol class="operation-log">
+                        </ol>
+                    </div>
+                    <div class="result">
+                        <span id="player-result">2342</span> <span id="target-number">(762)</span>
+                    </div>
+                    <div class="score">
+                        +<span id="score">20</span><span id="score-text">   ptos.</span>
+                    </div>
+                    <button class="view-operations" type="button">👀</button>
+                </div>
+            </div>
+        </section>
+        <section class="buttons">
+            <button type="button">Volver a jugar</button>
+            <button type="button">Ir al ranking</button>
+            <button type="button">Ir al inicio</button>
+        </section>
+    </div>
+</body>
+
+</html>
