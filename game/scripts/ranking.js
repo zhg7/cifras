@@ -2,10 +2,10 @@ document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
-const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
+const players = JSON.parse(localStorage.getItem("ranking"));
 
 players.forEach((player) => {
-  const playerName = player["name"];
+  const playerName = player["player"];
   const playerScore = player["score"];
   const table = document.getElementById("ranking-table");
   const row = table.insertRow(table.rows.length);

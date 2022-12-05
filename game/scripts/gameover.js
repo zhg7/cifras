@@ -37,7 +37,7 @@ function calculateScore(player) {
       score = 0;
     }
   }
-  saveScore(players[player]["name"], score);
+  saveScore(players[player]["name"], Number(score));
   return score;
 }
 
@@ -46,11 +46,12 @@ function setResults() {
   const playerIcons = document.querySelectorAll(".game-over-player-icon");
   const playerNames = document.querySelectorAll(".game-over-player-name");
   const playerResults = document.querySelectorAll(".player-result");
+  const playerScores = document.querySelectorAll(".player-score");
   document.getElementById("target-number").textContent = `(${targetNumber})`;
   for (let i = 0; i <= 1; i++) {
-    calculateScore(i);
     playerIcons[i].style.fill = players[i]["color"];
     playerNames[i].textContent = players[i]["name"];
+    playerScores[i].textContent = calculateScore(i);
     playerResults[i].textContent = results[i];
   }
 }
@@ -74,5 +75,24 @@ function emptyOperationLog() {
 }
 
 function saveScore(playerName, score) {
+  const ranking = JSON.parse(localStorage.getItem("ranking"));
+  if (!ranking.some(p => p.player === playerName)) {
+    const player = {
+      player: playerName,
+      score: score
+    };
+    ranking.push(player);
+  } else {
+    const playerIndex = ranking.findIndex(p => p.player === playerName)
+    ranking[playerIndex].score += score;
+  }
 
+  localStorage.setItem("ranking", JSON.stringify(ranking));
+  sortRanking();
+}
+
+function sortRanking() {
+  const ranking = JSON.parse(localStorage.getItem("ranking"));
+  ranking.sort((a, b) => b.score - a.score);
+  localStorage.setItem("ranking", JSON.stringify(ranking));
 }

@@ -64,4 +64,6 @@ document.querySelectorAll(".clicky").forEach((element) => {
   });
 });
 
-localStorage.setItem("ranking", "[]");
+if (localStorage.getItem("ranking" === null)) {
+  localStorage.setItem("ranking", "[]");
+}
