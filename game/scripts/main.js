@@ -63,3 +63,5 @@ document.querySelectorAll(".clicky").forEach((element) => {
     buttonAudio2.play();
   });
 });
+
+localStorage.setItem("ranking", "[]");

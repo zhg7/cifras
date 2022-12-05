@@ -119,10 +119,11 @@ body {
 .result {
     font-size: 2.45em;
     font-weight: bold;
+    width: 100px;
 }
 
 #target-number {
-    font-size: 0.5em;
+    font-size: 1.2em;
     opacity: 0.7;
 }
 
