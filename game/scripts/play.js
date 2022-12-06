@@ -303,7 +303,3 @@ function stopTimer() {
   document.querySelector("#timer svg circle").style.animationPlayState = "paused";
   clearInterval(countdown);
 }
-
-function outputOperations() {
-
-}

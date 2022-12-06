@@ -88,14 +88,11 @@ function moveProgressBar() {
   const progressBar = document.querySelector(".bar");
   const seconds = document.querySelector("label span");
   let secondsLeft = 5;
+  progressBar.style.animationPlayState = "running";
   setInterval(() => {
     if (secondsLeft > 0) {
       secondsLeft--;
       seconds.textContent = secondsLeft;
     }
   }, 1000);
-
-  setTimeout(() => {
-    progressBar.style.width = "0%";
-  });
 }
