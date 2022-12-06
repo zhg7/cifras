@@ -102,6 +102,8 @@ body {
     margin-top: 0;
     padding: 5px;
     width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .icon_border {
@@ -120,6 +122,8 @@ body {
     font-size: 2.45em;
     font-weight: bold;
     width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #target-number {

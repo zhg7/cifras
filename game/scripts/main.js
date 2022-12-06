@@ -1,3 +1,7 @@
+if (localStorage.getItem("ranking" === null)) {
+  localStorage.setItem("ranking", "[]");
+}
+
 // Modal de ayuda
 document.getElementById("help-modal-btn").addEventListener("click", () => {
   document.getElementById("overlay").classList.add("is-visible");
@@ -64,6 +68,3 @@ document.querySelectorAll(".clicky").forEach((element) => {
   });
 });
 
-if (localStorage.getItem("ranking" === null)) {
-  localStorage.setItem("ranking", "[]");
-}
