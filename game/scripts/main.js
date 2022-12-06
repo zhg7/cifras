@@ -1,4 +1,4 @@
-if (localStorage.getItem("ranking" === null)) {
+if (localStorage.getItem("ranking") === null) {
   localStorage.setItem("ranking", "[]");
 }
 
