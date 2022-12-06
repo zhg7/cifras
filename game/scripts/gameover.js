@@ -10,6 +10,19 @@ document.getElementById("operation-log-close-btn").addEventListener("click", () 
   emptyOperationLog()
 });
 
+document.getElementById("ranking-btn").addEventListener("click", () => {
+    window.location.href = "ranking.html";
+});
+
+document.getElementById("home-btn").addEventListener("click", () => {
+  window.location.href = "../index.html";
+});
+
+document.getElementById("play-btn").addEventListener("click", () => {
+  sessionStorage.setItem("playAgain", "yes");
+  window.location.href = "start.html";
+});
+
 const operationList = document.getElementById("operation-log")
 const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 const targetNumber = Number(sessionStorage.getItem("targetNumber"));
@@ -51,7 +64,7 @@ function setResults() {
   for (let i = 0; i <= 1; i++) {
     playerIcons[i].style.fill = players[i]["color"];
     playerNames[i].textContent = players[i]["name"];
-    playerScores[i].textContent = calculateScore(i);
+    playerScores[i].textContent = `+${calculateScore(i)}`;
     playerResults[i].textContent = results[i];
   }
 }

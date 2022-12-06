@@ -588,11 +588,10 @@ body {
     }
 
     .button-wrapper {
+        margin-bottom: 20px;
         width: 100%;
         display: grid;
         place-items: center;
     }
-
-
 
 }

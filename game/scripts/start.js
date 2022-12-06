@@ -10,6 +10,11 @@ document.getElementById("play-close-btn").addEventListener("click", () => {
 
 document.getElementById("play-btn").addEventListener("click", playEventHandler);
 
+if (sessionStorage.getItem("playAgain") !== null) {
+  fillFields();
+  sessionStorage.removeItem("playAgain");
+}
+
 function playEventHandler() {
   const nameFields = document.querySelectorAll(".player_name");
   const emptyFields = [];
@@ -78,6 +83,7 @@ function highlightEmptyFields(fields) {
     field.style.backgroundColor = "rgba(239,83,80,0.70)";
     field.classList.add("error-shake");
     field.nextElementSibling.classList.add("error-shake");
+    navigator.vibrate(50);
     setTimeout(() => {
       field.classList.remove("error-shake");
       field.nextElementSibling.classList.remove("error-shake");
@@ -87,4 +93,16 @@ function highlightEmptyFields(fields) {
 
 function revertFieldStyles(field) {
   field.style.backgroundColor = "";
+}
+
+function fillFields() {
+  const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
+  const playerNames = document.querySelectorAll(".player_name");
+  const playerColors = document.querySelectorAll(".player_color");
+  const playerIcons = document.querySelectorAll(".player-icon");
+  for (let i = 0; i <= 1; i++) {
+    playerNames[i].value = players[i]["name"];
+    playerColors[i].value = players[i]["color"];
+    playerIcons[i].style.fill = players[i]["color"];
+  }
 }

@@ -154,6 +154,42 @@ body {
     transform: scale(1.4);
 }
 
+.buttons {
+    display: flex;
+}
+
+.action-button {
+    height: 53px;
+    width: 150px;
+    padding: 10px;
+    font-size: 1.15em;
+    margin: 15px;
+    border: none;
+    background-color: #084d81;
+    box-shadow: 0 7px 0 #021e33;
+    color: #d6deeb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.15s ease-in-out;
+    z-index: 2;
+    font-family: inherit;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:active {
+    box-shadow: 0 4px 0 #021e33;
+    transform: translateY(3.5px);
+}
+
+.action-button:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
 .modal {
     height: 250px;
     overflow-y: scroll;
@@ -271,4 +307,42 @@ ol#operation-log {
 .is-visible {
     opacity: 1;
     pointer-events: auto;
+}
+
+@media (max-width: 500px) {
+
+    html,
+    body {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    #gameover {
+        height: 100%;
+    }
+
+    .results {
+        height: 300px;
+        width: 310px;
+    }
+
+    .player {
+        width: 400px;
+    }
+
+    #info-help {
+        font-size: 1.05em;
+    }
+
+    #title {
+        font-size: 3.5em;
+    }
+
+    .player-result, .player-score {
+        font-size: 0.7em;
+    }
+
+    .action-button {
+        width: 110px;
+    }
 }

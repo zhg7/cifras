@@ -103,19 +103,8 @@ function setTurnInfo(playerName, playerColor) {
   document.getElementById("player_icon").style.fill = playerColor;
 }
 
-function endGame() {
-  document.title = "Cifras: fin de partida";
-  stopTimer();
-
-
-  outputOperations()
-
-
-  document.getElementById("overlay").classList.add("is-visible");
-  document.getElementById("game-over-modal").classList.add("is-visible");
-}
-
 function dragStart(e) {
+  navigator.vibrate(50);
   dragItem = e.target;
   if (!e.target.classList.contains("operator")) {
     dragItemSource = e.target.parentElement;
@@ -143,6 +132,7 @@ function dragLeave(e) {
 }
 
 function drop(e) {
+  navigator.vibrate(50);
   resetStyles(e.target);
   let correctDrop = false;
   if (e.target.firstElementChild) {
@@ -164,6 +154,8 @@ function drop(e) {
     if (correctDrop) {
       e.target.appendChild(dragItem);
       checkOperation();
+    } else {
+      navigator.vibrate(120);
     }
 
     e.target.classList.remove("dragover");
@@ -175,11 +167,15 @@ function sendNumberBack(box) {
     if (!dragItem.classList.contains("number")) {
       box.removeChild(box.firstElementChild);
       box.appendChild(dragItem);
+    } else {
+      navigator.vibrate(120);
     }
   } else {
     if (dragItem.classList.contains("number")) {
       dragItemSource.appendChild(box.firstElementChild);
       box.appendChild(dragItem);
+    } else {
+      navigator.vibrate(120);
     }
   }
   box.classList.remove("dragover");
@@ -298,5 +294,5 @@ function stopTimer() {
 }
 
 function outputOperations() {
-  
+
 }
