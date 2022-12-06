@@ -1,4 +1,5 @@
 "use strict";
+
 if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }
@@ -14,7 +15,6 @@ const targetNumber = Number(sessionStorage.getItem("targetNumber"));
 let currentTurn = Number(null);
 let dragItem = null;
 let dragItemSource = null;
-let playerColor = null;
 let operationLog = [];
 let lastResult = 0;
 const numberBoxes = document.querySelectorAll(
@@ -41,9 +41,7 @@ function countdownTimer() {
   const timeLeft = expectedTime - Date.now();
   if (timeLeft < 0) {
     clearInterval(countdown);
-    if (sessionStorage.getItem("turn") === null) {
-      changeTurn();
-    }
+    changeTurn();
   }
   timerNumber.textContent = Math.round(timeLeft / 1000);
 }
@@ -221,14 +219,13 @@ function calculate(firstNumber, secondNumber, operator) {
   }
   saveOperation(firstNumber, secondNumber, operator, lastResult);
   saveResult(lastResult);
+  displayLastOperation();
+  resetFields(firstNumber, secondNumber, operator);
 
-  if (lastResult === targetNumber) {
+  if (lastResult === targetNumber || operationsLeft() === 1) {
     changeTurn();
-    console.log("xdd");
   }
 
-  resetFields(firstNumber, secondNumber, operator);
-  displayLastOperation();
 }
 
 function saveOperation(firstNumber, secondNumber, operator, result) {
@@ -302,4 +299,15 @@ function stopTimer() {
   document.querySelector("#timer svg").style.animationPlayState = "paused";
   document.querySelector("#timer svg circle").style.animationPlayState = "paused";
   clearInterval(countdown);
+}
+
+function operationsLeft() {
+  let counter = 0;
+  const availableNumbers = document.querySelectorAll(".avail");
+  for (let i = 0; i < availableNumbers.length && counter <= 1; i++) {
+    if (availableNumbers[i].firstElementChild) {
+      counter++;
+    }
+  }
+  return counter;
 }
