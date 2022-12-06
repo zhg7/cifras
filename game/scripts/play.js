@@ -2,7 +2,6 @@
 if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }
-
 window.addEventListener("beforeunload", preventAccidentalClose);
 
 document.getElementById("skip-turn").addEventListener("click", changeTurn);
@@ -11,12 +10,11 @@ function preventAccidentalClose(e) {
   e.preventDefault();
 }
 
+const targetNumber = Number(sessionStorage.getItem("targetNumber"));
 let currentTurn = Number(null);
 let dragItem = null;
 let dragItemSource = null;
 let playerColor = null;
-let turnOver = false;
-let gameOver = false;
 let operationLog = [];
 let lastResult = 0;
 const numberBoxes = document.querySelectorAll(
@@ -32,8 +30,9 @@ if (sessionStorage.getItem("turn") === null) {
 setTurnInfo(getTurnInfo(currentTurn)[0], getTurnInfo(currentTurn)[1]);
 fillNumberBoxes();
 
-let timerNumber = document.getElementById("timer-number");
+
 // Cuenta atrás de ronda
+let timerNumber = document.getElementById("timer-number");
 const roundTime = 60000; // ms
 const expectedTime = Date.now() + roundTime;
 timerNumber.textContent = roundTime / 1000;
@@ -58,8 +57,7 @@ function fillNumberBoxes() {
   }
 }
 
-document.getElementById("target-number").textContent =
-  sessionStorage.getItem("targetNumber");
+document.getElementById("target-number").textContent = targetNumber;
 
 const draggables = document.querySelectorAll("[draggable='true']");
 
@@ -79,15 +77,22 @@ droppables.forEach((element) => {
 });
 
 function changeTurn() {
+  window.removeEventListener("beforeunload", preventAccidentalClose);
   sessionStorage.setItem(
     `player${currentTurn}_operations`,
     JSON.stringify(operationLog)
   );
   sessionStorage.setItem(`player${currentTurn}_result`, lastResult);
-  const turn = currentTurn === 0 ? 1 : 0;
-  window.removeEventListener("beforeunload", preventAccidentalClose);
-  sessionStorage.setItem("turn", turn);
-  location.reload();
+
+  if (sessionStorage.getItem("turnChanged") === "yes") {
+    sessionStorage.removeItem("turnChanged");
+    window.location.href = "gameover.html";
+  } else {
+    sessionStorage.setItem("turnChanged", "yes");
+    const turn = currentTurn === 0 ? 1 : 0;
+    sessionStorage.setItem("turn", turn);
+    location.reload();
+  }
 }
 
 function getTurnInfo(playerNumber) {
@@ -216,6 +221,12 @@ function calculate(firstNumber, secondNumber, operator) {
   }
   saveOperation(firstNumber, secondNumber, operator, lastResult);
   saveResult(lastResult);
+
+  if (lastResult === targetNumber) {
+    changeTurn();
+    console.log("xdd");
+  }
+
   resetFields(firstNumber, secondNumber, operator);
   displayLastOperation();
 }

@@ -1,3 +1,5 @@
+"use strict";
+
 document.getElementById("overlay").addEventListener("click", () => {
   document.getElementById("overlay").classList.remove("is-visible");
   document.getElementById("operation-log-modal").classList.remove("is-visible");
