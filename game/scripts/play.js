@@ -75,22 +75,27 @@ droppables.forEach((element) => {
 });
 
 function changeTurn() {
-  window.removeEventListener("beforeunload", preventAccidentalClose);
-  sessionStorage.setItem(
-    `player${currentTurn}_operations`,
-    JSON.stringify(operationLog)
-  );
-  sessionStorage.setItem(`player${currentTurn}_result`, lastResult);
+  const delay = sessionStorage.getItem("turnChanged") === "yes" ? 3000 : 1100;
+  showLoadingScreen();
+  setTimeout(() => {
+    window.removeEventListener("beforeunload", preventAccidentalClose);
+    sessionStorage.setItem(
+      `player${currentTurn}_operations`,
+      JSON.stringify(operationLog)
+    );
+    sessionStorage.setItem(`player${currentTurn}_result`, lastResult);
 
-  if (sessionStorage.getItem("turnChanged") === "yes") {
-    sessionStorage.removeItem("turnChanged");
-    window.location.href = "gameover.html";
-  } else {
-    sessionStorage.setItem("turnChanged", "yes");
-    const turn = currentTurn === 0 ? 1 : 0;
-    sessionStorage.setItem("turn", turn);
-    location.reload();
-  }
+    if (sessionStorage.getItem("turnChanged") === "yes") {
+      sessionStorage.removeItem("turnChanged");
+      window.location.href = "gameover.html";
+    } else {
+      sessionStorage.setItem("turnChanged", "yes");
+      const turn = currentTurn === 0 ? 1 : 0;
+      sessionStorage.setItem("turn", turn);
+      location.reload();
+    }
+  }, Number(delay))
+
 }
 
 function getTurnInfo(playerNumber) {
@@ -310,4 +315,19 @@ function operationsLeft() {
     }
   }
   return counter;
+}
+
+function showLoadingScreen() {
+  const overlay = document.querySelector(".overlay");
+  const loadingScreen = document.querySelector(".loading-screen");
+  const gameMessage = document.querySelector(".game-message");
+  overlay.classList.add("is-visible");
+  loadingScreen.classList.add("is-visible");
+
+  if (sessionStorage.getItem("turnChanged") === "yes") {
+    gameMessage.textContent = "Finalizando partida..."
+    setTimeout(() => {
+      gameMessage.textContent = "Calculando puntuación..."
+    }, 1000)
+  }
 }
