@@ -75,7 +75,8 @@ droppables.forEach((element) => {
 });
 
 function changeTurn() {
-  const delay = sessionStorage.getItem("turnChanged") === "yes" ? 3000 : 1100;
+  const delay = sessionStorage.getItem("turnChanged") === "yes" ? 2200 : 1100;
+  stopTimer();
   showLoadingScreen();
   setTimeout(() => {
     window.removeEventListener("beforeunload", preventAccidentalClose);

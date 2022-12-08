@@ -13,7 +13,7 @@ document.getElementById("operation-log-close-btn").addEventListener("click", () 
 });
 
 document.getElementById("ranking-btn").addEventListener("click", () => {
-    window.location.href = "ranking.html";
+  window.location.href = "ranking.html";
 });
 
 document.getElementById("home-btn").addEventListener("click", () => {
@@ -28,6 +28,9 @@ document.getElementById("play-btn").addEventListener("click", () => {
 const operationList = document.getElementById("operation-log")
 const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 const targetNumber = Number(sessionStorage.getItem("targetNumber"));
+const playerScores = document.querySelectorAll(".player-score");
+const playerNames = document.querySelectorAll(".game-over-player-name");
+
 
 const operationLogButtons = document.querySelectorAll(".view-operations");
 operationLogButtons.forEach(button => {
@@ -37,6 +40,10 @@ operationLogButtons.forEach(button => {
 })
 
 setResults();
+
+if (getWinner() !== null){
+  displayWinnerScreen(getWinner());
+}
 
 function calculateScore(player) {
   const result = Number(sessionStorage.getItem(`player${player}_result`));
@@ -59,9 +66,7 @@ function calculateScore(player) {
 function setResults() {
   const results = [sessionStorage.getItem("player0_result"), sessionStorage.getItem("player1_result")];
   const playerIcons = document.querySelectorAll(".game-over-player-icon");
-  const playerNames = document.querySelectorAll(".game-over-player-name");
   const playerResults = document.querySelectorAll(".player-result");
-  const playerScores = document.querySelectorAll(".player-score");
   document.getElementById("target-number").textContent = `(${targetNumber})`;
   for (let i = 0; i <= 1; i++) {
     playerIcons[i].style.fill = players[i]["color"];
@@ -74,10 +79,12 @@ function setResults() {
 function showOperationLog(player) {
   const playerName = players[Number(player.substr(-1)) - 1]["name"];
   const playerOperations = JSON.parse(sessionStorage.getItem(`player${Number(player.substr(-1)) - 1}_operations`));
-  playerOperations.forEach(op => {
-    operationList.insertAdjacentHTML("beforeend", `<li>${op}</li>`);
-  })
-
+  if (playerOperations.length > 0) {
+    operationList.removeChild(operationList.firstElementChild);
+    playerOperations.forEach(op => {
+      operationList.insertAdjacentHTML("beforeend", `<li>${op}</li>`);
+    })
+  }
   document.getElementById("overlay").classList.add("is-visible");
   document.getElementById("operation-log-modal").classList.add("is-visible");
   document.getElementById("player-log").textContent = playerName;
@@ -87,6 +94,7 @@ function emptyOperationLog() {
   while (operationList.firstElementChild) {
     operationList.removeChild(operationList.firstElementChild)
   }
+  operationList.insertAdjacentHTML("beforeend", `<span>No ha hecho nada.</span>`);
 }
 
 function saveScore(playerName, score) {
@@ -110,4 +118,18 @@ function sortRanking() {
   const ranking = JSON.parse(localStorage.getItem("ranking"));
   ranking.sort((a, b) => b.score - a.score);
   localStorage.setItem("ranking", JSON.stringify(ranking));
+}
+
+function getWinner() {
+  let winner = null;
+  if (Number(playerScores[0].textContent) > Number(playerScores[1].textContent)) {
+    winner = playerNames[0].textContent;
+  } else if (Number(playerScores[1].textContent) > Number(playerScores[0].textContent)) {
+    winner = playerNames[1].textContent;
+  }
+  return winner;
+}
+
+function displayWinnerScreen(winner){
+  
 }
