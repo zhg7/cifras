@@ -41,9 +41,9 @@ body {
     border-right: 4px solid;
     width: 12ch;
     animation: typing 2s steps(12), blink .5s infinite step-end alternate;
+    animation-play-state: paused;
     overflow: hidden;
     cursor: default;
-    user-select: none;
 }
 
 @keyframes typing {
@@ -261,6 +261,8 @@ ol#operation-log {
 }
 
 .winner-screen {
+    height: 100%;
+    width: 100%;
     pointer-events: none;
     position: fixed;
     z-index: 5;
@@ -275,8 +277,111 @@ ol#operation-log {
     justify-content: center;
     gap: 20px;
     color: whitesmoke;
-    font-size: 1.2em;
     font-weight: 700;
+    text-align: center;
+}
+
+.winner-screen p {
+    font-size: 1.2em;
+   
+}
+
+.game-message {
+    font-size: 5em;
+}
+
+
+
+.confetti {
+    z-index: -1;
+    top: -35px;
+    position: absolute;
+    width: 15px;
+    height: 30px;
+    animation: confetti 3s linear infinite;
+}
+
+@keyframes confetti {
+    0% {
+        transform: translateX(0) rotate(45deg) rotateY(0deg) rotateZ(5deg);
+        top: -10%;
+    }
+
+    50% {
+        transform: translateX(90px) rotate(-45deg) rotateY(720deg) rotateZ(20deg);
+    }
+
+    100% {
+        top: 110%;
+        transform: translateX(0) rotate(45deg) rotateY(1440deg) rotateZ(5deg);
+    }
+
+}
+
+.confetti:nth-child(1) {
+    left: 5%;
+    animation-delay: 1s;
+    background-color: #addb67;
+}
+
+.confetti:nth-child(2) {
+    left: 25%;
+    animation-delay: 6s;
+    background-color: #ecc48d;
+}
+
+.confetti:nth-child(3) {
+    left: 20%;
+    animation-delay: 4.5s;
+    background-color: #ff6363;
+}
+
+.confetti:nth-child(4) {
+    left: 90%;
+    animation-delay: 2s;
+    background-color: #c792ea;
+}
+
+.confetti:nth-child(5) {
+    left: 50%;
+    animation-delay: 8s;
+    background-color: #f78c6c;
+}
+
+.confetti:nth-child(6) {
+    left: 60%;
+    animation-delay: 6s;
+    background-color: #7fdbca;
+}
+
+.confetti:nth-child(7) {
+    left: 75%;
+    animation-delay: 2.5s;
+    background-color: #009688;
+}
+
+.confetti:nth-child(8) {
+    left: 80%;
+    animation-delay: 1s;
+    background-color: #eeffff;
+}
+
+.confetti:nth-child(9) {
+    left: 90%;
+    animation-delay: 3s;
+    background-color: #FF79C5;
+}
+
+.confetti:nth-child(10) {
+    left: 10%;
+    animation-delay: 2s;
+    background-color: #ffd866;
+}
+
+.confetti:nth-child(11) {
+    left: 65%;
+    animation-delay: 4.35s;
+    background-color: #3A66D1;
 }
 
 .modal-close-btn {
@@ -409,6 +514,17 @@ ol#operation-log {
     }
 }
 
+@media (max-width: 760px) {
+    .confetti {
+        width: 13.5px;
+        height: 20px;
+    }
+
+    .game-message {
+        font-size: 3.5em;
+    }
+}
+
 @media (max-width: 500px) {
 
     html,
@@ -446,4 +562,19 @@ ol#operation-log {
     .action-button {
         width: 110px;
     }
+
+    .confetti {
+        width: 10px;
+        height: 15px;
+    }
+
+    .game-message {
+        font-size: 2.3em;
+    }
+
+    .winner-screen p {
+        font-size: 0.95em;
+    }
+
+
 }

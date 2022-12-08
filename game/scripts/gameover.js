@@ -1,9 +1,24 @@
 "use strict";
 
+const operationList = document.getElementById("operation-log")
+const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
+const targetNumber = Number(sessionStorage.getItem("targetNumber"));
+const playerScores = document.querySelectorAll(".player-score");
+const playerNames = document.querySelectorAll(".game-over-player-name");
+const winnerOverlay = document.getElementById("winner-overlay");
+const winnerScreen = document.querySelector(".winner-screen");
+
+// Event Listeners de modal y overlay
 document.getElementById("overlay").addEventListener("click", () => {
   document.getElementById("overlay").classList.remove("is-visible");
   document.getElementById("operation-log-modal").classList.remove("is-visible");
   emptyOperationLog()
+});
+
+winnerScreen.addEventListener("click", () => {
+  winnerOverlay.classList.remove("is-visible");
+  winnerScreen.classList.remove("is-visible");
+  document.getElementById("title").style.animationPlayState = "running";
 });
 
 document.getElementById("operation-log-close-btn").addEventListener("click", () => {
@@ -12,6 +27,14 @@ document.getElementById("operation-log-close-btn").addEventListener("click", () 
   emptyOperationLog()
 });
 
+const operationLogButtons = document.querySelectorAll(".view-operations");
+operationLogButtons.forEach(button => {
+  button.addEventListener("click", (e) => {
+    showOperationLog(e.target.parentElement.id)
+  })
+})
+
+// Event Listeners de redirección.
 document.getElementById("ranking-btn").addEventListener("click", () => {
   window.location.href = "ranking.html";
 });
@@ -25,23 +48,9 @@ document.getElementById("play-btn").addEventListener("click", () => {
   window.location.href = "start.html";
 });
 
-const operationList = document.getElementById("operation-log")
-const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
-const targetNumber = Number(sessionStorage.getItem("targetNumber"));
-const playerScores = document.querySelectorAll(".player-score");
-const playerNames = document.querySelectorAll(".game-over-player-name");
-
-
-const operationLogButtons = document.querySelectorAll(".view-operations");
-operationLogButtons.forEach(button => {
-  button.addEventListener("click", (e) => {
-    showOperationLog(e.target.parentElement.id)
-  })
-})
-
 setResults();
 
-if (getWinner() !== null){
+if (getWinner() !== null) {
   displayWinnerScreen(getWinner());
 }
 
@@ -130,6 +139,10 @@ function getWinner() {
   return winner;
 }
 
-function displayWinnerScreen(winner){
-  
+function displayWinnerScreen(winner) {
+  const player = document.getElementById("winner");
+  player.textContent = winner;
+  winnerOverlay.classList.add("is-visible");
+  winnerScreen.classList.add("is-visible");
 }
+

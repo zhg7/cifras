@@ -33,17 +33,24 @@ fillNumberBoxes();
 
 // Cuenta atrás de ronda
 let timerNumber = document.getElementById("timer-number");
+let audioPlayed = false;
 const roundTime = 60000; // ms
 const expectedTime = Date.now() + roundTime;
 timerNumber.textContent = roundTime / 1000;
 const countdown = setInterval(countdownTimer);
 function countdownTimer() {
   const timeLeft = expectedTime - Date.now();
+  if (!audioPlayed && timeLeft < 8600) {
+    const buttonAudio = new Audio("../game/assets/audio/ticking.mp3");
+    buttonAudio.play()
+    audioPlayed = true;
+  }
   if (timeLeft < 0) {
     clearInterval(countdown);
     changeTurn();
   }
   timerNumber.textContent = Math.round(timeLeft / 1000);
+ 
 }
 
 function fillNumberBoxes() {
