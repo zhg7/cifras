@@ -43,30 +43,42 @@
                     <div class="rightleft"></div>
                 </button>
                 <h1>Ayuda</h1>
-                <p style="text-align: justify"><strong>Cifras</strong> es un juego de cálculo mental para 2 jugadores.
-                    Se generan
-                    6 números aleatorios
-                    junto a un número
-                    objetivo.<br /><br />
-                    Los jugadores deben realizar operaciones aritméticas
-                    con esos 6 números y llegar a un resultado que sea igual o lo más cercano posible
-                    al número objetivo.
-                <h3>Cómo jugar</h3>
-                    En primer lugar, los jugadores introducen sus nombres y pueden elegir un color. Luego, generarán manualmente 6 números.
-                <h3>Consideraciones</h3>
-                <ul>
-                    <li>Los números <b><u>no</u></b> pueden ser reutilizados.</li>
-                    <li>Los resultados negativos se convertirán a un 0.</li>
-                    <li>A los resultados con decimales se les quitarán las decimales.</li>
-                </ul>
-                <h3>Puntuaciones</h3>
-                <ul>
-                    <li>10 puntos si se obtiene el número objetivo exacto.</li>
-                    <li>1 punto menos por cada número de diferencia entre el resultado y el objetivo —se perderán 9 como
-                        máximo—.</li>
-                    <li>1 punto por el simple hecho de jugar —si se realiza al menos una operación—.</li>
-                </ul>
-                </p>
+                <div id="help">
+                    <p><strong>Cifras</strong> es un juego de cálculo mental para 2 jugadores.
+                        Se generan
+                        6 números aleatorios
+                        junto a un número
+                        objetivo.</p>
+                    <p>Los jugadores deben realizar operaciones aritméticas
+                        con esos 6 números y llegar a un resultado que sea igual o lo más cercano posible
+                        al número objetivo.</p>
+                    <h3>Instrucciones</h3>
+                    <p>En primer lugar, los jugadores deben introducir sus nombres y pueden, opcionalmente, elegir un
+                    color.</p>
+                    <p>A continuación, generarán manualmente los <b>6 números</b> para, finalmente, dar comienzo a la
+                    partida. Cada turno dura <b>1 minuto</b>. Es posible saltar el turno antes de tiempo.</p>
+                    <p>En navegadores de escritorio, las operaciones se realizan arrastrando, y soltando los números y operadores. En móviles, se debe pulsar en el elemento deseado y pulsar nuevamente en donde se quiera soltar.</p>
+                    <video width="320" height="150" controls preload="auto">
+                        <source src="game/assets/video/help-1.mp4" type="video/mp4">
+                      </video> 
+                    <p>Los números son <b>intercambiables</b>, es decir, podemos soltar uno encima de otro y el que estaba en ese lugar se moverá a la posición que tenía ese. En el caso del operador, será sustituido por el nuevo que soltemos.</p>
+                    <p>En cuanto los tres espacios de la zona de operaciones estén ocupados se efectuará, automáticamente, la operación correspondiente.</p>
+                    <h3>Consideraciones</h3>
+                    <ul>
+                        <li>Los números <b><u>no</u></b> pueden ser reutilizados.</li>
+                        <li>Solo se tiene en cuenta el resultado de la <b><u>última</u></b> operación realizada (aparece subrayado).</li>
+                        <li>Los resultados negativos se convertirán a un 0.</li>
+                        <li>A los resultados con decimales se les quitarán las decimales.</li>
+                    </ul>
+                    <h3>Puntuaciones</h3>
+                    <ul>
+                        <li>10 puntos si se obtiene el número objetivo exacto.</li>
+                        <li>1 punto menos por cada número de diferencia entre el resultado y el objetivo —se perderán 9
+                            como
+                            máximo—.</li>
+                        <li>No se obtendrá ningún punto si no se realiza ninguna operación.</li>
+                    </ul>
+                </div>
             </div>
         </section>
         <aside>

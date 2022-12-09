@@ -386,6 +386,14 @@ input:checked+.slider::before {
     transition: all .3s ease-in;
 }
 
+#help {
+    text-align: justify;
+}
+
+#help ul {
+    list-style-type: "\1F538";
+    text-indent: 2.5px;
+}
 @media (max-width: 760px) {
 
     #menu {
