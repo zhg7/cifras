@@ -1,38 +1,43 @@
 "use strict";
 
-const operationList = document.getElementById("operation-log")
+const operationList = document.getElementById("operation-log");
 const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 const targetNumber = Number(sessionStorage.getItem("targetNumber"));
 const playerScores = document.querySelectorAll(".player-score");
 const playerNames = document.querySelectorAll(".game-over-player-name");
 const winnerOverlay = document.getElementById("winner-overlay");
 const winnerScreen = document.querySelector(".winner-screen");
+const title = document.getElementById("title");
 
 // Event Listeners de modal y overlay
 document.getElementById("overlay").addEventListener("click", () => {
   document.getElementById("overlay").classList.remove("is-visible");
   document.getElementById("operation-log-modal").classList.remove("is-visible");
-  emptyOperationLog()
+  emptyOperationLog();
 });
 
 winnerScreen.addEventListener("click", () => {
   winnerOverlay.classList.remove("is-visible");
   winnerScreen.classList.remove("is-visible");
-  document.getElementById("title").style.animationPlayState = "running";
+  title.style.animationPlayState = "running";
 });
 
-document.getElementById("operation-log-close-btn").addEventListener("click", () => {
-  document.getElementById("overlay").classList.remove("is-visible");
-  document.getElementById("operation-log-modal").classList.remove("is-visible");
-  emptyOperationLog()
-});
+document
+  .getElementById("operation-log-close-btn")
+  .addEventListener("click", () => {
+    document.getElementById("overlay").classList.remove("is-visible");
+    document
+      .getElementById("operation-log-modal")
+      .classList.remove("is-visible");
+    emptyOperationLog();
+  });
 
 const operationLogButtons = document.querySelectorAll(".view-operations");
-operationLogButtons.forEach(button => {
+operationLogButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    showOperationLog(e.target.parentElement.id)
-  })
-})
+    showOperationLog(e.target.parentElement.id);
+  });
+});
 
 // Event Listeners de redirección.
 document.getElementById("ranking-btn").addEventListener("click", () => {
@@ -59,7 +64,10 @@ function calculateScore(player) {
   let score = 10;
   let difference = 0;
   if (result !== targetNumber) {
-    if (JSON.parse(sessionStorage.getItem(`player${player}_operations`)).length !== 0) {
+    if (
+      JSON.parse(sessionStorage.getItem(`player${player}_operations`))
+        .length !== 0
+    ) {
       difference = Math.abs(targetNumber - result);
       for (let i = 0; i < difference && i < 9; i++) {
         score -= 1;
@@ -73,7 +81,10 @@ function calculateScore(player) {
 }
 
 function setResults() {
-  const results = [sessionStorage.getItem("player0_result"), sessionStorage.getItem("player1_result")];
+  const results = [
+    sessionStorage.getItem("player0_result"),
+    sessionStorage.getItem("player1_result"),
+  ];
   const playerIcons = document.querySelectorAll(".game-over-player-icon");
   const playerResults = document.querySelectorAll(".player-result");
   document.getElementById("target-number").textContent = `(${targetNumber})`;
@@ -87,12 +98,14 @@ function setResults() {
 
 function showOperationLog(player) {
   const playerName = players[Number(player.substr(-1)) - 1]["name"];
-  const playerOperations = JSON.parse(sessionStorage.getItem(`player${Number(player.substr(-1)) - 1}_operations`));
+  const playerOperations = JSON.parse(
+    sessionStorage.getItem(`player${Number(player.substr(-1)) - 1}_operations`)
+  );
   if (playerOperations.length > 0) {
     operationList.removeChild(operationList.firstElementChild);
-    playerOperations.forEach(op => {
+    playerOperations.forEach((op) => {
       operationList.insertAdjacentHTML("beforeend", `<li>${op}</li>`);
-    })
+    });
   }
   document.getElementById("overlay").classList.add("is-visible");
   document.getElementById("operation-log-modal").classList.add("is-visible");
@@ -101,21 +114,24 @@ function showOperationLog(player) {
 
 function emptyOperationLog() {
   while (operationList.firstElementChild) {
-    operationList.removeChild(operationList.firstElementChild)
+    operationList.removeChild(operationList.firstElementChild);
   }
-  operationList.insertAdjacentHTML("beforeend", `<span>No ha hecho nada.</span>`);
+  operationList.insertAdjacentHTML(
+    "beforeend",
+    `<span>No ha hecho nada.</span>`
+  );
 }
 
 function saveScore(playerName, score) {
   const ranking = JSON.parse(localStorage.getItem("ranking"));
-  if (!ranking.some(p => p.player === playerName)) {
+  if (!ranking.some((p) => p.player === playerName)) {
     const player = {
       player: playerName,
-      score: score
+      score: score,
     };
     ranking.push(player);
   } else {
-    const playerIndex = ranking.findIndex(p => p.player === playerName)
+    const playerIndex = ranking.findIndex((p) => p.player === playerName);
     ranking[playerIndex].score += score;
   }
 
@@ -131,9 +147,13 @@ function sortRanking() {
 
 function getWinner() {
   let winner = null;
-  if (Number(playerScores[0].textContent) > Number(playerScores[1].textContent)) {
+  if (
+    Number(playerScores[0].textContent) > Number(playerScores[1].textContent)
+  ) {
     winner = playerNames[0].textContent;
-  } else if (Number(playerScores[1].textContent) > Number(playerScores[0].textContent)) {
+  } else if (
+    Number(playerScores[1].textContent) > Number(playerScores[0].textContent)
+  ) {
     winner = playerNames[1].textContent;
   }
   return winner;
@@ -142,7 +162,7 @@ function getWinner() {
 function displayWinnerScreen(winner) {
   const player = document.getElementById("winner");
   player.textContent = winner;
+  title.style.animationPlayState = "paused";
   winnerOverlay.classList.add("is-visible");
   winnerScreen.classList.add("is-visible");
 }
-

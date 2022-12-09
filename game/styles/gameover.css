@@ -41,7 +41,6 @@ body {
     border-right: 4px solid;
     width: 12ch;
     animation: typing 2s steps(12), blink .5s infinite step-end alternate;
-    animation-play-state: paused;
     overflow: hidden;
     cursor: default;
 }
