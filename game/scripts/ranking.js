@@ -14,3 +14,11 @@ players.forEach((player) => {
   nameCell.textContent = playerName;
   scoreCell.textContent = playerScore;
 });
+
+//Música de fondo
+const soundtrack = document.getElementById("soundtrack");
+document.body.addEventListener("click", () => {
+  soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
+  soundtrack.play();
+  soundtrack.volume = 0.05;
+});

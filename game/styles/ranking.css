@@ -7,6 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     background-image: url("../assets/img/wave.svg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -226,5 +227,30 @@ body {
         opacity: 0;
         transform: translateY(1000px) rotate(720deg);
     }
+}
+
+@media (max-width: 760px) {
+
+    #menu {
+        width: 400px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    html,
+    body {
+        overflow: hidden;
+    }
+
+    #ranking {
+        height: 100%;
+    }
+
+    #ranking-data {
+        height: 335px;
+        width: 300px;
+    }
+
 }
 

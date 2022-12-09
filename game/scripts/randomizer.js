@@ -2,6 +2,14 @@ if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }
 
+//Música de fondo
+const soundtrack = document.getElementById("soundtrack");
+document.body.addEventListener("click", () => {
+  soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
+  soundtrack.play();
+  soundtrack.volume = 0.05;
+});
+
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 75, 100].sort(
   (a, b) => 0.5 - Math.random()
 );

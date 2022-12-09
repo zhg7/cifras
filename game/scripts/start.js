@@ -15,6 +15,21 @@ if (sessionStorage.getItem("playAgain") !== null) {
   sessionStorage.removeItem("playAgain");
 }
 
+//Música de fondo
+const soundtrack = document.getElementById("soundtrack");
+document.body.addEventListener("click", soundtrackHandler);
+function soundtrackHandler() {
+  soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
+  soundtrack.play();
+  soundtrack.volume = 0.05;
+  document.body.removeEventListener("click", soundtrackHandler);
+}
+
+function setSoundtrackTime(){
+  sessionStorage.setItem("soundtrackTime", soundtrack.currentTime)
+}
+
+
 function playEventHandler() {
   const nameFields = document.querySelectorAll(".player_name");
   const emptyFields = [];
@@ -47,9 +62,12 @@ document.querySelectorAll(".player_color").forEach((picker) => {
 });
 
 document.getElementById("confirm-play-btn").addEventListener("click", () => {
+  setSoundtrackTime();
   storePlayers();
   window.location.href = "../game/randomizer.html";
 });
+
+
 
 function storePlayers() {
   const player1 = {

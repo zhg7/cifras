@@ -19,12 +19,14 @@ document.getElementById("help-close-btn").addEventListener("click", () => {
 });
 
 document.getElementById("ranking-btn").addEventListener("click", () => {
+  setSoundtrackTime();
   setTimeout(() => {
     window.location.href = "game/ranking.html";
   }, 400);
 });
 
 document.getElementById("play-btn").addEventListener("click", () => {
+  setSoundtrackTime();
   setTimeout(() => {
     window.location.href = "game/start.html";
   }, 400);
@@ -35,23 +37,17 @@ document.getElementById("play-btn").addEventListener("click", () => {
   document.getElementById("loader").classList.add("is-visible");
 });
 
-//Música de fondo
-const musicPlayer = document.getElementById("soundtrack");
-document.body.addEventListener("click", () => {
-  musicPlayer.play();
-  musicPlayer.volume = 0.05;
+//Música de fondo y control
+const soundtrack = document.getElementById("soundtrack");
+const audioControl = document.querySelector("#audio-control input");
+audioControl.addEventListener("change", (e) => {
+  if (!e.target.checked) {
+    soundtrack.pause();
+  } else {
+    soundtrack.play();
+    soundtrack.volume = 0.05;
+  }
 });
-
-//Control de música
-document
-  .querySelector("#audio-control input")
-  .addEventListener("change", (e) => {
-    if (!e.target.checked) {
-      musicPlayer.volume = 0;
-    } else {
-      musicPlayer.volume = 0.05;
-    }
-  });
 
 //Audio botón
 const buttonAudio = new Audio("../game/assets/audio/click.wav");
@@ -68,3 +64,7 @@ document.querySelectorAll(".clicky").forEach((element) => {
   });
 });
 
+
+function setSoundtrackTime() {
+  sessionStorage.setItem("soundtrackTime", soundtrack.currentTime)
+}
