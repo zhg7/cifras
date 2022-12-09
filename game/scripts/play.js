@@ -30,7 +30,6 @@ if (sessionStorage.getItem("turn") === null) {
 setTurnInfo(getTurnInfo(currentTurn)[0], getTurnInfo(currentTurn)[1]);
 fillNumberBoxes();
 
-
 // Cuenta atrás de ronda
 let timerNumber = document.getElementById("timer-number");
 let audioPlayed = false;
@@ -42,7 +41,7 @@ function countdownTimer() {
   const timeLeft = expectedTime - Date.now();
   if (!audioPlayed && timeLeft < 8600) {
     const buttonAudio = new Audio("../game/assets/audio/ticking.mp3");
-    buttonAudio.play()
+    buttonAudio.play();
     audioPlayed = true;
   }
   if (timeLeft < 0) {
@@ -50,7 +49,6 @@ function countdownTimer() {
     changeTurn();
   }
   timerNumber.textContent = Math.round(timeLeft / 1000);
- 
 }
 
 function fillNumberBoxes() {
@@ -102,8 +100,7 @@ function changeTurn() {
       sessionStorage.setItem("turn", turn);
       location.reload();
     }
-  }, Number(delay))
-
+  }, Number(delay));
 }
 
 function getTurnInfo(playerNumber) {
@@ -228,7 +225,11 @@ function calculate(firstNumber, secondNumber, operator) {
       lastResult = firstOperand * secondOperand;
       break;
     case "÷":
-      lastResult = Math.trunc(firstOperand / secondOperand);
+      if (secondOperand === 0) {
+        lastResult = 0;
+      } else {
+        lastResult = Math.trunc(firstOperand / secondOperand);
+      }
   }
   saveOperation(firstNumber, secondNumber, operator, lastResult);
   saveResult(lastResult);
@@ -238,7 +239,6 @@ function calculate(firstNumber, secondNumber, operator) {
   if (lastResult === targetNumber || operationsLeft() === 1) {
     changeTurn();
   }
-
 }
 
 function saveOperation(firstNumber, secondNumber, operator, result) {
@@ -310,7 +310,8 @@ function resetStyles(destination) {
 
 function stopTimer() {
   document.querySelector("#timer svg").style.animationPlayState = "paused";
-  document.querySelector("#timer svg circle").style.animationPlayState = "paused";
+  document.querySelector("#timer svg circle").style.animationPlayState =
+    "paused";
   clearInterval(countdown);
 }
 
@@ -333,9 +334,9 @@ function showLoadingScreen() {
   loadingScreen.classList.add("is-visible");
 
   if (sessionStorage.getItem("turnChanged") === "yes") {
-    gameMessage.textContent = "Finalizando partida..."
+    gameMessage.textContent = "Finalizando partida...";
     setTimeout(() => {
-      gameMessage.textContent = "Calculando puntuación..."
-    }, 1000)
+      gameMessage.textContent = "Calculando puntuación...";
+    }, 1000);
   }
 }
