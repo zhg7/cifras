@@ -1,0 +1,81 @@
+[i] Todo el material utilizado en este proyecto es de dominio público y/o está bajo una licencia de uso libre (Creative Commons, MIT, GPL...)
+
+## Imágenes e iconos ##
+
+(+) Fondo de ola (generado)
+    * Archivos asociados: wave.svg
+    * Origen: Get Waves (https://getwaves.io/)
+    * Autor: -
+    * Licencia: El webmaster permite su uso libre.
+
+(+) Logo del juego (colores modificados)
+    * Archivos asociados: logo.svg, favicon.ico
+    * Origen: Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Circle-icons-calculator.svg)
+    * Autor: CFCF
+    * Licencia: GPL
+
+(+) Iconos de play, trofeo y ayuda
+    * Archivos asociados: play.svg, trophy.svg, help.svg
+    * Origen: Wikimedia Commons
+        - https://commons.wikimedia.org/wiki/File:Play_(89656)_-_The_Noun_Project.svg
+        - https://commons.wikimedia.org/wiki/File:SVG_Trophy_Star.svg
+        - https://commons.wikimedia.org/wiki/File:Question_mark_alternate.svg
+    * Autor:
+        - Noun Project
+        - Edward Boatman (Noun Project)
+        - Neutrality
+    * Licencia:
+        - Creative Commons CC0
+        - Creative Commons CC3
+        - Ninguna. Dominio público
+
+(+) Iconos de sonido, silenciado y volver atrás
+    * Archivos asociados: volume-on.svg, volume-mute.svg, back.svg
+    * Origen: Bootstrap Icons
+        - https://icons.getbootstrap.com/icons/volume-up-fill/
+        - https://icons.getbootstrap.com/icons/volume-mute-fill/
+        - https://icons.getbootstrap.com/icons/arrow-left-circle/
+    * Autor: Bootstrap
+    * Licencia: MIT
+
+(+) Iconos de info y alerta
+    * Archivos asociados: info.svg, warning.svg
+    * Origen: Wikimedia Commons
+        - https://commons.wikimedia.org/wiki/File:Icon_Information.svg
+        - https://commons.wikimedia.org/wiki/File:Warning_sign_font_awesome.svg
+    * Autor:
+        - JasonCarswell
+        - Dave Gandy (Font Awesome)
+    * Licencia
+        - Creative Commons CC4
+        - Creative Commons CC3
+
+(+) Icono de persona
+    * Archivos asociados: Ninguno. Insertado el svg directamente en el HTML con la clase 'bi bi-person-fill'.
+    * Origen: Bootstrap (https://icons.getbootstrap.com/icons/person-fill/)
+    * Autor: Bootstrap
+    * Licencia: MIT
+
+(+) Icono de salir
+    * Archivos asociados: exit.svg
+    * Origen: Google Icons (https://fonts.google.com/icons?icon.query=exit+to+app)
+    * Autor: Google
+    * License: Apache License 2.0
+
+## Música y audios ##
+
+(+) Música de fondo (soundtrack)
+    * Archivos asociados: soundtrack.ogg
+    * Origen: lumeg.org (https://lumeh.org/music/#swimming-in-circles)
+    * Autor: Colin Chan
+    * Licencia: Creative Commons CC4
+
+
+
+
+
+
+
+
+
+
