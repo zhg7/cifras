@@ -1,5 +1,7 @@
 document.getElementById("back-btn").addEventListener("click", () => {
-  window.location.href = "../index.html";
+  setTimeout(() => {
+    window.location.href = "../index.html";
+  }, 450);
 })
 
 const players = JSON.parse(localStorage.getItem("ranking"));

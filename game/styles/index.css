@@ -308,6 +308,16 @@ input:checked+.slider::before {
     transition: all .3s ease-in;
 }
 
+footer {
+    margin-top: 7.5px;
+}
+
+footer address, address a {
+    font-style: normal;
+    color: whitesmoke;
+    font-size: 0.9em;
+}
+
 #help {
     text-align: justify;
 }

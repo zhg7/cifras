@@ -6,9 +6,11 @@ if (sessionStorage.getItem("started") !== "yes") {
 
 window.addEventListener("beforeunload", preventAccidentalClose);
 
+// Event Listeners de botones
 document.getElementById("skip-turn").addEventListener("click", changeTurn);
 
 document.getElementById("exit-btn").addEventListener("click", () => {
+  playAlertSound();
   document.getElementById("exit-overlay").classList.add("is-visible");
   document.getElementById("exit-modal").classList.add("is-visible");
 });
@@ -25,8 +27,18 @@ document.getElementById("exit-close-btn").addEventListener("click", () => {
 
 document.getElementById("confirm-exit-btn").addEventListener("click", () => {
   window.removeEventListener("beforeunload", preventAccidentalClose);
-  window.location.href = "../index.html";
+  setTimeout(() => {
+    window.location.href = "../index.html";
+  }, 450)
 })
+
+//Sonido burbuja
+const popSound = new Audio("../game/assets/audio/pop.wav");
+popSound.volume = 0.8;
+
+//Sonido error
+const errorSound = new Audio("../game/assets/audio/error.wav");
+errorSound.volume = 0.8;
 
 function preventAccidentalClose(e) {
   e.preventDefault();
@@ -187,10 +199,12 @@ function drop(e) {
     }
 
     if (correctDrop) {
+      popSound.play();
       e.target.appendChild(dragItem);
       checkOperation();
     } else {
       navigator.vibrate(120);
+      errorSound.play();
     }
 
     e.target.classList.remove("dragover");
@@ -202,18 +216,23 @@ function sendNumberBack(box) {
     if (!dragItem.classList.contains("number")) {
       box.removeChild(box.firstElementChild);
       box.appendChild(dragItem);
+      popSound.play();
     } else {
       navigator.vibrate(120);
+      errorSound.play();
     }
   } else {
     if (dragItem.classList.contains("number")) {
       dragItemSource.appendChild(box.firstElementChild);
       box.appendChild(dragItem);
+      popSound.play();
     } else {
       navigator.vibrate(120);
+      errorSound.play();
     }
   }
   box.classList.remove("dragover");
+
 }
 
 function checkOperation() {

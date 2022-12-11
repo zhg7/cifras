@@ -41,16 +41,23 @@ operationLogButtons.forEach((button) => {
 
 // Event Listeners de redirección.
 document.getElementById("ranking-btn").addEventListener("click", () => {
-  window.location.href = "ranking.html";
+  setTimeout(() => {
+    window.location.href = "ranking.html";
+  }, 450)
 });
 
 document.getElementById("home-btn").addEventListener("click", () => {
-  window.location.href = "../index.html";
+  setTimeout(() => {
+    window.location.href = "../index.html";
+  }, 450)
 });
 
 document.getElementById("play-btn").addEventListener("click", () => {
   sessionStorage.setItem("playAgain", "yes");
-  window.location.href = "start.html";
+  setTimeout(() => {
+    window.location.href = "start.html";
+  }, 450)
+  
 });
 
 setResults();

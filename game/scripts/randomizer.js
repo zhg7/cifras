@@ -3,7 +3,9 @@ if (sessionStorage.getItem("started") !== "yes") {
 }
 
 document.getElementById("back-btn").addEventListener("click", () => {
-  window.location.href = "start.html";
+  setTimeout(() => {
+    window.location.href = "start.html";
+  }, 450);
 })
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 75, 100].sort(
@@ -101,3 +103,10 @@ function moveProgressBar() {
     }
   }, 1000);
 }
+
+// Sonido dado
+const diceSound = new Audio("../game/assets/audio/dice.mp3");
+diceSound.volume = 0.8;
+document.querySelector(".flipbox-front").addEventListener("click", () => {
+  diceSound.play();
+})

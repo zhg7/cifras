@@ -16,15 +16,15 @@
     <div id="table">
         <nav>
             <label class="switch" id="audio-control">
-                <input type="checkbox" class="clicky" hidden autocomplete="off">
+                <input type="checkbox" class="switch" hidden autocomplete="off">
                 <span class="slider"></span>
             </label>
             <button type="button" id="exit-btn"><img src="assets/img/exit.svg" alt="Salir"><span>Salir</span></button>
         </nav>
         <section id="info">
             <div class="icon_border">
-                <svg class="player-icon" id="player_icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                <svg id="player_icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    class="bi bi-person-fill player-icon" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                 </svg>
                 <h2 id="player-name">Jugador 1</h2>
@@ -73,7 +73,7 @@
                     <div class="operator-box"><span draggable="true" class="operator" id="division">÷</span></div>
                 </div>
                 <div class="button-wrapper">
-                    <button id="skip-turn">Saltar turno</button>
+                    <button id="skip-turn" class="click">Saltar turno</button>
                 </div>
             </div>
         </section>
@@ -86,7 +86,7 @@
                 </button>
                 <h1><img src="assets/img/warning.svg" alt="Warning">¡Atención!</h1>
                 <p><strong>¿Estás seguro de que quieres anular esta partida y volver al inicio?</strong></p>
-                <button type="button" id="confirm-exit-btn">Abandonar</button>
+                <button type="button" id="confirm-exit-btn" class="click">Abandonar</button>
             </div>
         </aside>
         <aside>

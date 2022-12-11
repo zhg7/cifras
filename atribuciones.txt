@@ -4,14 +4,14 @@
 
 (+) Fondo de ola (generado)
     * Archivos asociados: wave.svg
-    * Origen: Get Waves (https://getwaves.io/)
-    * Autor: -
-    * Licencia: El webmaster permite su uso libre.
+    * Origen: Haikei (https://haikei.app/)
+    * Autor: z creative labs
+    * Licencia: El webmaster permite su uso libre (https://haikei.app/terms/)
 
 (+) Logo del juego (colores modificados)
     * Archivos asociados: logo.svg, favicon.ico
     * Origen: Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Circle-icons-calculator.svg)
-    * Autor: CFCF
+    * Autor: Elegant Themes
     * Licencia: GPL
 
 (+) Iconos de play, trofeo y ayuda
@@ -62,16 +62,51 @@
     * Autor: Google
     * License: Apache License 2.0
 
-## Música y audios ##
+## Música y sonidos ##
 
 (+) Música de fondo (soundtrack)
     * Archivos asociados: soundtrack.ogg
-    * Origen: lumeg.org (https://lumeh.org/music/#swimming-in-circles)
+    * Origen: lumeh.org (https://lumeh.org/music/#swimming-in-circles)
     * Autor: Colin Chan
     * Licencia: Creative Commons CC4
 
+(+) Sonido de pulsación de botón e interruptor
+    * Archivos asociados: click.wav, switch.wav
+    * Origen: Freesound
+        - https://freesound.org/people/dersuperanton/sounds/433641/
+        - https://freesound.org/people/dersuperanton/sounds/435849/
+    * Autor: dersuperanton
+    * Licencia: Creative Commons CC3
 
+(+) Sonido de cuenta atrás
+    * Archivos asociados: ticking.mp3
+    * Origen: Freesound (https://freesound.org/people/LittleRainySeasons/sounds/335905/)
+    * Autor: LittleRainySeasons
+    * Licencia: Creative Commons CC0
 
+(+) Sonido de dado
+    * Archivos asociados: dice.mp3
+    * Origen: Freesound (https://freesound.org/people/AbdrTar/sounds/519419/)
+    * Autor: AbdrTar
+    * Licencia: Creative Commons CC0
+
+(+) Sonido de burbuja
+    * Archivos asociados: pop.wav
+    * Origen: Freesound (https://freesound.org/people/EverHeat/sounds/205542/)
+    * Autor: EverHeat
+    * Licencia: Creative Commons CC3
+
+(+) Sonido de error
+    * Archivos asociados: error.wav
+    * Origen: Freesound (https://freesound.org/people/ecfike/sounds/135125/)
+    * Autor: ecfike
+    * Licencia: Creative Commons CC0
+
+(+) Sonido de alerta
+    * Archivos asociados: alert.wav
+    * Origen: Freesound (https://freesound.org/people/nezuai/sounds/582608/)
+    * Autor: nezuai
+    * Licencia: Creative Commons CC4
 
 
 

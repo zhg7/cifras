@@ -1,5 +1,7 @@
 document.getElementById("back-btn").addEventListener("click", () => {
-  window.location.href = "../index.html";
+  setTimeout(() => {
+    window.location.href = "../index.html";
+  }, 450);
 })
 
 document.getElementById("overlay").addEventListener("click", () => {
@@ -31,6 +33,7 @@ function playEventHandler() {
   });
 
   if (emptyFields.length === 0) {
+    playAlertSound()
     document.getElementById("overlay").classList.add("is-visible");
     document.getElementById("play-modal").classList.add("is-visible");
   } else {
@@ -53,7 +56,9 @@ document.querySelectorAll(".player_color").forEach((picker) => {
 document.getElementById("confirm-play-btn").addEventListener("click", () => {
   setSoundtrackTime();
   storePlayers();
-  window.location.href = "../game/randomizer.html";
+  setTimeout(() => {
+    window.location.href = "../game/randomizer.html";
+  }, 450);
 });
 
 
