@@ -274,7 +274,6 @@ input:checked+.slider::before {
     border-radius: 10px;
     padding: 35px;
     font-weight: 400;
-
 }
 
 #operators {
@@ -386,6 +385,7 @@ input:checked+.slider::before {
 .operation .number-box {
     width: 62px;
     height: 32px;
+    overflow: hidden;
 }
 
 .dragover {

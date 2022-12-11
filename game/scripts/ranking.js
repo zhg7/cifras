@@ -8,7 +8,7 @@ const players = JSON.parse(localStorage.getItem("ranking"));
 
 if (players.length > 0) {
   const table = document.getElementById("ranking-table");
-  document.getElementById("no-data").remove();
+  document.getElementById("no-data").remove(); // Eliminar placeholder para cuando no existe datos.
   players.forEach((player) => {
     const playerName = player["player"];
     const playerScore = player["score"];
