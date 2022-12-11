@@ -8,6 +8,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     background-image: url("../assets/img/wave.svg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -358,4 +359,22 @@ div.number {
     to {
         width: 0%;
     }
+}
+
+@media (max-width: 500px) {
+
+    html,
+    body {
+        overflow: hidden;
+    }
+
+    #random {
+        height: 100%;
+    }
+
+    #numbers {
+        margin-top: 80px;
+        width: 300px;
+    }
+
 }
