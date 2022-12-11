@@ -136,8 +136,6 @@ input:checked+.slider::before {
 }
 
 
-
-
 .icon_border {
     width: 130px;
     height: 110px;
@@ -429,8 +427,103 @@ input:checked+.slider::before {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: #011627;
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 4;
+}
+
+.modal {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #d6deeb;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.modal-close-btn {
+    position: absolute;
+    right: 35px;
+    top: 0px;
+    font-size: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.modal-close-btn:hover .leftright {
+    transform: rotate(-45deg);
+    background-color: #ef5350;
+}
+
+.modal-close-btn:hover .rightleft {
+    transform: rotate(45deg);
+    background-color: #ef5350;
+}
+
+.leftright {
+    height: 4px;
+    width: 30px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #0b2942;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all .3s ease-in;
+}
+
+.rightleft {
+    height: 4px;
+    width: 30px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #0b2942;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in;
+}
+
+#exit-modal img {
+    margin: 0;
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+#confirm-exit-btn {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #f02230;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+    border: 2px solid #f02230;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: 600;
+    box-shadow: inset 0 0 0 0 #f02230;
+}
+
+#confirm-exit-btn:hover {
+    color: whitesmoke;
+    box-shadow: inset 0 -100px 0 0 #f02230;
+}
+
+#confirm-exit-btn:active {
+    transform: scale(0.8);
+}
+
+#loading-overlay {
+    background-color: #011627;
 }
 
 .loading-screen {

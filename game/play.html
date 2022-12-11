@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="stylesheet" href="styles/play.css">
     <script src="scripts/play.js" defer></script>
+    <script src="scripts/audio.js" defer></script>
 </head>
 
 <body>
@@ -77,12 +78,25 @@
             </div>
         </section>
         <aside>
-            <div class="overlay" id="overlay"></div>
+            <div class="overlay" id="exit-overlay"></div>
+            <div id="exit-modal" class="modal">
+                <button class="modal-close-btn clicky" id="exit-close-btn">
+                    <div class="leftright"></div>
+                    <div class="rightleft"></div>
+                </button>
+                <h1><img src="assets/img/warning.svg" alt="Warning">¡Atención!</h1>
+                <p><strong>¿Estás seguro de que quieres anular esta partida y volver al inicio?</strong></p>
+                <button type="button" id="confirm-exit-btn">Abandonar</button>
+            </div>
+        </aside>
+        <aside>
+            <div class="overlay" id="loading-overlay"></div>
             <div class="loading-screen">
                 <span class="spinner"></span>
                 <span class="game-message">Cambiando de turno...</span>
             </div>
         </aside>
+
         <aside>
             <div id="falling-operators">
                 <div>+</div>

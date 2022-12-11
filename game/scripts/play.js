@@ -8,6 +8,26 @@ window.addEventListener("beforeunload", preventAccidentalClose);
 
 document.getElementById("skip-turn").addEventListener("click", changeTurn);
 
+document.getElementById("exit-btn").addEventListener("click", () => {
+  document.getElementById("exit-overlay").classList.add("is-visible");
+  document.getElementById("exit-modal").classList.add("is-visible");
+});
+
+document.getElementById("exit-overlay").addEventListener("click", () => {
+  document.getElementById("exit-overlay").classList.remove("is-visible");
+  document.getElementById("exit-modal").classList.remove("is-visible");
+});
+
+document.getElementById("exit-close-btn").addEventListener("click", () => {
+  document.getElementById("exit-overlay").classList.remove("is-visible");
+  document.getElementById("exit-modal").classList.remove("is-visible");
+});
+
+document.getElementById("confirm-exit-btn").addEventListener("click", () => {
+  window.removeEventListener("beforeunload", preventAccidentalClose);
+  window.location.href = "../index.html";
+})
+
 function preventAccidentalClose(e) {
   e.preventDefault();
 }
@@ -329,7 +349,7 @@ function operationsLeft() {
 }
 
 function showLoadingScreen() {
-  const overlay = document.querySelector(".overlay");
+  const overlay = document.getElementById("loading-overlay");
   const loadingScreen = document.querySelector(".loading-screen");
   const gameMessage = document.querySelector(".game-message");
   overlay.classList.add("is-visible");
@@ -341,25 +361,4 @@ function showLoadingScreen() {
       gameMessage.textContent = "Calculando puntuación...";
     }, 1000);
   }
-}
-
-//Música de fondo y control
-const soundtrack = document.getElementById("soundtrack");
-const audioControl = document.querySelector("#audio-control input");
-let playedOnce = false;
-audioControl.addEventListener("change", (e) => {
-  if (!e.target.checked) {
-    soundtrack.pause();
-  } else {
-    soundtrack.play();
-    if (!playedOnce) {
-      soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
-      playedOnce = true;
-    }
-    soundtrack.volume = 0.05;
-  }
-});
-
-function setSoundtrackTime() {
-  sessionStorage.setItem("soundtrackTime", soundtrack.currentTime)
 }

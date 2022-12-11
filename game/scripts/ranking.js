@@ -1,7 +1,3 @@
-document.getElementById("back-btn").addEventListener("click", () => {
-  window.location.href = "../index.html";
-});
-
 const players = JSON.parse(localStorage.getItem("ranking"));
 
 players.forEach((player) => {
@@ -13,12 +9,4 @@ players.forEach((player) => {
   const scoreCell = row.insertCell(1);
   nameCell.textContent = playerName;
   scoreCell.textContent = playerScore;
-});
-
-//Música de fondo
-const soundtrack = document.getElementById("soundtrack");
-document.body.addEventListener("click", () => {
-  soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
-  soundtrack.play();
-  soundtrack.volume = 0.05;
 });

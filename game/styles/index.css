@@ -390,7 +390,7 @@ input:checked+.slider::before {
 }
 
 #help ul {
-    list-style-type: "\1F538";
+    list-style-type: "\1F539";
     text-indent: 2.5px;
 }
 @media (max-width: 760px) {

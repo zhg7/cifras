@@ -1,13 +1,5 @@
 "use strict";
 
-// Permitir visualizar la página sólo una vez
-if (sessionStorage.getItem("gameEnded") === null) {
-  sessionStorage.setItem("gameEnded", "yes");
-} else {
-  sessionStorage.removeItem("gameEnded");
-  window.location.href = "../index.html";
-}
-
 const operationList = document.getElementById("operation-log");
 const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 const targetNumber = Number(sessionStorage.getItem("targetNumber"));
@@ -173,25 +165,4 @@ function displayWinnerScreen(winner) {
   title.style.animationPlayState = "paused";
   winnerOverlay.classList.add("is-visible");
   winnerScreen.classList.add("is-visible");
-}
-
-//Música de fondo y control
-const soundtrack = document.getElementById("soundtrack");
-const audioControl = document.querySelector("#audio-control input");
-let playedOnce = false;
-audioControl.addEventListener("change", (e) => {
-  if (!e.target.checked) {
-    soundtrack.pause();
-  } else {
-    soundtrack.play();
-    if (!playedOnce) {
-      soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
-      playedOnce = true;
-    }
-    soundtrack.volume = 0.05;
-  }
-});
-
-function setSoundtrackTime() {
-  sessionStorage.setItem("soundtrackTime", soundtrack.currentTime)
 }
