@@ -13,6 +13,12 @@
 
 <body>
     <div id="gameover">
+        <nav>
+            <label class="switch" id="audio-control">
+                <input type="checkbox" class="clicky" hidden autocomplete="off">
+                <span class="slider"></span>
+            </label>
+        </nav>
         <header>
             <h1 id="title">Fin&nbsp;de&nbsp;juego</h1>
         </header>
@@ -109,6 +115,9 @@
             </div>
         </aside>
     </div>
+    <audio id="soundtrack" loop="true">
+        <source src="assets/audio/soundtrack.ogg" type="audio/ogg">
+    </audio>
 </body>
 
 </html>

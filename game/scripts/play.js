@@ -3,6 +3,7 @@
 if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }
+
 window.addEventListener("beforeunload", preventAccidentalClose);
 
 document.getElementById("skip-turn").addEventListener("click", changeTurn);
@@ -82,6 +83,7 @@ droppables.forEach((element) => {
 function changeTurn() {
   const delay = sessionStorage.getItem("turnChanged") === "yes" ? 2200 : 1100;
   stopTimer();
+  setSoundtrackTime();
   showLoadingScreen();
   setTimeout(() => {
     window.removeEventListener("beforeunload", preventAccidentalClose);
@@ -339,4 +341,25 @@ function showLoadingScreen() {
       gameMessage.textContent = "Calculando puntuación...";
     }, 1000);
   }
+}
+
+//Música de fondo y control
+const soundtrack = document.getElementById("soundtrack");
+const audioControl = document.querySelector("#audio-control input");
+let playedOnce = false;
+audioControl.addEventListener("change", (e) => {
+  if (!e.target.checked) {
+    soundtrack.pause();
+  } else {
+    soundtrack.play();
+    if (!playedOnce) {
+      soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
+      playedOnce = true;
+    }
+    soundtrack.volume = 0.05;
+  }
+});
+
+function setSoundtrackTime() {
+  sessionStorage.setItem("soundtrackTime", soundtrack.currentTime)
 }

@@ -39,6 +39,56 @@ body {
     align-items: center;
 }
 
+nav {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+}
+
+.switch {
+    position: relative;
+    width: 48px;
+    height: 28px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: grey;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider::before {
+    position: absolute;
+    content: url("../assets/img/volume-mute.svg");
+    height: 20px;
+    width: 20px;
+    left: 6px;
+    bottom: 3.5px;
+    background-color: #d6deeb;
+    transition: .4s;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+input:checked+.slider {
+    background-color: #82aaff;
+}
+
+input:checked+.slider::before {
+    transform: translateX(16px);
+    content: url("../assets/img/volume-on.svg");
+}
+
 .flipbox {
     background-color: transparent;
     width: 100px;

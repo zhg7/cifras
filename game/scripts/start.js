@@ -15,20 +15,26 @@ if (sessionStorage.getItem("playAgain") !== null) {
   sessionStorage.removeItem("playAgain");
 }
 
-//Música de fondo
+//Música de fondo y control
 const soundtrack = document.getElementById("soundtrack");
-document.body.addEventListener("click", soundtrackHandler);
-function soundtrackHandler() {
-  soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
-  soundtrack.play();
-  soundtrack.volume = 0.05;
-  document.body.removeEventListener("click", soundtrackHandler);
-}
+const audioControl = document.querySelector("#audio-control input");
+let playedOnce = false;
+audioControl.addEventListener("change", (e) => {
+  if (!e.target.checked) {
+    soundtrack.pause();
+  } else {
+    soundtrack.play();
+    if (!playedOnce){
+      soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
+      playedOnce = true;
+    }
+    soundtrack.volume = 0.05;
+  }
+});
 
-function setSoundtrackTime(){
+function setSoundtrackTime() {
   sessionStorage.setItem("soundtrackTime", soundtrack.currentTime)
 }
-
 
 function playEventHandler() {
   const nameFields = document.querySelectorAll(".player_name");

@@ -2,14 +2,6 @@ if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }
 
-//Música de fondo
-const soundtrack = document.getElementById("soundtrack");
-document.body.addEventListener("click", () => {
-  soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
-  soundtrack.play();
-  soundtrack.volume = 0.05;
-});
-
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 75, 100].sort(
   (a, b) => 0.5 - Math.random()
 );
@@ -54,6 +46,7 @@ function generationEventHandler() {
         sessionStorage.setItem("targetNumber", Number(targetNumber));
         openNumberModal(targetNumber);
         setTimeout(() => {
+          setSoundtrackTime();
           window.location.href = "../game/play.html";
         }, 5500);
       }, 4000);
@@ -94,7 +87,7 @@ function storeAvailableNumbers() {
 
 function moveProgressBar() {
   const progressBar = document.querySelector(".bar");
-  const seconds = document.querySelector("label span");
+  const seconds = document.getElementById("seconds-left");
   let secondsLeft = 5;
   progressBar.style.animationPlayState = "running";
   setInterval(() => {
@@ -103,4 +96,25 @@ function moveProgressBar() {
       seconds.textContent = secondsLeft;
     }
   }, 1000);
+}
+
+//Música de fondo y control
+const soundtrack = document.getElementById("soundtrack");
+const audioControl = document.querySelector("#audio-control input");
+let playedOnce = false;
+audioControl.addEventListener("change", (e) => {
+  if (!e.target.checked) {
+    soundtrack.pause();
+  } else {
+    soundtrack.play();
+    if (!playedOnce) {
+      soundtrack.currentTime = Number(sessionStorage.getItem("soundtrackTime"));
+      playedOnce = true;
+    }
+    soundtrack.volume = 0.05;
+  }
+});
+
+function setSoundtrackTime() {
+  sessionStorage.setItem("soundtrackTime", soundtrack.currentTime)
 }
