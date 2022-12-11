@@ -519,7 +519,7 @@ input:checked+.slider::before {
 }
 
 #confirm-exit-btn:active {
-    transform: scale(0.8);
+    transform: scale(0.95);
 }
 
 #loading-overlay {

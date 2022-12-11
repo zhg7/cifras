@@ -3,8 +3,8 @@
 const operationList = document.getElementById("operation-log");
 const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 const targetNumber = Number(sessionStorage.getItem("targetNumber"));
-const playerScores = document.querySelectorAll(".player-score");
 const playerNames = document.querySelectorAll(".game-over-player-name");
+const playerResults = document.querySelectorAll(".player-result");
 const winnerOverlay = document.getElementById("winner-overlay");
 const winnerScreen = document.querySelector(".winner-screen");
 const title = document.getElementById("title");
@@ -85,8 +85,8 @@ function setResults() {
     sessionStorage.getItem("player0_result"),
     sessionStorage.getItem("player1_result"),
   ];
+  const playerScores = document.querySelectorAll(".player-score");
   const playerIcons = document.querySelectorAll(".game-over-player-icon");
-  const playerResults = document.querySelectorAll(".player-result");
   document.getElementById("target-number").textContent = `(${targetNumber})`;
   for (let i = 0; i <= 1; i++) {
     playerIcons[i].style.fill = players[i]["color"];
@@ -148,11 +148,11 @@ function sortRanking() {
 function getWinner() {
   let winner = null;
   if (
-    Number(playerScores[0].textContent) > Number(playerScores[1].textContent)
+    Math.abs(Number(playerResults[0].textContent) - targetNumber) < Math.abs(Number(playerResults[1].textContent) - targetNumber)
   ) {
     winner = playerNames[0].textContent;
   } else if (
-    Number(playerScores[1].textContent) > Number(playerScores[0].textContent)
+    Math.abs(Number(playerResults[1].textContent) - targetNumber) < Math.abs(Number(playerResults[0].textContent) - targetNumber)
   ) {
     winner = playerNames[1].textContent;
   }
