@@ -148,6 +148,49 @@ input:checked+.slider::before {
     content: url("../assets/img/volume-on.svg");
 }
 
+#back-btn {
+    width: 68px;
+    height: 28px;
+    border: none;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 0.8em;
+    font-family: inherit;
+    font-weight: 600;
+    position: relative;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#back-btn span {
+    margin-right: 20px;
+    transition: .2s;
+
+}
+
+#back-btn img {
+    position: absolute;
+    transform: translateX(20px);
+    height: 18px;
+    width: 18px;
+    padding: 2.5px;
+    display: grid;
+    place-items: center;
+    transition: .2s;
+}
+
+#back-btn:hover {
+    background-color: #80cbc4;
+    color: transparent;
+}
+
+#back-btn:hover img {
+    transform: scale(1.25);
+}
+
 #operators div {
     position: absolute;
     font-size: 125px;

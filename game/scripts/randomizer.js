@@ -2,6 +2,10 @@ if (sessionStorage.getItem("started") !== "yes") {
   window.location.href = "start.html";
 }
 
+document.getElementById("back-btn").addEventListener("click", () => {
+  window.location.href = "start.html";
+})
+
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 75, 100].sort(
   (a, b) => 0.5 - Math.random()
 );

@@ -1,3 +1,7 @@
+document.getElementById("back-btn").addEventListener("click", () => {
+  window.location.href = "../index.html";
+})
+
 const players = JSON.parse(localStorage.getItem("ranking"));
 
 players.forEach((player) => {

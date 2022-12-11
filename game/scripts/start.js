@@ -1,3 +1,7 @@
+document.getElementById("back-btn").addEventListener("click", () => {
+  window.location.href = "../index.html";
+})
+
 document.getElementById("overlay").addEventListener("click", () => {
   document.getElementById("overlay").classList.remove("is-visible");
   document.getElementById("play-modal").classList.remove("is-visible");

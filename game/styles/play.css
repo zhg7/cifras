@@ -131,8 +131,7 @@ input:checked+.slider::before {
 }
 
 #exit-btn:hover img {
-    border-left: none;
-    transform: translateX(0) scale(1.25);
+    transform: scale(1.25);
 }
 
 
