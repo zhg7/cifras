@@ -38,6 +38,7 @@ function playEventHandler() {
     document.getElementById("play-modal").classList.add("is-visible");
   } else {
     highlightEmptyFields(emptyFields);
+    playErrorSound();
   }
 }
 

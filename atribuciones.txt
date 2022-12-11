@@ -108,6 +108,13 @@
     * Autor: nezuai
     * Licencia: Creative Commons CC4
 
+## Fuentes ##
+
+(+) Incosolata (monospace)
+    * Archivos asociados: incosolata*.*
+    * Origen: Google Fonts (https://fonts.google.com/specimen/Inconsolata)
+    * Autor: Raph Levien
+    * Licencia: Open Font License
 
 
 

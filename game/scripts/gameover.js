@@ -41,6 +41,7 @@ operationLogButtons.forEach((button) => {
 
 // Event Listeners de redirección.
 document.getElementById("ranking-btn").addEventListener("click", () => {
+  setSoundtrackTime();
   setTimeout(() => {
     window.location.href = "ranking.html";
   }, 450)
@@ -53,6 +54,7 @@ document.getElementById("home-btn").addEventListener("click", () => {
 });
 
 document.getElementById("play-btn").addEventListener("click", () => {
+  setSoundtrackTime();
   sessionStorage.setItem("playAgain", "yes");
   setTimeout(() => {
     window.location.href = "start.html";

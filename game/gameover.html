@@ -29,8 +29,8 @@
             <div class="players">
                 <div class="player" id="player1">
                     <div class="icon_border">
-                        <svg class="game-over-player-icon" id="player1_icon" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <svg id="player1_icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" class="bi bi-person-fill game-over-player-icon" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                         </svg>
                         <h2 class="game-over-player-name"></h2>
@@ -43,12 +43,12 @@
                     <div class="score">
                         <span class="player-score"></span><span id="score-text">   ptos.</span>
                     </div>
-                    <button class="view-operations" type="button">👀</button>
+                    <button class="view-operations click" type="button">👀</button>
                 </div>
                 <div class="player" id="player2">
                     <div class="icon_border">
-                        <svg class="game-over-player-icon" id="player2_icon" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <svg id="player2_icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" class="bi bi-person-fill game-over-player-icon" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                         </svg>
                         <h2 class="game-over-player-name"></h2>
@@ -61,7 +61,7 @@
                     <div class="score">
                         <span class="player-score"></span><span id="score-text">   ptos.</span>
                     </div>
-                    <button class="view-operations" type="button">👀</button>
+                    <button class="view-operations click" type="button">👀</button>
                 </div>
             </div>
         </section>
@@ -73,7 +73,7 @@
         <section>
             <div class="overlay" id="overlay"></div>
             <div id="operation-log-modal" class="modal">
-                <button class="modal-close-btn" id="operation-log-close-btn">
+                <button class="modal-close-btn click" id="operation-log-close-btn">
                     <div class="leftright"></div>
                     <div class="rightleft"></div>
                 </button>

@@ -36,9 +36,6 @@ document.getElementById("confirm-exit-btn").addEventListener("click", () => {
 const popSound = new Audio("../game/assets/audio/pop.wav");
 popSound.volume = 0.8;
 
-//Sonido error
-const errorSound = new Audio("../game/assets/audio/error.wav");
-errorSound.volume = 0.8;
 
 function preventAccidentalClose(e) {
   e.preventDefault();
@@ -204,7 +201,7 @@ function drop(e) {
       checkOperation();
     } else {
       navigator.vibrate(120);
-      errorSound.play();
+      playErrorSound();
     }
 
     e.target.classList.remove("dragover");
@@ -219,7 +216,7 @@ function sendNumberBack(box) {
       popSound.play();
     } else {
       navigator.vibrate(120);
-      errorSound.play();
+      playErrorSound();
     }
   } else {
     if (dragItem.classList.contains("number")) {
@@ -228,7 +225,7 @@ function sendNumberBack(box) {
       popSound.play();
     } else {
       navigator.vibrate(120);
-      errorSound.play();
+      playErrorSound();
     }
   }
   box.classList.remove("dragover");

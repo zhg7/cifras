@@ -43,3 +43,10 @@ function playAlertSound(){
   alertSound.play();
 }
 
+// Sonido error
+const errorSound = new Audio("../game/assets/audio/error.wav");
+function playErrorSound(){
+  errorSound.volume = 0.8;
+  errorSound.play();
+}
+
