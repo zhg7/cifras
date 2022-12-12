@@ -19,16 +19,14 @@ function setSoundtrackTime() {
 }
 
 // Sonido interruptor
-const switchSound = new Audio("../game/assets/audio/switch.wav");
+const switchSound = document.getElementById("switch-sound");
 switchSound.volume = 0.85;
-document.querySelectorAll(".switch").forEach((element) => {
-  element.addEventListener("click", () => {
-    switchSound.play();
-  });
+document.querySelector(".switch").addEventListener("click", () => {
+  switchSound.play();
 });
 
 // Sonido pulsación
-const clickSound = new Audio("../game/assets/audio/click.wav");
+const clickSound = document.getElementById("click-sound");
 clickSound.volume = 0.8;
 document.querySelectorAll(".click").forEach((element) => {
   element.addEventListener("click", () => {
@@ -37,15 +35,15 @@ document.querySelectorAll(".click").forEach((element) => {
 })
 
 // Sonido alerta
-const alertSound = new Audio("../game/assets/audio/alert.wav");
-function playAlertSound(){
+const alertSound = document.getElementById("alert-sound");
+function playAlertSound() {
   alertSound.volume = 0.8;
   alertSound.play();
 }
 
 // Sonido error
-const errorSound = new Audio("../game/assets/audio/error.wav");
-function playErrorSound(){
+const errorSound = document.getElementById("error-sound");
+function playErrorSound() {
   errorSound.volume = 0.8;
   errorSound.play();
 }

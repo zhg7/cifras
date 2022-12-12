@@ -6,7 +6,7 @@ document.getElementById("back-btn").addEventListener("click", () => {
 
 const players = JSON.parse(localStorage.getItem("ranking"));
 
-if (players.length > 0) {
+if (players !== null && players.length > 0) {
   const table = document.getElementById("ranking-table");
   document.getElementById("no-data").remove(); // Eliminar placeholder para cuando no existe datos.
   players.forEach((player) => {

@@ -51,6 +51,7 @@ function generationEventHandler() {
         const targetNumber = generateTargetNumber();
         sessionStorage.setItem("targetNumber", Number(targetNumber));
         openNumberModal(targetNumber);
+        playAlertSound();
         setTimeout(() => {
           setSoundtrackTime();
           window.location.href = "../game/play.html";
