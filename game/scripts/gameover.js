@@ -10,13 +10,13 @@ const winnerScreen = document.querySelector(".winner-screen");
 const title = document.getElementById("title");
 
 // Event Listeners de modal y overlay
-document.getElementById("overlay").addEventListener("click", () => {
+document.getElementById("overlay").addEventListener("dblclick", () => {
   document.getElementById("overlay").classList.remove("is-visible");
   document.getElementById("operation-log-modal").classList.remove("is-visible");
   emptyOperationLog();
 });
 
-winnerScreen.addEventListener("click", () => {
+winnerScreen.addEventListener("dblclick", () => {
   winnerOverlay.classList.remove("is-visible");
   winnerScreen.classList.remove("is-visible");
   title.style.animationPlayState = "running";
@@ -44,13 +44,13 @@ document.getElementById("ranking-btn").addEventListener("click", () => {
   setSoundtrackTime();
   setTimeout(() => {
     window.location.href = "ranking.html";
-  }, 450)
+  }, 450);
 });
 
 document.getElementById("home-btn").addEventListener("click", () => {
   setTimeout(() => {
     window.location.href = "../index.html";
-  }, 450)
+  }, 450);
 });
 
 document.getElementById("play-btn").addEventListener("click", () => {
@@ -58,8 +58,7 @@ document.getElementById("play-btn").addEventListener("click", () => {
   sessionStorage.setItem("playAgain", "yes");
   setTimeout(() => {
     window.location.href = "start.html";
-  }, 450)
-  
+  }, 450);
 });
 
 setResults();
@@ -157,11 +156,13 @@ function sortRanking() {
 function getWinner() {
   let winner = null;
   if (
-    Math.abs(Number(playerResults[0].textContent) - targetNumber) < Math.abs(Number(playerResults[1].textContent) - targetNumber)
+    Math.abs(Number(playerResults[0].textContent) - targetNumber) <
+    Math.abs(Number(playerResults[1].textContent) - targetNumber)
   ) {
     winner = playerNames[0].textContent;
   } else if (
-    Math.abs(Number(playerResults[1].textContent) - targetNumber) < Math.abs(Number(playerResults[0].textContent) - targetNumber)
+    Math.abs(Number(playerResults[1].textContent) - targetNumber) <
+    Math.abs(Number(playerResults[0].textContent) - targetNumber)
   ) {
     winner = playerNames[1].textContent;
   }
@@ -174,4 +175,13 @@ function displayWinnerScreen(winner) {
   title.style.animationPlayState = "paused";
   winnerOverlay.classList.add("is-visible");
   winnerScreen.classList.add("is-visible");
+}
+
+// Sonido ganador
+const winnerSound = new Audio("../game/assets/audio/winner.wav");
+winnerScreen.addEventListener("click", playWinnerSound);
+function playWinnerSound() {
+  winnerSound.volume = 0.75;
+  winnerSound.play();
+  winnerScreen.removeEventListener("click", playWinnerSound);
 }

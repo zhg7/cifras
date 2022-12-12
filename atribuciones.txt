@@ -102,11 +102,21 @@
     * Autor: ecfike
     * Licencia: Creative Commons CC0
 
-(+) Sonido de alerta
-    * Archivos asociados: alert.wav
-    * Origen: Freesound (https://freesound.org/people/nezuai/sounds/582608/)
-    * Autor: nezuai
+(+) Sonido de alerta y hover
+    * Archivos asociados: alert.wav, hover.wav
+    * Origen: Freesound 
+        - https://freesound.org/people/nezuai/sounds/582608/
+        - https://freesound.org/people/DrMinky/sounds/166186/
+    * Autor: 
+        - nezuai
+        - DrMinky
     * Licencia: Creative Commons CC4
+
+(+) Sonido de pantalla de ganador
+    * Archivos asociados: winner.wav
+    * Origen: Freesound (https://freesound.org/people/EVRetro/sounds/495005/)
+    * Autor: EVRetro
+    * Licencia: Creative Commons CC0
 
 ## Fuentes ##
 
