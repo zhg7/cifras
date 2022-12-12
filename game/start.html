@@ -20,7 +20,7 @@
                 <input type="checkbox" hidden autocomplete="off">
                 <span class="slider"></span>
             </label>
-            <button type="button" id="back-btn" class="click"><img src="assets/img/back.svg" alt="Volver"><span>Volver</span></button>
+            <button type="button" id="back-btn" class="click hover"><img src="assets/img/back.svg" alt="Volver"><span>Volver</span></button>
         </nav>
         <header>
             <h1 id="title">Jugar</h1>
@@ -61,21 +61,21 @@
                     <input type="color" class="player_color" name="player2_color" id="player2_color" hidden>
                 </div>
                 <div class="button-wrapper">
-                <button type="button" class="action-button" id="play-btn">Jugar</button>
+                <button type="button" class="action-button hover" id="play-btn">Jugar</button>
             </div>
             </div>
         </section>
         <section>
             <div class="overlay" id="overlay"></div>
             <div id="play-modal" class="modal">
-                <button class="modal-close-btn click" id="play-close-btn">
+                <button class="modal-close-btn click hover" id="play-close-btn">
                     <div class="leftright"></div>
                     <div class="rightleft"></div>
                 </button>
                 <h1>Comienzo de partida</h1>
                 <p class="message"><img src="assets/img/warning.svg" alt="Warning"><strong>A continuación se generarán los
                         números. ¿Continuar?</strong></p>
-                <button type="button" class="action-button click" id="confirm-play-btn"></button>
+                <button type="button" class="action-button click hover" id="confirm-play-btn"></button>
             </div>
         </section>
         <aside>
@@ -91,20 +91,23 @@
             </div>
         </aside>
     </div>
-    <audio id="soundtrack" loop="true">
+    <audio id="soundtrack" loop="true" preload="auto">
         <source src="assets/audio/soundtrack.ogg" type="audio/ogg">
     </audio>
-    <audio id="switch-sound">
+    <audio id="switch-sound" preload="auto">
         <source src="assets/audio/switch.wav" type="audio/wav">
     </audio>
-    <audio id="click-sound">
+    <audio id="click-sound" preload="auto">
         <source src="assets/audio/click.wav" type="audio/wav">
     </audio>
-    <audio id="error-sound">
+    <audio id="error-sound" preload="auto">
         <source src="assets/audio/error.wav" type="audio/wav">
     </audio>
-    <audio id="alert-sound">
+    <audio id="alert-sound" preload="auto">
         <source src="assets/audio/alert.wav" type="audio/wav">
+    </audio>
+    <audio id="hover-sound" preload="auto">
+        <source src="assets/audio/hover.wav" type="audio/wav">
     </audio>
 </body>
 

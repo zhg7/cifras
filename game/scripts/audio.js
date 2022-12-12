@@ -44,7 +44,17 @@ function playAlertSound() {
 // Sonido error
 const errorSound = document.getElementById("error-sound");
 function playErrorSound() {
-  errorSound.volume = 0.8;
+  errorSound.volume = 0.6;
   errorSound.play();
 }
+
+// Sonido hover
+const hoverSound = document.getElementById("hover-sound");
+hoverSound.volume = 0.8;
+document.querySelectorAll(".hover").forEach((element) => {
+  element.addEventListener("mouseenter", () => {
+    hoverSound.play();
+  });
+})
+
 

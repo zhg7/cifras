@@ -25,15 +25,15 @@ function playEventHandler() {
   const nameFields = document.querySelectorAll(".player_name");
   const emptyFields = [];
   nameFields.forEach((field) => {
-    if (field.value.trim() === "") {
+    if (field.value.trim() === "" || nameFields[0].value.trim() === nameFields[1].value.trim()) {  // No permitir nombres iguales.
       emptyFields.push(field);
     } else {
       revertFieldStyles(field);
     }
   });
 
-  if (emptyFields.length === 0) {
-    playAlertSound()
+  if (emptyFields.length === 0) { 
+    playAlertSound();
     document.getElementById("overlay").classList.add("is-visible");
     document.getElementById("play-modal").classList.add("is-visible");
   } else {

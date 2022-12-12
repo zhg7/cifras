@@ -16,7 +16,7 @@
     <div id="gameover">
         <nav>
             <label class="switch" id="audio-control">
-                <input type="checkbox" class="clicky" hidden autocomplete="off">
+                <input type="checkbox" hidden autocomplete="off">
                 <span class="slider"></span>
             </label>
         </nav>
@@ -43,7 +43,7 @@
                     <div class="score">
                         <span class="player-score"></span><span id="score-text">   ptos.</span>
                     </div>
-                    <button class="view-operations click" type="button">👀</button>
+                    <button class="view-operations click hover" type="button">👀</button>
                 </div>
                 <div class="player" id="player2">
                     <div class="icon_border">
@@ -61,19 +61,19 @@
                     <div class="score">
                         <span class="player-score"></span><span id="score-text">   ptos.</span>
                     </div>
-                    <button class="view-operations click" type="button">👀</button>
+                    <button class="view-operations click hover" type="button">👀</button>
                 </div>
             </div>
         </section>
         <section class="buttons">
-            <button class="action-button click" type="button" id="play-btn">Volver a jugar</button>
-            <button class="action-button click" type="button" id="ranking-btn">Ir al ranking</button>
-            <button class="action-button click" type="button" id="home-btn">Ir al inicio</button>
+            <button class="action-button click hover" type="button" id="play-btn">Volver a jugar</button>
+            <button class="action-button click hover" type="button" id="ranking-btn">Ir al ranking</button>
+            <button class="action-button click hover" type="button" id="home-btn">Ir al inicio</button>
         </section>
         <section>
             <div class="overlay" id="overlay"></div>
             <div id="operation-log-modal" class="modal">
-                <button class="modal-close-btn click" id="operation-log-close-btn">
+                <button class="modal-close-btn click hover" id="operation-log-close-btn">
                     <div class="leftright"></div>
                     <div class="rightleft"></div>
                 </button>
@@ -116,9 +116,18 @@
             </div>
         </aside>
     </div>
-    <audio id="soundtrack" loop="true">
+    <audio id="soundtrack" loop="true" preload="auto">
         <source src="assets/audio/soundtrack.ogg" type="audio/ogg">
     </audio>
+    <audio id="switch-sound" preload="auto">
+        <source src="assets/audio/switch.wav" type="audio/wav">
+    </audio>
+    <audio id="click-sound" preload="auto">
+        <source src="assets/audio/click.wav" type="audio/wav">
+    </audio>
+    <audio id="hover-sound" preload="auto">
+        <source src="assets/audio/hover.wav" type="audio/wav">
+      </audio>
 </body>
 
 </html>

@@ -401,7 +401,7 @@ input:checked+.slider::before {
     border: none;
     background-color: #009688;
     box-shadow: 0 7px 0 rgb(2, 84, 76);
-    color: #edeff3;
+    color: #d6deeb;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -409,6 +409,10 @@ input:checked+.slider::before {
     border-radius: 10px;
     font-family: inherit;
     font-weight: bold;
+}
+
+#skip-turn:hover {
+    color: rgba(255, 255, 255, 1);
 }
 
 #skip-turn:active {

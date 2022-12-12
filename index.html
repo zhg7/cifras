@@ -16,7 +16,7 @@
     <div id="menu">
         <nav>
             <label class="switch" id="audio-control">
-                <input type="checkbox" class="clicky" hidden autocomplete="off">
+                <input type="checkbox" hidden autocomplete="off">
                 <span class="slider"></span>
             </label>
         </nav>
@@ -27,18 +27,18 @@
             </figure>
         </header>
         <section>
-            <button type="button" class="action-button click" id="play-btn"><img class="menu-icon"
+            <button type="button" class="action-button click hover" id="play-btn"><img class="menu-icon"
                     src="game/assets/img/play.svg" alt="Jugar" draggable="false"><span>Jugar</span></button>
-            <button type="button" class="action-button click" id="ranking-btn"><img class="menu-icon"
+            <button type="button" class="action-button click hover" id="ranking-btn"><img class="menu-icon"
                     src="game/assets/img/trophy.svg" alt="Ayuda" draggable="false"><span>Ranking</span></button>
-            <button type="button" class="modal-button action-button click" id="help-modal-btn"><img class="menu-icon"
+            <button type="button" class="modal-button action-button click hover" id="help-modal-btn"><img class="menu-icon"
                     src="game/assets/img/help.svg" alt="Ayuda" draggable="false"><span>Ayuda</span></button>
         </section>
 
         <section>
             <div class="overlay" id="overlay"></div>
             <div id="help-modal" class="modal">
-                <button class="modal-close-btn click" id="help-close-btn">
+                <button class="modal-close-btn click hover" id="help-close-btn">
                     <div class="leftright"></div>
                     <div class="rightleft"></div>
                 </button>
@@ -101,14 +101,17 @@
             </div>
         </aside>
     </div>
-    <audio id="soundtrack" loop>
+    <audio id="soundtrack" loop preload="auto">
         <source src="game/assets/audio/soundtrack.ogg" type="audio/ogg">
     </audio>
-    <audio id="switch-sound">
+    <audio id="switch-sound" preload="auto">
         <source src="game/assets/audio/switch.wav" type="audio/wav">
     </audio>
-    <audio id="click-sound">
+    <audio id="click-sound" preload="auto">
         <source src="game/assets/audio/click.wav" type="audio/wav">
+    </audio>
+    <audio id="hover-sound" preload="auto">
+        <source src="game/assets/audio/hover.wav" type="audio/wav">
     </audio>
     <footer>
         <address>

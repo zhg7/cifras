@@ -19,7 +19,7 @@
                 <input type="checkbox" class="switch" hidden autocomplete="off">
                 <span class="slider"></span>
             </label>
-            <button type="button" id="exit-btn"><img src="assets/img/exit.svg" alt="Salir"><span>Salir</span></button>
+            <button type="button" id="exit-btn" class="hover"><img src="assets/img/exit.svg" alt="Salir"><span>Salir</span></button>
         </nav>
         <section id="info">
             <div class="icon_border">
@@ -73,20 +73,20 @@
                     <div class="operator-box"><span draggable="true" class="operator" id="division">÷</span></div>
                 </div>
                 <div class="button-wrapper">
-                    <button id="skip-turn" class="click">Saltar turno</button>
+                    <button id="skip-turn" class="click hover">Saltar turno</button>
                 </div>
             </div>
         </section>
         <aside>
             <div class="overlay" id="exit-overlay"></div>
             <div id="exit-modal" class="modal">
-                <button class="modal-close-btn click" id="exit-close-btn">
+                <button class="modal-close-btn click hover" id="exit-close-btn">
                     <div class="leftright"></div>
                     <div class="rightleft"></div>
                 </button>
                 <h1><img src="assets/img/warning.svg" alt="Warning">¡Atención!</h1>
-                <p><strong>¿Estás seguro de que quieres anular esta partida y volver al inicio?</strong></p>
-                <button type="button" id="confirm-exit-btn" class="click">Abandonar</button>
+                <p><strong>¿Estás seguro de que quieres salir de esta partida y volver al inicio?</strong></p>
+                <button type="button" id="confirm-exit-btn" class="click hover">Abandonar</button>
             </div>
         </aside>
         <aside>
@@ -110,21 +110,24 @@
             </div>
         </aside>
     </div>
-    <audio id="soundtrack" loop="true">
+    <audio id="soundtrack" loop="true" preload="auto">
         <source src="assets/audio/soundtrack.ogg" type="audio/ogg">
     </audio>
-    <audio id="switch-sound">
+    <audio id="switch-sound" preload="auto">
         <source src="assets/audio/switch.wav" type="audio/wav">
     </audio>
-    <audio id="click-sound">
+    <audio id="click-sound" preload="auto">
         <source src="assets/audio/click.wav" type="audio/wav">
     </audio>
-    <audio id="error-sound">
+    <audio id="error-sound" preload="auto">
         <source src="assets/audio/error.wav" type="audio/wav">
     </audio>
-    <audio id="alert-sound">
+    <audio id="alert-sound" preload="auto">
         <source src="assets/audio/alert.wav" type="audio/wav">
     </audio>
+    <audio id="hover-sound" preload="auto">
+        <source src="assets/audio/hover.wav" type="audio/wav">
+      </audio>
 </body>
 
 </html>
