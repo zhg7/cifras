@@ -1,5 +1,11 @@
 "use strict";
 
+if (sessionStorage.getItem("gameEnded") === "yes"){ // Permitir visualizar esta página sólo una vez.
+  sessionStorage.removeItem("gameEnded");
+} else {
+  window.location.href = "start.html";
+}
+
 const operationList = document.getElementById("operation-log");
 const players = JSON.parse(sessionStorage.getItem("currentPlayers"));
 const targetNumber = Number(sessionStorage.getItem("targetNumber"));

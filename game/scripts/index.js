@@ -1,3 +1,5 @@
+sessionStorage.clear();
+
 if (localStorage.getItem("ranking") === null) {
   localStorage.setItem("ranking", "[]");
 }

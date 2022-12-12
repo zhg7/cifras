@@ -124,6 +124,7 @@ function changeTurn() {
 
     if (sessionStorage.getItem("turnChanged") === "yes") {
       sessionStorage.removeItem("turnChanged");
+      sessionStorage.setItem("gameEnded", "yes");
       window.location.href = "gameover.html";
     } else {
       sessionStorage.setItem("turnChanged", "yes");

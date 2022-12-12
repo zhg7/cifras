@@ -261,6 +261,10 @@ input:checked+.slider::before {
     z-index: 5;
 }
 
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
 ol#operation-log {
     padding: 0;
     list-style-type: none;
