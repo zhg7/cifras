@@ -1,5 +1,5 @@
 # <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
-Cifras es un juego de cálculo mental para dos jugadores basado en el programa de televisión de [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras). Este juego está hecho en **HTML**, **CSS** y **JavaScript**.
+Cifras es un juego de cálculo mental para dos jugadores basado en el programa de televisión de [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras).
 
 ## Requisitos 
 1. Disponer de un navegador moderno, ya sea de escritorio o de móvil.
@@ -15,7 +15,7 @@ Gana el que obtenga el número objetivo exacto o en caso, de que no sea posible,
 1. Los números no se pueden reutilizar.
 2. Solo se tiene en cuenta el resultado de última operación realizada.
 3. No se admiten resultados negativos ni con decimales.
-4. No se obtendrá ningún punto para el ranking si no se realiza ninguna operación
+4. No se obtendrá ningún punto para el ranking si no se realiza ninguna operación.
 
 ## Cómo jugar
 Primero, los jugadores deben introducir sus nombres y pueden, opcionalmente, elegir un color. A continuación, generarán manualmente los 6 números para dar comienzo a la partida.
