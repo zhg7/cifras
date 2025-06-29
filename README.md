@@ -1,4 +1,4 @@
-# <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
+# <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/zhg7/cifras)
 Cifras es un juego de cálculo mental para dos jugadores basado en el programa de televisión de [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras).
 
 ## Requisitos 
