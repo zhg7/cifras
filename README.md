@@ -1,4 +1,4 @@
-# <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/zhg7/cifras)
+# <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
 Cifras es un juego de cálculo mental para dos jugadores basado en el programa de televisión de [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras).
 
 ## Requisitos 
@@ -22,7 +22,7 @@ Primero, los jugadores deben introducir sus nombres y pueden, opcionalmente, ele
 
 En navegadores de escritorio, las operaciones se realizan arrastrando, y soltando los números y operadores. En móviles, se debe pulsar en el elemento deseado y pulsar nuevamente en donde se quiera soltar.
 
-<img src="https://i.imgur.com/BrSDpvj.gif"></img>
+![BrSDpvj](https://github.com/user-attachments/assets/9eea3e47-ecf8-41d4-8bfe-645ec9507ea9)
 
 Los números son **intercambiables**, es decir, podemos soltar uno encima de otro y el que estaba en ese lugar se moverá a la posición que tenía ese. En el caso del operador, será sustituido por el nuevo que soltemos.
 
