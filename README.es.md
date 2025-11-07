@@ -1,4 +1,4 @@
-[<img width="16" height="11" alt="gb" src="https://github.com/user-attachments/assets/c6b97da1-f327-4d59-af4e-5bd07418937f" alt="English README"/>](https://github.com/zhg7/cifras) [English](https://github.com/zhg7/cifras)
+[<img width="16" height="11" alt="gb" src="https://github.com/user-attachments/assets/c6b97da1-f327-4d59-af4e-5bd07418937f" alt="English README"/>](https://github.com/zhg7/cifras) [English](https://github.com/zhg7/cifras/blob/main/README.md)
 
 
 # <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
