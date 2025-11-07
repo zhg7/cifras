@@ -1,3 +1,5 @@
+[<img width="16" height="11" alt="es" alt="README español" src="https://github.com/user-attachments/assets/0d656660-90f4-4d18-af50-476fe3e05d2c" />](https://github.com/zhg7/cifras) [Español](https://github.com/zhg7/cifras/blob/main/README.md)
+
 # <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
 Cifras is a mental math game for two players based on the Spanish TV show [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras).
 
