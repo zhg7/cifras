@@ -1,13 +1,7 @@
 [<img width="16" height="11" alt="gb" src="https://github.com/user-attachments/assets/c6b97da1-f327-4d59-af4e-5bd07418937f" alt="English README"/>](https://github.com/zhg7/cifras/blob/main/README.md) [English](https://github.com/zhg7/cifras/blob/main/README.md)
 
-
 # <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
 Cifras es un juego de cálculo mental para dos jugadores basado en el programa de televisión de [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras).
-
-## Requisitos 
-1. Disponer de un navegador moderno, ya sea de escritorio o de móvil.
-2. Tener JavaScript y la API de WebStorage habilitados.
-3. Ejecutar preferiblemente la aplicación en un servidor local o remoto (por ejemplo, Live Server de VSCode). Esto es porque el WebStorage funciona por navegador y dominio, y si esta última no coincide fallará.
 
 ## Lógica del juego
 Se generan **6 números aleatorios** (del 1 al 10, 25, 50, 75 y 100) junto a un **número objetivo** (del 101 al 999). Los jugadores deben realizar operaciones aritméticas con esos números y llegar a un resultado que sea igual o lo más cercano posible al número objetivo. Cada jugador tiene 1 minuto para realizar las operaciones.
