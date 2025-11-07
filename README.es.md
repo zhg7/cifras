@@ -1,4 +1,5 @@
-[<img src="https://flagcdn.com/16x12/gb.png" alt="English README">](https://github.com/zhg7/cifras) [English](https://github.com/zhg7/cifras)
+[<img width="16" height="11" alt="gb" src="https://github.com/user-attachments/assets/c6b97da1-f327-4d59-af4e-5bd07418937f" alt="English README"/>](https://github.com/zhg7/cifras) [English](https://github.com/zhg7/cifras)
+
 
 # <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
 Cifras es un juego de cálculo mental para dos jugadores basado en el programa de televisión de [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras).
