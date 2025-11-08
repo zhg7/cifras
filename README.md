@@ -3,8 +3,11 @@
 # <img src="https://github.com/zhg7/cifras/blob/main/game/assets/img/logo.svg" width="48px"></img> Cifras
 Cifras is a mental math game for two players based on the Spanish TV show [*Cifras y letras*](https://es.wikipedia.org/wiki/Cifras_y_letras).
 
+> [!NOTE]
+> The UI is only available in Spanish.
+
 ## Game logic
-Six random numbers (from 1 to 10, 25, 50, 75 and 100) are generated along with a target number (from 101 to 999). Players must perform arithmetic operations with these numbers and get a result that is equal to or as close as possible to the target number. Each player has 1 minute to perform the operations.
+**Six random numbers** (from 1 to 10, 25, 50, 75 and 100) are generated along with a **target number** (from 101 to 999). Players must perform arithmetic operations with these numbers and get a result that is equal to or as close as possible to the target number. Each player has 1 minute to perform the operations.
 
 The winner is the player who obtains the exact target number or, if not possible, the player who comes closest to it.
 
